@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envíos</title>
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+</head>
+<body>
+    <div class="container"> 
+        <div class=row>
+            <div class="col">
+                <table class="table  table-striped  rounded">
+                    <thead class="bg bg-info">
+                        <tr>
+                            <th>ID</th>
+                            <th>FECHA</th>
+                            <th>HORA</th>
+                            <th>ESTADO</th>
+                            <th>COSTO</th>
+                            <th>MÉTODO PAGO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg bg-dark text-light">
+                        <tr th:if="${envio.size>0}" th:each="e:${envio}">
+
+                            <td th:text="${e.idEnvio}"></td>
+                            <td th:text="${e.fechaEnvio}"></td>
+                            <td th:text="${e.horaEnvio}"></td>
+                            <td th:text="${e.estadoEnvio}"></td>
+                            <td th:text="${e.costoTotalEnvio}"></td>
+                            <td th:text="${e.fkpago.metodoPago}"></td>
+
+                         
+
+                            <td> 
+                                <a rol="button" class="btn btn-info" th:href="@{/envio/editarEn/}+${e.idEnvio}">
+                                <i class="fa-solid fa-pen"></i>
+                                </a>
+
+                                <a rol="button" class="btn btn-danger" th:href="@{/envio/deleteEn/}+${e.idEnvio}" onclick="return confirm('Estás seguro que quieres eliminar este genero D:?');">                            
+                                    <i class="fa-solid fa-eraser"></i>
+                                </a>
+                                
+                        
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a type="button" class="btn btn-info" th:href="@{addEn}">  
+                    <i class="bi bi-plus-circle"></i>Agregar pago
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

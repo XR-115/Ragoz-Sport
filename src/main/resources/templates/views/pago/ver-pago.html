@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+</head>
+<body>
+    <div class="container"> 
+        <div class=row>
+            <div class="col">
+                <table class="table  table-striped  rounded">
+                    <thead class="bg bg-info">
+                        <tr>
+                            <th>ID</th>
+                            <th>MÉTODO DE PAGO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg bg-dark text-light">
+                        <tr th:if="${pago.size>0}" th:each="p:${pago}">
+                            <td th:text="${p.idPago}"></td>
+
+                            <td th:text="${p.metodoPago}"></td>
+
+                            <td> 
+                                <a rol="button" class="btn btn-info" th:href="@{/pago/editarP/}+${p.idPago}">
+                                <i class="fa-solid fa-pen"></i>
+                                </a>
+
+                                <a rol="button" class="btn btn-danger" th:href="@{/pago/deleteP/}+${p.idPago}" onclick="return confirm('Estás seguro que quieres eliminar este genero D:?');">                            
+                                    <i class="fa-solid fa-eraser"></i>
+                                </a>
+                                
+                        
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a type="button" class="btn btn-info" th:href="@{pagoAgregar}">  
+                    <i class="bi bi-plus-circle"></i>Agregar pago
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

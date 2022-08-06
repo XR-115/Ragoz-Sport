@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar método de pago</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <button>
+        <a th:href="@{/index}">INDEX</a>
+    </button>
+
+    <div class="login-usuario">
+        <form th:action="@{/pago/pagoAgregar}" th:object="${pago}" method="post">
+            <section class="form-register">
+
+                <p class="text-info" id="tituloForm">MÉTODO DE PAGO</p>
+                <br>
+                <label>
+                    <h4>Método de pago</h4>
+                </label>
+                <input type="hidden" class="controls"  id="idPago" th:field="*{idPago}"/>
+                <input type="text" class="controls" id="metodoPago" th:field="*{metodoPago}" placeholder="Ingrese el método de pago" />
+
+                <button type="submit" class="botons bg bg-info text-center" hr> Registrar Método</button>
+
+
+            </section>
+        </form>
+    </div>
+    
+</body>
+</html>

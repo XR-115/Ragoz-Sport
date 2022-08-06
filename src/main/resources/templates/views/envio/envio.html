@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xlmns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar envío</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <button>
+        <a th:href="@{/index}">INDEX</a>
+    </button>
+
+    <div class="login-usuario">
+        <form th:action="@{/envio/addEn}" th:object="${envio}" method="post">
+            <section class="form-register">
+
+                <p class="text-info" id="tituloForm">Registrar envío</p>
+                <br>
+                <label>
+                    <h4>Fecha envío</h4>
+                </label>
+                <input type="hidden" class="controls"  id="idEnvio" th:field="*{idEnvio}"/>
+                <input type="date" class="controls" id="fechaEnvio" th:field="*{fechaEnvio}" placeholder="Ingrese la fecha del envío" />
+                <label>
+                    <h4>Hora envío</h4>
+                </label>
+                <input type="time"  class="controls" id="horaEnvio" th:field="*{horaEnvio}" placeholder="Ingrese la hora del envío"/>
+                <label>
+                    <h4>Estado envío</h4>
+                </label>
+                <input type="checkbox"  class="form-check form-switch"  id="estadoEnvio" th:field="*{estadoEnvio}" checked />
+                <label>
+                    <h4>Costo envío</h4>
+                </label>
+                <input type="text" class="controls" id="costoTotalEnvio" th:field="*{costoTotalEnvio}" placeholder="Ingrese el costo del envío"/>
+                <label>
+                    <h4>Asociar método de pago</h4>
+                </label>
+                    <select class="controls" th:field="*{fkpago}" id="fkpago">
+                        <option th:each="fkpago:${fkpago}" th:text="${fkpago.metodoPago}" th:value="${fkpago.idPago}" ></option>            
+                    </select>
+                
+
+                <button type="submit" class="botons bg bg-info text-center" hr> Registrar Envío</button>
+
+
+            </section>
+        </form>
+    </div>
+    
+</body>
+</html>

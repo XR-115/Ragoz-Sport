@@ -1,0 +1,80 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+body{
+    background-color: #0E78B4;
+}
+
+/*----------------------------------------------------------------ESTILOS FORMULARIOS--------------------------------*/
+#tituloForm{
+    color: #0E78B4;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+  
+  .form-register {
+    width: 450px;
+    background: #24303c;
+    padding: 50px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+    opacity: 0.90;
+}
+  
+  .form-register h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    border: 1px solid #0E78B4;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+
+}
+  
+  .form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+  }
+  
+  .form-register a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .form-register a:hover {
+    color: white;
+    text-decoration: underline;
+  
+  }
+  
+  .form-register .botons {
+    width: 100%;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    border-radius: 5px;
+    
+  }
+  .botons:hover{
+    background-image: linear-gradient(15deg, #000000 0%, #10c6ea 100%);
+  }
