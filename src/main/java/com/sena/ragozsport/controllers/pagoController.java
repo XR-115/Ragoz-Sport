@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.sena.ragozsport.model.pago.Pago;
+import com.sena.ragozsport.model.service.pago.IPagoService;
 import com.sena.ragozsport.model.service.pago.PagoServiceImpl;
 
 @Controller
@@ -25,6 +27,14 @@ import com.sena.ragozsport.model.service.pago.PagoServiceImpl;
 public class pagoController {
     @Autowired 
      PagoServiceImpl pagoD;
+     @Autowired
+     IPagoService ipagoD;
+    
+
+
+
+   
+
     
 //-------------------------------------------------------------VER----------------------------------------------------//
     @GetMapping(value = "/pago")
@@ -47,13 +57,29 @@ public class pagoController {
     }
 //-------------------------------------------------------------POST DE AGREGAR Y ACTUALIZAR----------------------------------------------------//
     @PostMapping("/pagoAgregar")
-    public String pagoAgregar(@Valid Pago pago,BindingResult br, Model m, SessionStatus status){
+    public String pagoAgregar(@Valid Pago pago,BindingResult br, Model m, SessionStatus status, ModelMap model){
+    
         if(br.hasErrors()){
-            return "views/pago/pago";
+            model.addAttribute("metodoPago", pago);
+            
             }
-        pagoD.save(pago);
-        status.setComplete();
-        return "redirect:pago";
+            else {
+                try {
+                    pagoD.save(pago);
+                    status.setComplete();
+                    
+                    
+                } catch (Exception e) {
+                    model.addAttribute("errorMessage",e.getMessage());
+                    model.addAttribute("metodoPago", pago);
+                    return "views/pago/pago";
+                }
+               
+            }
+            return "redirect:pago";
+            
+       
+        
     }
 
     //-------------------------------------------------------------ELIMINAR DATO POR ID ----------------------------------------------------//
@@ -74,10 +100,11 @@ public class pagoController {
         if (idPago>0) {
             pago=pagoD.findOne(idPago);
         }else{
-            return("redirect:cancion");
+            return("views/pago/pago");
         }
         m.addAttribute("pago", pago);
-
+        m.addAttribute("accion","editarPago()");
+        m.addAttribute("titulo","EDITAR");
 
     
         return "views/pago/pago";
@@ -90,5 +117,4 @@ public class pagoController {
 }
 
 
-    
 }

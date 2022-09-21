@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import com.sena.ragozsport.model.envio.Envio;
 
@@ -33,6 +34,7 @@ public class Pago {
     private Integer idPago;
 
     @NotEmpty
+    @Pattern(regexp = "[A-Za-z]{3,15}")
     @Column(name = "metodoPago",length = 30)
     private String metodoPago;
 

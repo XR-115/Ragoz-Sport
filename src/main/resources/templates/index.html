@@ -6,18 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <link rel="icon" th:href="@{/img/icon-envioz.png}">
 </head>
-<body>
+<body id="imagen">
 
-    <h2 class="text-center">Pago</h2>
-    <button>
-        <a th:href="@{pago/pago}">Ver métodos de pago</a>
-    </button>
-
-    <h2 class="text-center">Envío</h2>
-    <button>
-        <a th:href="@{envio/envio}">Ver envíos</a>
-    </button>
+    <div class="login-wrap">
+	
+        <div class="login-html">
+            <img th:src="@{/img/logo-envioz-blanco.png}" alt="" id="logoEnvioz">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar sesión	</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+            <div class="login-form">
+                <form th:action="@{/dash}" method="get">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <label for="user" class="label">Nombre</label>
+                            <input id="user" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Contraseña</label>
+                            <input id="pass" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group" id="selectUsuario">
+                            <label for="user" class="label">Usuario</label>
+                            <select name="" id="" class="input">
+                                <option value="">Gerente</option>
+                                <br>
+                                <option  class="a" value="">Jefe trasnportadora</option>
+                            </select>
+                        </div>
+                        <div class="group">
+                            <input id="check" type="checkbox" class="check" checked>
+                            <label for="check"><span class="icon"></span> Mantener sesión activa</label>
+                        </div>
+                        <div class="form-text text-danger" th:if="${Error}" th:text="${Error}"></div>
+                        <div class="group" id="ab">
+                            <input type="submit" class="button" value="Registrar">
+                        </div>
+                        <!-- <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a href="#forgot">¿Olvidaste tu contraseña?</a>
+                        </div> -->
+                    </div>
+                </form>
+              
+                <!-- <div class="sign-up-htm">
+                    <div class="group" id="selectUsuario">
+                        <label for="user" class="label">Usuario</label>
+                        <select name="" id="" class="input">
+                            <option value="">Gerente</option>
+                            <br>
+                            <option  class="a" value="">Jefe trasnportadora</option>
+                        </select>
+                    </div>
     
+                    <div class="group">
+                        <label for="pass" class="label">Nombre</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Apellido</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    
+                    <div class="group">
+                        <label for="user" class="label">Tipo documento</label>
+                        <select name="" id="" class="input">
+                            <option  class="a" value="">Cédula ciudadanía</option>
+                            <option  class="a" value="">Permiso especial de permanencia</option>
+                            <option  class="a"value="">Cédula extranjería</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Número de documento</label>
+                        <input id="pass" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Correo electrónico	</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Teléfono</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+    
+    
+                    <div class="group">
+                        <label for="pass" class="label">Contraseña</label>
+                        <input id="pass" type="text" class="input">
+                    </div>
+    
+                    <div class="group">
+                        <label for="pass" class="label">Confirmar contraseña</label>
+                        <input id="pass" type="text" class="input">
+                    </div>
+                    <div class="group" id="group">
+                        <input type="submit" class="button" value="Registrar">
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <button>
+        <a th:href="@{/dash}">Ver Usuario</a>
+    </button> -->
 </body>
 </html>

@@ -7,8 +7,9 @@ import com.sena.ragozsport.model.pago.Pago;
 public interface IPagoService {
 
     public List<Pago> findAll();
-    public void save(Pago pago);
+    public Pago save(Pago pago) throws Exception;
     public Pago findOne(Integer idPago);
     public void delete(Integer idPago);
+
     
 }

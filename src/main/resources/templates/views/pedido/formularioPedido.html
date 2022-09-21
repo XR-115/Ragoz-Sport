@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xlmns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Pedido</title>
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body th:attr="onload=(${accionPedido})">
+    <button class="btn btn-info">
+        <a th:href="@{/dash}">Dashboard</a>
+    </button>
+    <section class="form-registro">
+        <h5>Formulario Pedido</h5>
+        <h1 th:text="${accion}"></h1>
+        <form th:action="@{/pedido/add}" th:object="${pedido}" method="post" style="width: 35rem;" class="mx-auto bg bg-dark p-5">
+            <input type="hidden" id="idPedido" th:field="*{idPedido}">  
+            <div class="form-group">
+                <label for="cantidadTotalPed">Cantidad Total de Pares</label>
+                <input type="number" class="form-control" id="cantidadTotalPed" th:field="*{cantidadTotalPed}" placeholder="Total de pares a enviar" min="2" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadTotalPed')}" th:errors="*{cantidadTotalPed}"></div>
+                <i class="fa-thin fa-circle-xmark"></i>
+            </div>
+            <div class="form-group">
+                <label for="totalCategPed">Total de Categorias</label>
+                <input type="text" class="form-control" id="totalCategPed" th:field="*{totalCategPed}" placeholder="Dama y Niña" minlength="4" maxlength="26" required="[A-Z a-z]">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('totalCategPed')}" th:errors="*{totalCategPed}"></div>
+            </div>
+            
+            <label for="referenciaProd">Referencia del Producto</label>
+            <select class="controls" th:field="*{fkproducto}" id="fkproducto" required>
+                <option th:each="fkproducto:${fkproducto}" th:text="${fkproducto.referenciaProd}" th:value="${fkproducto.idProducto}" ></option>            
+            </select>
+
+            <div>
+                <button type="submit" class="btn btn-outline-info">Guardar</button>
+            </div>
+        </form>
+    </section>
+    <script th:src="@{/js/main.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</body>
+</html>

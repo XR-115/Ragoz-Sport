@@ -12,5 +12,10 @@ public class indexController {
     public String index(){
         return "index";
     }
+
+    @GetMapping("/dash")
+    public String dash(){
+        return "views/dashboard";
+    }
     
 }

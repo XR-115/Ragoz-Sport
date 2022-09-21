@@ -1,7 +1,7 @@
 package com.sena.ragozsport.model.envio;
 
 import java.sql.Date;
-import java.sql.Time;
+
 
 
 import javax.persistence.Column;
@@ -10,11 +10,16 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+
+import com.sena.ragozsport.model.guia.guia;
 import com.sena.ragozsport.model.pago.Pago;
+import com.sena.ragozsport.model.usuario.Usuario;
 
 
 //*--------------------------------CREACIÓN TABLA--------------------------------*//
@@ -29,17 +34,17 @@ public class Envio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEnvio;
 
-
-    @Column(name="fechaEnvio",length = 4)
+    @NotNull
+    @Column(name="fechaEnvio")
     private Date fechaEnvio;
 
-  
-    @Column(name="horaEnvio",length = 6)
-    private Time horaEnvio;
-
+    @NotNull
+    @Column(name="horaEnvio")
+    private String horaEnvio;
 
     @Column(name="estadoEnvio")
     private boolean estadoEnvio;
+
 
 
     @Column(name="costoTotalEnvio",length = 10)
@@ -48,28 +53,35 @@ public class Envio {
     @ManyToOne(fetch = FetchType.LAZY)
     private Pago fkpago;
    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Usuario fkusuario;
 
+    
+    @OneToOne
+    @JoinColumn(name = "FK_GUIA", updatable = false, nullable = false)
+    private guia guia;
+
+   /* @OneToOne(mappedBy="FKguia")
+    private guia FKguia;*/
 
 
 //*--------------------------------CONSTRUCTORES--------------------------------*//    
     public Envio() {
        
     }
-  
-    public Envio(Integer idEnvio, @NotEmpty Date fechaEnvio, @NotEmpty Time horaEnvio, @NotEmpty boolean estadoEnvio,
-    @NotEmpty double costoTotalEnvio, Pago fkpago) {
-    this.idEnvio = idEnvio;
-    this.fechaEnvio = fechaEnvio;
-    this.horaEnvio = horaEnvio;
-    this.estadoEnvio = estadoEnvio;
-    this.costoTotalEnvio = costoTotalEnvio;
-    this.fkpago = fkpago;
-}
 
-
-
-
-//*--------------------------------MÉTODOS ACCESORES--------------------------------*//
+    public Envio(Integer idEnvio, Date fechaEnvio, String horaEnvio, boolean estadoEnvio, double costoTotalEnvio,
+            Pago fkpago, Usuario fkusuario, com.sena.ragozsport.model.guia.guia guia) {
+        this.idEnvio = idEnvio;
+        this.fechaEnvio = fechaEnvio;
+        this.horaEnvio = horaEnvio;
+        this.estadoEnvio = estadoEnvio;
+        this.costoTotalEnvio = costoTotalEnvio;
+        this.fkpago = fkpago;
+        this.fkusuario = fkusuario;
+        this.guia = guia;
+    }
+//*-------------------------------MÉTODOS ACCESORES GETTERS Y SETTERS--------------------------------*//   
     public Integer getIdEnvio() {
         return idEnvio;
     }
@@ -86,15 +98,15 @@ public class Envio {
         this.fechaEnvio = fechaEnvio;
     }
 
-    public Time getHoraEnvio() {
+    public String getHoraEnvio() {
         return horaEnvio;
     }
 
-    public void setHoraEnvio(Time horaEnvio) {
+    public void setHoraEnvio(String horaEnvio) {
         this.horaEnvio = horaEnvio;
     }
 
-    public boolean isEstadoEnvio() {
+    public boolean getEstadoEnvio() {
         return estadoEnvio;
     }
 
@@ -114,9 +126,36 @@ public class Envio {
         return fkpago;
     }
 
-    public void set(Pago fkpago) {
+    public void setFkpago(Pago fkpago) {
         this.fkpago = fkpago;
     }
+
+    public Usuario getFkusuario() {
+        return fkusuario;
+    }
+
+    public void setFkusuario(Usuario fkusuario) {
+        this.fkusuario = fkusuario;
+    }
+
+    public guia getGuia() {
+        return guia;
+    }
+
+    public void setGuia(guia guia) {
+        this.guia = guia;
+    }
+
+    //*--------------------------------MÉTODOS ACCESORES--------------------------------*//
+   
+        
+
+    
+    
+
+
+
+   
     
 
     
