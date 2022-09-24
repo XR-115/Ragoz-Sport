@@ -8,6 +8,9 @@ body{
 }
 
 /*----------------------------------------------------------------ESTILOS FORMULARIOS--------------------------------*/
+a{
+  text-decoration: none;
+}
 #tituloForm{
     color: #0E78B4;
     text-align: center;
@@ -78,3 +81,238 @@ body{
   .botons:hover{
     background-image: linear-gradient(15deg, #000000 0%, #10c6ea 100%);
   }
+  .bg-gradient{
+    background-image: var(--bs-gradient);
+  }
+
+
+
+/*  */
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+
+body{
+
+	height: 100vh;
+	color:rgb(209, 207, 207);
+	font:600 16px/18px 'Open Sans',sans-serif;
+	background-color: #065a6b;
+	background-size: cover;
+}
+
+
+.login-wrap{
+	padding-top: 3rem;
+	height: 90vh;
+	margin:auto;
+	max-width:600px;
+	min-height:670px;
+	position:relative;
+	
+	background-size: cover;
+	border-radius: 5px;
+	
+}
+.login-html{
+	
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(3, 19, 27, 0.699);
+	border-radius: 20px;
+}
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+	transition:all .4s linear;
+}
+.sign-in-htm{
+	margin-top: 4rem;
+	
+}
+.sign-up-htm{
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-top: 2rem;
+	gap: 1rem;
+}
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+	display:none;
+}
+#group{
+	display: grid;
+	grid-row: 6/7;
+	grid-column: 1/span 2;
+}
+#selectUsuario{
+	display: grid;
+	grid-row: 1/2;
+	grid-column: 1/span 2;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+	color:#fff;
+	border-color:rgb(118,197,193);
+}
+.login-form{
+	padding-top: 5rem;
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group input[data-type="password"]{
+
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:rgb(255, 255, 255);
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#025c98;
+}
+.group1{
+	margin-top: 5rem;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:rgb(118,197,193);
+}
+.login-form .group .check:checked + label .icon:before{
+	transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+	transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+	transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+	transform:rotate(0);
+}
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+	margin-bottom: 2rem;
+	margin-top: 10rem;
+}
+.foot-lnk{
+	text-align:center;
+}
+
+#logoEnvioz{
+
+	margin-top: -40px;
+	margin-left: 150px;
+	margin-right: 50px;
+	margin-bottom: 2rem;
+	width: 150px;
+	height: 150px;
+}
+.a{
+	color: black;
+}
+
+#ab{
+	margin-top: 1rem;
+}
+
+.dasbhoard{
+	width:auto;
+	height:100%;
+	position:absolute;
+	padding:100px;
+	background:rgba(81, 168, 212, 0.699);
+	border-radius: 10px;
+	color: #000;
+}
+
+
+
+
+#imagen{
+	height: 100vh;
+	color:rgb(209, 207, 207);
+	font:600 16px/18px 'Open Sans',sans-serif;
+	background:url(../img/white-table-top-blur-and-packing-box-in-industrial-plant3d-rendering.jpg) no-repeat center;
+	background-size: cover;
+}
+
