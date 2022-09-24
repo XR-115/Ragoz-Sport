@@ -17,5 +17,10 @@ public class indexController {
     public String dash(){
         return "views/dashboard";
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
     
 }
