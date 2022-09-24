@@ -1,15 +1,16 @@
 package com.sena.ragozsport.model.guia;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -62,12 +63,12 @@ public class guia {
     @Column(name="ciudadDestino", length=50)
     private  String ciudadDestino;
 
-    @OneToOne
-    @JoinColumn(name = "FK_PEDIDO", updatable = false, nullable = false)
-    private Pedido pedido;
 
     @OneToOne(mappedBy = "guia", cascade = CascadeType.ALL)
     private Envio envio;
+
+    @OneToMany(mappedBy = "fkguia", fetch = FetchType.LAZY, cascade =CascadeType.ALL)
+    private List<Pedido> pedido;
    
 
 
@@ -78,28 +79,28 @@ public class guia {
         
     }
 
-
-    public guia(Integer idGuia, @NotEmpty Integer telGuia, @NotEmpty String direcGuia, @NotEmpty Date fechaGuia,
-            @NotEmpty Integer numCajasGuia, @NotEmpty double valorMercancia, @NotEmpty String remitente,
-            @NotEmpty String destinatario, @NotEmpty String ciudadOrigen, @NotEmpty String ciudadDestino, Pedido pedido,
-            Envio envio) {
-        this.idGuia = idGuia;
-        this.telGuia = telGuia;
-        this.direcGuia = direcGuia;
-        this.fechaGuia = fechaGuia;
-        this.numCajasGuia = numCajasGuia;
-        this.valorMercancia = valorMercancia;
-        this.remitente = remitente;
-        this.destinatario = destinatario;
-        this.ciudadOrigen = ciudadOrigen;
-        this.ciudadDestino = ciudadDestino;
-        this.pedido = pedido;
-        this.envio = envio;
+    public guia(Integer idGuia, @NotNull Integer telGuia, @NotEmpty String direcGuia, @NotNull Date fechaGuia,
+    @NotNull Integer numCajasGuia, @NotNull double valorMercancia, @NotEmpty String remitente,
+    @NotEmpty String destinatario, @NotEmpty String ciudadOrigen, @NotEmpty String ciudadDestino, Envio envio,
+    List<Pedido> pedido) {
+    this.idGuia = idGuia;
+    this.telGuia = telGuia;
+    this.direcGuia = direcGuia;
+    this.fechaGuia = fechaGuia;
+    this.numCajasGuia = numCajasGuia;
+    this.valorMercancia = valorMercancia;
+    this.remitente = remitente;
+    this.destinatario = destinatario;
+    this.ciudadOrigen = ciudadOrigen;
+    this.ciudadDestino = ciudadDestino;
+    this.envio = envio;
+    this.pedido = pedido;
     }
-
-
+ 
 
   //*-------------------------------MÉTODOS ACCESORES GETTERS Y SETTERS--------------------------------*//   
+
+
     public Integer getIdGuia() {
         return idGuia;
     }
@@ -200,16 +201,6 @@ public class guia {
     }
 
 
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
-    }
-
-
     public Envio getEnvio() {
         return envio;
     }
@@ -220,10 +211,18 @@ public class guia {
     }
 
 
+    public List<Pedido> getPedido() {
+        return pedido;
+    }
+
+
+    public void setPedido(List<Pedido> pedido) {
+        this.pedido = pedido;
+    }
 
 
 
-
+    
 
 
 
