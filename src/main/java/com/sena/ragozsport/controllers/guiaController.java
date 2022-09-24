@@ -61,7 +61,7 @@ public class guiaController {
                 status.setComplete();
 
                 } catch (Exception e) {
-                    m.addAttribute("errorMessage",e.getMessage());
+
                     m.addAttribute("idGuia", guia);
                     return "views/guia/form-guia";
                 }
@@ -77,13 +77,13 @@ public class guiaController {
         if(res.hasErrors()){
             return "views/guia/form-guia";
         }
-       guiachi.saveU(guia);
+       guiachi.save(guia);
         m.addAttribute("guia", guia);
 
       
         return "redirect:listar";
     }
-   //---------------------------------------------------------- POST PARA ACTUALIZAR----------------------------------------------------//  
+   //---------------------------------------------------------- GET RUTA PARA ACTUALIZAR----------------------------------------------------//  
     @GetMapping("/editarG/{idGuia}")
     public String editar (@PathVariable Integer idGuia,  Model m){
         guia guia=null;
