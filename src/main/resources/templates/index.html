@@ -1,116 +1,489 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link rel="stylesheet" th:href="@{/css/estilos.css}">
-    <link rel="icon" th:href="@{/img/icon-envioz.png}">
-</head>
-<body id="imagen">
+<!doctype html>
+<html xlmns:th="https://www.thymeleaf.org" class="no-js" lang="en">
 
-    <div class="login-wrap">
-	
-        <div class="login-html">
-            <img th:src="@{/img/logo-envioz-blanco.png}" alt="" id="logoEnvioz">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar sesión	</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
-            <div class="login-form">
-                <form th:action="@{/dash}" method="get">
-                    <div class="sign-in-htm">
-                        <div class="group">
-                            <label for="user" class="label">Nombre</label>
-                            <input id="user" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Contraseña</label>
-                            <input id="pass" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group" id="selectUsuario">
-                            <label for="user" class="label">Usuario</label>
-                            <select name="" id="" class="input">
-                                <option value="">Gerente</option>
-                                <br>
-                                <option  class="a" value="">Jefe trasnportadora</option>
-                            </select>
-                        </div>
-                        <div class="group">
-                            <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> Mantener sesión activa</label>
-                        </div>
-                        <div class="form-text text-danger" th:if="${Error}" th:text="${Error}"></div>
-                        <div class="group" id="ab">
-                            <input type="submit" class="button" value="Registrar">
-                        </div>
-                        <!-- <div class="hr"></div>
-                        <div class="foot-lnk">
-                            <a href="#forgot">¿Olvidaste tu contraseña?</a>
-                        </div> -->
-                    </div>
-                </form>
-              
-                <!-- <div class="sign-up-htm">
-                    <div class="group" id="selectUsuario">
-                        <label for="user" class="label">Usuario</label>
-                        <select name="" id="" class="input">
-                            <option value="">Gerente</option>
-                            <br>
-                            <option  class="a" value="">Jefe trasnportadora</option>
-                        </select>
-                    </div>
+<head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>Empresa Deportiva</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
+
+    <!--====== Magnific Popup CSS ======-->
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}" >
+
+    <!--====== animate CSS ======-->
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+
+    <!--====== Line Icons CSS ======-->
+    <link rel="stylesheet" th:href="@{/css/LineIcons.2.0.css}">
+
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.4.5.2.min.css}">
+
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" th:href="@{/css/default.css}">
+
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     
-                    <div class="group">
-                        <label for="pass" class="label">Nombre</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Apellido</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
-                    
-                    <div class="group">
-                        <label for="user" class="label">Tipo documento</label>
-                        <select name="" id="" class="input">
-                            <option  class="a" value="">Cédula ciudadanía</option>
-                            <option  class="a" value="">Permiso especial de permanencia</option>
-                            <option  class="a"value="">Cédula extranjería</option>
-                        </select>
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Número de documento</label>
-                        <input id="pass" type="text" class="input">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Correo electrónico	</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Teléfono</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
+    <!-----========Icon envioz=======----->
+    <link rel="icon" th:href="@{/img/icon-envioz.png}">
+
+</head>
+
+<body>
     
-    
-                    <div class="group">
-                        <label for="pass" class="label">Contraseña</label>
-                        <input id="pass" type="text" class="input">
+    <!--====== PRELOADER PART START ======-->
+    <!-- <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
                     </div>
-    
-                    <div class="group">
-                        <label for="pass" class="label">Confirmar contraseña</label>
-                        <input id="pass" type="text" class="input">
-                    </div>
-                    <div class="group" id="group">
-                        <input type="submit" class="button" value="Registrar">
-                    </div>
-                    
-                    
                 </div>
             </div>
         </div>
     </div> -->
-    <!-- <button>
-        <a th:href="@{/dash}">Ver Usuario</a>
-    </button> -->
+    <!--====== PRELOADER PART ENDS ======-->
+
+    <!--====== Header PART START ======-->
+    <header class="header_area">
+        <div class="header_menu">
+            <div class="container-fluid">
+                <div class="menu-nav">
+                    <div class="header_logo">
+                        <a th:href="@{/index.html}">
+                            <img th:src="@{/img/logo-envioz.png}" alt="logo">
+                        </a>
+                    </div>
+                    <div class="botones-navegador">
+                        <div class="boton-nav">
+                            <a class="page-scroll" href="#home">Inicio</a>
+                        </div>
+                        <div class="boton-nav">
+                            <a class="" href="#blog">Acerca de</a>
+                        </div>
+                        <div class="boton-nav">
+                            <a class="page-scroll" href="#services">Módulos</a>
+                        </div>
+                        <div class="boton-nav">
+                            <a class="page-scroll" href="#testimonial">Funcionalidades</a>
+                        </div>
+                        <div class="boton-nav">
+                            <a class="page-scroll" href="#about">Ventajas</a>
+                        </div>
+                        <div class="boton-nav">
+                            <a class="page-scroll" href="#footer">Contáctanos</a>
+                        </div>
+                        <div class="boton-nav2">
+                            <a  href="login.html" class="main-btn" data-animation="fadeInUp" data-delay="0.8s">Iniciar Sesión</a>
+                        </div>
+                    
+                        
+    
+                    </div>
+        
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- header menu -->
+        
+        <div id="home" class="header_slider slider-active">
+            <div  id="opacidad-imagen"class="single_slider d-flex align-items-center bg_cover" style="background-image: url(img/young-man-working-at-warehouse-with-boxes.jpg)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 col-sm-10">
+                            <div class="header_content">
+                                <h2 class="title" data-animation="fadeInUp" data-delay="0.2s">Gestor de pedidos</h2>
+                                <p data-animation="fadeInUp" data-delay="0.5s">El software tiene la finalidad de facilitar el manejo de los envíos y el gestionamiento  de los productos agregados a este.</p>
+                                <a href="javascript:void(0)" class="main-btn" data-animation="fadeInUp" data-delay="0.8s">Iniciar Sesión</a>
+                            </div> <!-- header content -->
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </div> <!-- single slider -->
+
+            <div class="single_slider d-flex align-items-center bg_cover" style="background-image: url(img/slime2.jpg)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 col-sm-10">
+                            <div class="header_content">
+                                <h2 class="title" data-animation="fadeInUp" data-delay="0.2s">Se especializa en el gestionamiento de envíos de una empresa <br> </h2>
+                                <p data-animation="fadeInUp" data-delay="0.5s">El software tiene la finalidad de facilitar el manejo de los envío y su gestión de los productos agregados en el envío.</p>
+                                <a href="javascript:void(0)" class="main-btn" data-animation="fadeInUp" data-delay="0.8s">Mirar</a>
+                            </div> <!-- header content -->
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </div> <!-- single slider -->
+
+            <!--            <span class="title_shape">DIGITAL</span>-->
+        </div> <!-- header menu -->
+    </header>
+    <!--====== Header PART ENDS ======-->
+    
+    <section id="blog" class="blog_area pt-115 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section_title pb-20">
+                        <h4 class="title">Acerca de</h4>
+                        <h3 class="main_title">Envíoz</h3>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="blog_image mt-30">
+                        <img th:src="@{/img/automated-warehouse-agv-robots-with-delivering-3d-rendering.jpg}" alt="blog">
+                    </div> <!-- blog image -->
+                </div>
+                <div class="col-lg-6">
+                    <div class="blog_content mt-25">
+
+                        <h3 class="blog_title"><a href="javascript:void(0)">Gestor de envíos</a></h3>
+                        <p>Es un sistema de monitoreo interno de una empresa para la organización, gestión e implementación de un envío que conlleva la mercancía de esta con destino satisfactorio. </p>
+                       
+                    </div> <!-- blog content -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+
+
+  
+
+    <!--====== SERVICES PART START ======-->
+    <section id="services" class="footer_widget bg_cover pt-80 pb-130"  style="background-image: url(../static/img/slider-2.jpg)"
+>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center pb-20">
+                        <h2 class="title">Módulos</h2>
+                        <h2 class="main_title">Módulos de envíoz</h2>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_services mt-30 wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.2s">
+                        <i class="lni lni-delivery"></i>
+                        <h4 class="services_title">Envío</h4>
+                        <p>Pequeña introducción de lo que se va a realizar en el módulo de guía.</p>
+                    </div> <!-- single services -->
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_services mt-30 wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.4s">
+                        <i class="lni lni-empty-file"></i>
+                        <h4 class="services_title">Guía</h4>
+                        <p>Es el instrumento que se requiere para el soporte de un envío.</p>
+                    </div> <!-- single services -->
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_services mt-30 wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.6s">
+                        <i class="lni lni-package"></i>
+                        <h4 class="services_title">Pedido</h4>
+                        <p>Ingresa información concreta de la mercancía a enviar y registrar en el sistema.</p>
+                    </div> <!-- single services -->
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_services mt-30 wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.8s">
+                        <i class="lni lni-dollar"></i>
+                        <h4 class="services_title">Pago</h4>
+                        <p>Recibe y agrega cualquier método de pago existente.</p>
+                    </div> <!-- single services -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+    
+
+    <section id="testimonial" class="testimonial_area pt-115 pb-120 bg_cover" >
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                     
+                    <div class="section_title section_title_2 text-center pb-50">
+                        <h4 class="title">Funcionalidades</h4>
+                            <h2 class="main_title"> <span>Funcionalidades envíoz</span></h2>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            
+            <div class="row testimonial_active">
+                <div class="col-lg-6">
+                    <div class="single_testimonial text-center" class="single_services mt-30 wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.4s" >
+                        <i id="a" class="lni lni-delivery"></i>
+                        <h5 class="name">Envío</h5>
+                        
+                        <p> -Genera historial de envíos y reportes
+                            <br>
+                            -Gestiona el costo del envío evaluado por cantidad de pares
+                        </p>
+                    </div> <!-- single testimonial -->
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="single_testimonial text-center">
+                        <i id="a" class="lni lni-empty-file"></i>
+                        <h5 class="name">Guía</h5>
+                        
+                        <p>-Genera soporte a partir del historial de envíos y reportes
+                            <br>
+                           -Asocia un remitente a su respectivo destinatario
+                        </p>
+                    </div> <!-- single testimonial -->
+                </div>
+                
+                <div class="col-lg-6">
+                    <div  class="single_testimonial text-center" >
+                        <i id="a" class="lni lni-package"></i>
+                        <h5 class="name">Pedido</h5>
+                        
+                        <p> -Gestionar pedidos
+                            <br>
+                            -Gestiona los productos 
+                        </p>
+                    </div> <!-- single testimonial -->
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="single_testimonial text-center">
+                        <i  id="a" class="lni lni-dollar"></i>
+                        <h5 class="name"> Métodos de Pago</h5>
+                        
+                        <p> -Gestiona el método de pago seleccionado
+                            <br>
+                            -Ejecuta el valor a pagar
+                        </p>
+                    </div> <!-- single testimonial -->
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== ABOUT PART START ======-->
+
+    <section id="about" class="about_area pt-80 pb-130">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about_video mt-50 wow fadeInRightBig" data-wow-duration="1.3s" data-wow-delay="0.5s">
+                        <img  class="imagen-ventajas" th:src="@{img/Paquete-entrega-290519.jpg}" alt="about">
+                        
+                    </div> <!-- about image -->
+                </div>
+                <div class="col-lg-6">
+                    <div class="about_content mt-50 wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.5s">
+                        <div class="section_title">
+                            <h4 class="title">Ventajas de implementar Envíoz en su empresa</h4>
+                           
+                        </div> <!-- section title -->
+
+                        <p> -  Alto desempeño a la hora de la realización de pedidos. 
+                            </p>
+                            <p>
+                                - Seguridad en el envío, control de seguimiento para garantizar el proceso.
+                            </p>
+                            <p>
+                                - Optimiza el procedimiento para la ejecución de un envío con el fin de mejorar su organización.
+                            </p>
+                            <p>
+                                - El sistema asegura la compra protegida y completamente fiable para todos los usuarios.
+                            </p>
+
+
+                                </div>
+
+                    </div> <!-- about image -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== FOOTER PART START ======-->
+
+    <section id="footer" class="footer_area">
+        <div class="footer_widget bg_cover pt-80 pb-130" style="background-image: url(/img/footer.jpg)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="footer_info mt-45">
+                            <div class="section_title section_title_3">
+                                <h4 class="title"> Contáctanos </h4>
+                                <h2 class="main_title">Ponte en contacto</h2>
+                            </div> <!-- section title -->
+
+                            <p>Para obtener mayor información sobre nuestros productos y servicios, comunícate a nuestras siguientes líneas de atención:</p>
+
+                            <div class="single_info d-flex align-items-center mt-30">
+                                <div class="info_icon">
+                                    <I class="lni lni-phone"></I>
+                                </div>
+                                <div class="info_content media-body">
+                                    <p>3172748065</p>
+                                </div>
+                            </div> <!-- single info -->
+
+                            <div class="single_info d-flex align-items-center mt-30">
+                                <div class="info_icon">
+                                    <I class="lni lni-envelope"></I>
+                                </div>
+                                <div class="info_content media-body">
+                                    <p>envioz@gmail.com</p>
+                                </div>
+                            </div> <!-- single info -->
+
+                            <div class="single_info d-flex align-items-center mt-30">
+                                <div class="info_icon">
+                                    <I class="lni lni-map-marker"></I>
+                                </div>
+                                <div class="info_content media-body">
+                                    <p>Colombia, Bogóta D.C.<br> Gustavo Restrepo Cl. 32 sur #52</p>
+                                </div>
+                            </div> <!-- single info -->
+                        </div> <!-- footer info -->
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="footer_form pt-40">
+                            <form id="contact-form" >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single_input mt-30">
+                                            <input type="text" name="name" placeholder="Nombre">
+                                        </div> <!-- single input -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single_input mt-30">
+                                            <input type="text" name="email" placeholder="E-mail">
+                                        </div> <!-- single input -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single_input mt-30">
+                                            <input type="text" name="phone" placeholder="Teléfono">
+                                        </div> <!-- single input -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single_input mt-30">
+                                            <input class="place" type="text" name="subject" placeholder="Asunto">
+                                        </div> <!-- single input -->
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single_input mt-30">
+                                            <textarea name="message" placeholder="Mensajes"></textarea>
+                                        </div> <!-- single input -->
+                                    </div>
+                                    <p class="form-message"></p>
+                                    <div class="col-md-12">
+                                        <div class="single_input mt-30">
+                                            <button class="main-btn">Enviar</button>
+                                        </div> <!-- single input -->
+                                    </div>
+                                </div> <!-- row -->
+                            </form>
+                        </div> <!-- footer form -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer widget -->
+        
+        <div class="footer_copyright">
+            <div class="container">
+                <div class="footer_copyright_wrapper text-center d-sm-flex justify-content-between align-items-center">
+                    <div class="copyright mt-15">
+                    <div class="logo-footer">
+                        <img   th:src="@{/img/logo-blaco.png}"> 
+                    </div>
+                        <p class="footer-text"> © 2022 Todos los derechos reservados </p>
+                    </div>
+                    <div class="footer_social mt-15">
+                        <ul>
+                            <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-instagram-original"></i></a></li>
+                        </ul>
+                    </div>
+                </div> <!-- footer copyright wrapper -->
+            </div> <!-- container -->
+        </div> <!-- footer widget -->
+    </section>
+
+    <!--====== FOOTER PART ENDS ======-->
+    
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <!-- <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a> -->
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+    <!--====== PART START ======-->
+
+<!--
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!--====== PART ENDS ======-->
+
+
+
+
+
+    <!--====== Jquery js ======-->
+    <script th:src="@{js/vendor/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{js/vendor/modernizr-3.7.1.min.js}"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.4.5.2.min.js}"></script>
+
+    <!--====== Slick js ======-->
+    <script  th:src="@{/js/slick.min.js}"></script>
+
+    <!--====== Ajax Contact js ======-->
+    <script th:src="@{/js/ajax-contact.js}"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+
+    <!--====== Counter Up js ======-->
+    <script th:src="@{/js/waypoints.min.js}"></script>
+    <script th:src="@{/js/jquery.counterup.min.js}"></script>
+
+    <!--====== Scrolling Nav js ======-->
+    <script th:src="@{/js/jquery.easing.min.js}"></script>
+    <script th:src="@{/js/scrolling-nav.js}"></script>
+
+    <!--====== wow js ======-->
+    <script th:src="@{/js/wow.min.js}"></script>
+
+    <!--====== Main js ======-->
+    <script th:src="@{/js/main.js}"></script>
+
 </body>
+
 </html>
