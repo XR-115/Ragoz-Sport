@@ -40,7 +40,6 @@ public class guiaController {
     public String register(Model m){
         guia guia=new guia();
         m.addAttribute("guia", guia);
-        m.addAttribute("pedido", pedidochi.findAll());
         return "views/guia/form-guia";
     }
 

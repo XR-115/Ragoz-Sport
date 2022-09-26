@@ -30,10 +30,6 @@ public class Pedido {
     @Column(name ="cantidadTotalPed")
     private Integer cantidadTotalPed;
 
-    @NotBlank
-    @Column(name ="totalCategPed")
-    private String totalCategPed;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Producto fkproducto;
@@ -48,11 +44,10 @@ public class Pedido {
 
     }   
 
-    public Pedido(Integer idPedido, @NotNull Integer cantidadTotalPed, @NotBlank String totalCategPed,
+    public Pedido(Integer idPedido, @NotNull Integer cantidadTotalPed,
             Producto fkproducto, guia fkguia) {
         this.idPedido = idPedido;
         this.cantidadTotalPed = cantidadTotalPed;
-        this.totalCategPed = totalCategPed;
         this.fkproducto = fkproducto;
         this.fkguia = fkguia;
     }
@@ -74,14 +69,6 @@ public class Pedido {
 
     public void setCantidadTotalPed(Integer cantidadTotalPed) {
         this.cantidadTotalPed = cantidadTotalPed;
-    }
-
-    public String getTotalCategPed() {
-        return totalCategPed;
-    }
-
-    public void setTotalCategPed(String totalCategPed) {
-        this.totalCategPed = totalCategPed;
     }
 
     public Producto getFkproducto() {

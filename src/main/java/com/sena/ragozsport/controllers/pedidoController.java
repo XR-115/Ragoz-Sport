@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.sena.ragozsport.model.IGuia;
 import com.sena.ragozsport.model.IProducto;
 import com.sena.ragozsport.model.pedido.Pedido;
 import com.sena.ragozsport.model.service.pedido.IPedidoService;
@@ -25,6 +26,7 @@ public class pedidoController {
     
     @Autowired IPedidoService interfazPed;
     @Autowired IProducto iProducto;
+    @Autowired IGuia iGuia;
 
     //------------  PRINCIPAL PEDIDO -----------//
     @GetMapping(path={"/pedido","/",""})
@@ -46,6 +48,7 @@ public class pedidoController {
     public String abrirform(Model m){
         Pedido pedido = new Pedido(); //Para instanciar un objeto de la clase 
         m.addAttribute("fkproducto", iProducto.findAll());
+        m.addAttribute("fkguia", iGuia.findAll());
         m.addAttribute("pedido",pedido);
         m.addAttribute("accion","Agregar Pedido");
         //Aca se retorna a la vista

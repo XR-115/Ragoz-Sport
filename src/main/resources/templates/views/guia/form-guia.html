@@ -25,7 +25,6 @@
                 <input type="number" class="controls" id="telGuia" th:field="*{telGuia}" placeholder="Ingrese el teléfono" required/>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('telGuia')}" th:errors="*{telGuia}"></div>
             
-                
                 <label for="">Dirección</label>
                 <input type="text" class="controls" id="direcGuia" th:field="*{direcGuia}" placeholder="Ingrese la dirección"  required/>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('direcGuia')}" th:errors="*{direcGuia}"></div>
@@ -33,9 +32,7 @@
                 <label for="">Fecha</label>
                 <input type="date"  class="form-check form-switch"  id="fechaGuia" value="" min="2022-09-21" max="2022-12-31" th:field="*{fechaGuia}" required />
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaGuia')}" th:errors="*{fechaGuia}"></div>
-                <br>
-                <br>
-                <br>
+                
                 <label for="">N° de cajas</label>
                 <input type="number" class="controls" id="numCajasGuia" th:field="*{numCajasGuia}" placeholder="Ingrese el número de cajas" required/>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('numCajasGuia')}" th:errors="*{numCajasGuia}"></div>
@@ -58,18 +55,7 @@
 
                 <label for="">Ciudad de destino</label>
                 <input type="text" class="controls" id="ciudadDestino" th:field="*{ciudadDestino}" placeholder="Ingrese la ciudad de destino" max-length="20" required/>
-                <label>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('ciudadDestino')}" th:errors="*{ciudadDestino}"></div>
-
-           
-
-                    <h4>Agregar pedido</h4>
-                </label>
-                    <select class="controls" th:field="*{pedido}" id="pedido"  required>
-                        <option th:each="pedido:${pedido}" th:text="${pedido.cantidadTotalPed}" th:value="${pedido.idPedido}" ></option>            
-                    </select>
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('pedido')}" th:errors="*{pedido}">Error método de pago</div>
-                <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
 
                 <button type="submit" class="botons bg bg-info text-center" hr>Registrar guía</button>
 

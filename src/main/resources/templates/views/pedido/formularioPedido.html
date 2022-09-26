@@ -18,23 +18,24 @@
         <h5>Formulario Pedido</h5>
         <h1 th:text="${accion}"></h1>
         <form th:action="@{/pedido/add}" th:object="${pedido}" method="post" style="width: 35rem;" class="mx-auto bg bg-dark p-5">
-            <input type="hidden" id="idPedido" th:field="*{idPedido}">  
+            <input type="hidden" id="idPedido" th:field="*{idPedido}"> 
+
+            <label for="categoriaProd">Categoria del Producto</label>
+            <select class="controls" th:field="*{fkproducto}" id="fkproducto" required>
+                <option th:each="fkproducto:${fkproducto}" th:text="${fkproducto.categoriaProd}" th:value="${fkproducto.idProducto}" ></option>            
+            </select>
+
+            <label for="idGuia">Número de Guía</label>
+            <select class="controls" th:field="*{fkguia}" id="fkguia" required>
+                <option th:each="fkguia:${fkguia}" th:text="${fkguia.idGuia}" th:value="${fkguia.idGuia}" ></option>            
+            </select>
+
             <div class="form-group">
-                <label for="cantidadTotalPed">Cantidad Total de Pares</label>
+                <label for="cantidadTotalPed">Cantidad de Pares</label>
                 <input type="number" class="form-control" id="cantidadTotalPed" th:field="*{cantidadTotalPed}" placeholder="Total de pares a enviar" min="2" required>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('cantidadTotalPed')}" th:errors="*{cantidadTotalPed}"></div>
                 <i class="fa-thin fa-circle-xmark"></i>
             </div>
-            <div class="form-group">
-                <label for="totalCategPed">Total de Categorias</label>
-                <input type="text" class="form-control" id="totalCategPed" th:field="*{totalCategPed}" placeholder="Dama y Niña" minlength="4" maxlength="26" required="[A-Z a-z]">
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('totalCategPed')}" th:errors="*{totalCategPed}"></div>
-            </div>
-            
-            <label for="referenciaProd">Referencia del Producto</label>
-            <select class="controls" th:field="*{fkproducto}" id="fkproducto" required>
-                <option th:each="fkproducto:${fkproducto}" th:text="${fkproducto.referenciaProd}" th:value="${fkproducto.idProducto}" ></option>            
-            </select>
 
             <div>
                 <button type="submit" class="btn btn-outline-info">Guardar</button>

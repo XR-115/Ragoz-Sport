@@ -32,17 +32,18 @@
         <table class="table" id="datat">
           <thead class="bg-info">
               <th>Id</th>
-              <th>Cantidad Total Pares</th>
-              <th>Total de Categorias</th>
-              <th>Referencia Producto</th>
+              <th>Categoria Producto</th>
+              <th>Guía</th><!--Se llama el id de la Guía -->
+              <th>Cantidad de Pares</th>
               <th>Acciones</th>
+              
           </thead>
           <tbody class="bg bg-dark">
               <tr th:if="${pedido.size()>0}" th:each="pe:${pedido}">
                   <td th:text="${pe.idPedido}"></td>
+                  <td th:text="${pe.fkproducto.categoriaProd}"></td>
+                  <td th:text="${pe.fkguia.idGuia}"></td>
                   <td th:text="${pe.cantidadTotalPed}"></td>
-                  <td th:text="${pe.totalCategPed}"></td>
-                  <td th:text="${pe.fkproducto.referenciaProd}"></td>
                   <td> 
                       <a role="button" class="btn btn-outline-warning btn-sm" th:href="@{/pedido/editar/}+${pe.idPedido}"> 
                           <i class="bi bi-pencil">Editar</i> 
