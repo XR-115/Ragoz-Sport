@@ -42,6 +42,7 @@
               <tr th:if="${pedido.size()>0}" th:each="pe:${pedido}">
                   <td th:text="${pe.idPedido}"></td>
                   <td th:text="${pe.fkproducto.categoriaProd}"></td>
+                  <td th:text="${pe.fkproducto.referenciaProd}"></td>
                   <td th:text="${pe.fkguia.idGuia}"></td>
                   <td th:text="${pe.cantidadTotalPed}"></td>
                   <td> 

@@ -25,6 +25,11 @@
                 <option th:each="fkproducto:${fkproducto}" th:text="${fkproducto.categoriaProd}" th:value="${fkproducto.idProducto}" ></option>            
             </select>
 
+            <label for="referenciaProd">Referencia del Producto</label>
+            <select class="controls" th:field="*{fkproducto}" id="fkproducto" required>
+                <option th:each="fkproducto:${fkproducto}" th:text="${fkproducto.referenciaProd}" th:value="${fkproducto.idProducto}" ></option>            
+            </select>
+
             <label for="idGuia">Número de Guía</label>
             <select class="controls" th:field="*{fkguia}" id="fkguia" required>
                 <option th:each="fkguia:${fkguia}" th:text="${fkguia.idGuia}" th:value="${fkguia.idGuia}" ></option>            
