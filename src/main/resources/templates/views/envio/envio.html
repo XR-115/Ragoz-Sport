@@ -27,7 +27,7 @@
                 <label>
                     <h4>Hora envío</h4>
                 </label>
-                <input type="text" class="controls" id="horaEnvio" th:field="*{horaEnvio}" placeholder="Ingrese la hora del envío" required/>
+                <input type="time" class="controls" id="horaEnvio" th:field="*{horaEnvio}" placeholder="Ingrese la hora del envío" required/>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('horaEnvio')}" th:errors="*{horaEnvio}"></div>
 
                 <label>
