@@ -15,7 +15,7 @@ public class indexController {
 
     @GetMapping("/dash")
     public String dash(){
-        return "views/dashboard";
+        return "views/html-customizer/index";
     }
 
     @GetMapping("/login")
