@@ -20,9 +20,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Formulario Guia</title>
-    <th:block th:include="views/header::head"> </th:block>
-
+    <title>Formulario Pago</title>
+    <th:block th:include="views/header::head"></th:block>
   </head>
   <!-- END: Head-->
 
@@ -89,7 +88,7 @@ License: You must have a valid license purchased only from themeforest(the above
           <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
               <div class="col-12">
-                <h2 class="content-header-title float-start mb-0">Formulario Guia</h2>
+                <h2 class="content-header-title float-start mb-0">Formulario Metodo de Pago</h2>
                 <div class="breadcrumb-wrapper">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a>
@@ -116,139 +115,26 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Guia</h4>
+          <h4 class="card-title">Metodo de pago</h4>
         </div>
         <div class="card-body">
           <form class="form">
             <div class="row">
-
-                <div class="col-md-6 col-12">
-                    <div class="mb-1">
-                      <label class="form-label" for="company-column">Teléfono</label>
-                      <input
-                        type="number"
-                        id="company-column"
-                        class="form-control"
-                        name="company-column"
-                        placeholder="Ingrese el telefono"
-                        required  pattern="[a-z A-Z]{2,15}"
-                      />
-                    </div>
-                  </div>
-
-              <div class="col-md-6 col-12">
+              <div class="col-md-12 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Dirreción</label>
+                  <label class="form-label" for="first-name-column">Metodo de Pago</label>
                   <input
                     type="text"
                     id="first-name-column"
                     class="form-control"
-                    placeholder="Ingrese la Dirreción"
+                    placeholder="Ingrese el metodo de pago"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Fecha</label>
-                  <input
-                    type="date"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese la fecha "
-                    name="fname-column"
-                    required 
+                    required pattern="[A-Za-z]{3,15}"
                   />
                 </div>
                 </div>
-              
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="company-column">N° de Cajas</label>
-                  <input
-                    type="number"
-                    id="company-column"
-                    class="form-control"
-                    name="company-column"
-                    placeholder="Ingrese su numero de cajas "
-                    required  pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
 
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="company-column">Valor Mercancia</label>
-                  <input
-                    type="number"
-                    id="company-column"
-                    class="form-control"
-                    name="company-column"
-                    placeholder="Valor"
-                    required  pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Remitente</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese el Remitente"
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Destinatario</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese el Destinatario"
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Ciudad Origen</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese la Ciudad de origen "
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Ciudad de Destino</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese la ciudad de destino"
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-
-              
-             
+            
               
               <div class="col-lg-12">
                 <button type="submit" class="btn btn-info">Enviar</button>
@@ -260,6 +146,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
   </div>
 </section>
+<!-- Basic Floating Label Form section end -->
 
         </div>
       </div>

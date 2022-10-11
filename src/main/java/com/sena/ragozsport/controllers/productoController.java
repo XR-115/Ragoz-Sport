@@ -45,7 +45,7 @@ public class productoController {
         m.addAttribute("Producto",producto);
         m.addAttribute("accion","Agregar Producto");
         //Aca se retorna a la vista
-        return "views/producto/formularioProducto";
+        return "views/producto/form-producto";
     }
     
     //------------------------- REGISTRAR -------------//

@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Formulario Guia</title>
+    <title>Formulario envío</title>
     <th:block th:include="views/header::head"> </th:block>
 
   </head>
@@ -76,8 +76,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN: Main Menu-->
     <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
-  data-scroll-to-active="true">
-  </div>
+    data-scroll-to-active="true">
+    </div>
     <!-- END: Main Menu-->
 
     <!-- BEGIN: Content-->
@@ -89,7 +89,7 @@ License: You must have a valid license purchased only from themeforest(the above
           <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
               <div class="col-12">
-                <h2 class="content-header-title float-start mb-0">Formulario Guia</h2>
+                <h2 class="content-header-title float-start mb-0">Formulario Envío</h2>
                 <div class="breadcrumb-wrapper">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a>
@@ -116,139 +116,85 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Guia</h4>
+          <h4 class="card-title">Envío</h4>
         </div>
         <div class="card-body">
           <form class="form">
             <div class="row">
-
-                <div class="col-md-6 col-12">
-                    <div class="mb-1">
-                      <label class="form-label" for="company-column">Teléfono</label>
-                      <input
-                        type="number"
-                        id="company-column"
-                        class="form-control"
-                        name="company-column"
-                        placeholder="Ingrese el telefono"
-                        required  pattern="[a-z A-Z]{2,15}"
-                      />
-                    </div>
-                  </div>
-
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Dirreción</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese la Dirreción"
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Fecha</label>
+                  <label class="form-label" for="first-name-column">Fecha envío</label>
                   <input
                     type="date"
                     id="first-name-column"
                     class="form-control"
-                    placeholder="Ingrese la fecha "
+                    placeholder="Ingrese la fecha del envío"
                     name="fname-column"
                     required 
                   />
                 </div>
                 </div>
-              
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="company-column">N° de Cajas</label>
-                  <input
-                    type="number"
-                    id="company-column"
-                    class="form-control"
-                    name="company-column"
-                    placeholder="Ingrese su numero de cajas "
-                    required  pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="company-column">Valor Mercancia</label>
+                  <label class="form-label" for="first-name-column">Hora envío</label>
                   <input
-                    type="number"
-                    id="company-column"
-                    class="form-control"
-                    name="company-column"
-                    placeholder="Valor"
-                    required  pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Remitente</label>
-                  <input
-                    type="text"
+                    type="time"
                     id="first-name-column"
                     class="form-control"
-                    placeholder="Ingrese el Remitente"
+                    placeholder="Ingrese la hora del envío"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required
                   />
+                </div>
+              </div>
+              <div class="col-md-15 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="last-name-column">Estado:</label>
+                  <input
+                    type="checkbox"
+                    id="last-name-column"
+                    class="form-check-input"
+                    required 
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="city-column">Costo envío</label>
+                  <input type="number" id="city-column" class="form-control" placeholder="Contraseña" name="city-column" required  />
                 </div>
               </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Destinatario</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese el Destinatario"
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
+                  <label class="form-label" for="last-name-column">Asociar método de pago </label>
+                  <select class="select2 form-select" id="select2-nested" required>
+                      <option value="AK"></option>
+                      <option value="HI">t.i</option>
+                    </select>
                 </div>
               </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Ciudad Origen</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese la Ciudad de origen "
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
+                  <label class="form-label" for="last-name-column">Asociar usuario </label>
+                  <select class="select2 form-select" id="select2-nested" required>
+                      <option value="AK"></option>
+                      <option value="HI">t.i</option>
+                    </select>
                 </div>
               </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Ciudad de Destino</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese la ciudad de destino"
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
+                  <label class="form-label" for="last-name-column">Asociar guia</label>
+                  <select class="select2 form-select" id="select2-nested" required>
+                      <option value="AK"></option>
+                      <option value="HI">t.i</option>
+                    </select>
                 </div>
               </div>
-
-              
-             
               
               <div class="col-lg-12">
                 <button type="submit" class="btn btn-info">Enviar</button>
@@ -260,6 +206,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
   </div>
 </section>
+<!-- Basic Floating Label Form section end -->
 
         </div>
       </div>
@@ -282,7 +229,6 @@ License: You must have a valid license purchased only from themeforest(the above
     </footer>
 
     <!-- END: Footer-->
-
 
     <div class="scripts" th:include="views/header::script"></div>
   </body>

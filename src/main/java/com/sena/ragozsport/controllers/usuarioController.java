@@ -41,7 +41,7 @@ public class usuarioController {
         m.addAttribute("usuario", usuario);
         m.addAttribute("accion", "Agregar Usuario");
         // Aca se retorna a la vista
-        return "views/usuario/usuario";
+        return "views/usuario/form-usuario";
     }
 
     @PostMapping("/addu")

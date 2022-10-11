@@ -52,7 +52,7 @@ public class pedidoController {
         m.addAttribute("pedido",pedido);
         m.addAttribute("accion","Agregar Pedido");
         //Aca se retorna a la vista
-        return "views/pedido/formularioPedido";
+        return "views/pedido/form-pedido";
     }
     
 //------------------------- REGISTRAR -------------//
