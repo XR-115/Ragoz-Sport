@@ -1,161 +1,164 @@
-
 <!-- BEGIN: Main Menu-->
-<div th:fragment="menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
-    <div class="navbar-header">
-        <ul class="nav navbar-nav flex-row">
-            <li class="nav-item me-auto">
+<div th:fragment="menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
+      data-scroll-to-active="true">
+      <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                  <li class="nav-item me-auto">
 
-                <a class="navbar-brand" th:href="@{../vertical-menu-template/index.html}">
-                    <img th:src="@{/img/icon-envioz.png}" alt="avatar" height="40" width="40">
-                    <h2 class="brand-text">Envioz</h2>
-                </a>
-            </li>
-            <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i
-                        class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
-                        class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc"
-                        data-ticon="disc"></i></a></li>
-        </ul>
-    </div>
-    <div class="shadow-bottom"></div>
-    <div class="main-menu-content">
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i
-                        data-feather="home"></i><span class="menu-title text-truncate"
-                        data-i18n="Dashboards">Inicio</span></a>
-                <ul class="menu-content">
-                    <li class="active"><a class="d-flex align-items-center" href="index.html"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="eCommerce">Inicio </span></a>
-                    </li>
-                </ul>
-            </li>
-            <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Módulos</span><i
-                    data-feather="more-horizontal"></i>
-            </li>
+                        <a class="navbar-brand" th:href="@{../vertical-menu-template/index.html}">
+                              <img th:src="@{/img/icon-envioz.png}" alt="avatar" height="40" width="40">
+                              <h2 class="brand-text">Envioz</h2>
+                        </a>
+                  </li>
+                  <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0"
+                              data-bs-toggle="collapse"><i
+                                    class="d-block d-xl-none text-primary toggle-icon font-medium-4"
+                                    data-feather="x"></i><i
+                                    class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary"
+                                    data-feather="disc" data-ticon="disc"></i></a></li>
+            </ul>
+      </div>
+      <div class="shadow-bottom"></div>
+      <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                  <li class=" nav-item">
+                        <a class="d-flex align-items-center" href="index"><i
+                                    data-feather="home"></i><span class="menu-title text-truncate"
+                                    data-i18n="Dashboards">Inicio</span></a>
+                        <ul class="menu-content">
+                              <li class="active"><a class="d-flex align-items-center" th:href="@{/dash}"><i
+                                                data-feather="circle"></i><span class="menu-item text-truncate"
+                                                data-i18n="eCommerce">Inicio </span></a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Módulos</span><i
+                              data-feather="more-horizontal"></i>
+                  </li>
 
-            <li class=" nav-item">
-                <a class="d-flex align-items-center">
-                    <i data-feather="user"></i>
-                    <span class="menu-title text-truncate" data-i18n="User">Usuario</span>
-                </a>
-                <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" th:href="@{usuario/usuario}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="List">Listar</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" th:href="@{usuario/addu}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="List">Formulario</span></a>
-                    </li>
-                </ul>
-            </li>
-            <li class=" nav-item">
-                <a class="d-flex align-items-center" href="">
-                    <i data-feather='package'></i>
-                    <span class="menu-title text-truncate" data-i18n="Pages">Pedido</span>
-                </a>
-                <ul class="menu-content">
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{pedido/listar}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                  <li class=" nav-item">
+                        <a class="d-flex align-items-center">
+                              <i data-feather="user"></i>
+                              <span class="menu-title text-truncate" data-i18n="User">Usuario</span>
                         </a>
-                    </li>
-                    <li><a class="d-flex align-items-center" th:href="@{pedido/abrirForm}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="List">Formulario</span></a>
-                    </li>
-                </ul>
-            </li>
+                        <ul class="menu-content">
+                              <li><a class="d-flex align-items-center" th:href="@{/usuario/usuario}"><i
+                                                data-feather="circle"></i><span class="menu-item text-truncate"
+                                                data-i18n="List">Listar</span></a>
+                              </li>
+                              <li><a class="d-flex align-items-center" th:href="@{/usuario/addu}"><i
+                                                data-feather="circle"></i><span class="menu-item text-truncate"
+                                                data-i18n="List">Formulario</span></a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li class=" nav-item">
+                        <a class="d-flex align-items-center" href="">
+                              <i data-feather='package'></i>
+                              <span class="menu-title text-truncate" data-i18n="Pages">Pedido</span>
+                        </a>
+                        <ul class="menu-content">
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/pedido/listar}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                                    </a>
+                              </li>
+                              <li><a class="d-flex align-items-center" th:href="@{/pedido/abrirForm}"><i
+                                                data-feather="circle"></i><span class="menu-item text-truncate"
+                                                data-i18n="List">Formulario</span></a>
+                              </li>
+                        </ul>
+                  </li>
 
-            <li class="nav-item">
-                <a class="d-flex align-items-center" href="#">
-                    <i data-feather='shopping-bag'></i>
-                    <span class="menu-title text-truncate" data-i18n="Pages">Producto</span>
-                </a>
-                <ul class="menu-content">
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{producto/listar}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                  <li class="nav-item">
+                        <a class="d-flex align-items-center" href="#">
+                              <i data-feather='shopping-bag'></i>
+                              <span class="menu-title text-truncate" data-i18n="Pages">Producto</span>
                         </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{producto/abrirForm}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                        <ul class="menu-content">
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/producto/listar}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/producto/abrirForm}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                                    </a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li class=" nav-item">
+                        <a class="d-flex align-items-center" href="#">
+                              <i data-feather='dollar-sign'></i>
+                              <span class="menu-title text-truncate" data-i18n="Pages">Método de pago </span>
                         </a>
-                    </li>
-                </ul>
-            </li>
-            <li class=" nav-item">
-                <a class="d-flex align-items-center" href="#">
-                    <i data-feather='dollar-sign'></i>
-                    <span class="menu-title text-truncate" data-i18n="Pages">Método de pago </span>
-                </a>
-                <ul class="menu-content">
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{pago/pago}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Listar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{pago/pagoAgregar}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                        <ul class="menu-content">
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/pago/pago}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/pago/pagoAgregar}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                                    </a>
+                              </li>
+                        </ul>
+                  </li>
 
-            <li class=" nav-item">
-                <a class="d-flex align-items-center" href="#">
-                    <i data-feather='truck'></i>
-                    <span class="menu-title text-truncate" data-i18n="Pages">Envío</span>
-                </a>
-                <ul class="menu-content">
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{envio/envio}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                  <li class=" nav-item">
+                        <a class="d-flex align-items-center" href="#">
+                              <i data-feather='truck'></i>
+                              <span class="menu-title text-truncate" data-i18n="Pages">Envío</span>
                         </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{envio/addEn}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                        <ul class="menu-content">
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/envio/envio}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/envio/addEn}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                                    </a>
+                              </li>
+                        </ul>
+                  </li>
+
+                  <li class=" nav-item">
+                        <a class="d-flex align-items-center" href="#">
+                              <i data-feather="file-text"></i>
+                              <span class="menu-title text-truncate" data-i18n="Pages">Guía</span>
                         </a>
-                    </li>
-                </ul>
-            </li>
+                        <ul class="menu-content">
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/guia/listar}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/guia/registrar}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                                    </a>
+                              </li>
 
-            <li class=" nav-item">
-                <a class="d-flex align-items-center" href="#">
-                    <i data-feather="file-text"></i>
-                    <span class="menu-title text-truncate" data-i18n="Pages">Guía</span>
-                </a>
-                <ul class="menu-content">
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{guia/listar}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Listar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" th:href="@{guia/registrar}">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
-                        </a>
-                    </li>
+                        </ul>
+                  </li>
 
-                </ul>
-            </li>
+      </div>
 
-        </div>
-            
 
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="modal-examples.html"><i
+      <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="modal-examples.html"><i
               data-feather="square"></i><span class="menu-title text-truncate" data-i18n="Modal Examples">Modales
               Ejemplos</span></a>
         </li>
@@ -322,7 +325,7 @@
                   class="menu-item text-truncate" data-i18n="Layout Blank">Layout Blank</span></a>
             </li>
           </ul> -->
-        <!-- </li>
+      <!-- </li>
         <li class=" navigation-header"><span data-i18n="Forms &amp; Tables">Formularios &amp; Tablas</span><i
             data-feather="more-horizontal"></i>
         </li>
@@ -370,7 +373,7 @@
                   data-i18n="Date &amp; Time Picker">Date &amp; Time Picker</span></a>
             </li>
           </ul> -->
-        <!-- </li>
+      <!-- </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="form-layout.html"><i
               data-feather="box"></i><span class="menu-title text-truncate" data-i18n="Form Layout">Form
               Layout</span></a>
@@ -379,18 +382,18 @@
               data-feather="package"></i><span class="menu-title text-truncate" data-i18n="Form Wizard">Form
               Wizard</span></a>
         </li> -->
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="form-validation.html"><i
+      <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="form-validation.html"><i
               data-feather="check-circle"></i><span class="menu-title text-truncate" data-i18n="Form Validation">Form
               Validation</span></a>
         </li> -->
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="form-repeater.html"><i
+      <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="form-repeater.html"><i
               data-feather="rotate-cw"></i><span class="menu-title text-truncate" data-i18n="Form Repeater">Form
               Repeater</span></a>
         </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="table-bootstrap.html"><i
               data-feather="server"></i><span class="menu-title text-truncate" data-i18n="Table">Table</span></a>
         </li> -->
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="grid"></i><span
+      <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="grid"></i><span
               class="menu-title text-truncate" data-i18n="Datatable">Datatable</span></a>
           <ul class="menu-content">
             <li><a class="d-flex align-items-center" href="table-datatable-basic.html"><i

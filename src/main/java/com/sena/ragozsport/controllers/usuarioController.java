@@ -29,18 +29,10 @@ public class usuarioController {
     @GetMapping(path = { "/usuario", "/", "" })
     public String usuario(Model m) {
         m.addAttribute("usuario", interfazUsu.findAll());
-        return "views/usuario/tablausu";
+        return "views/usuario/usuario";
 
     }
 
-    // ------------------------- LISTAR -------------//
-    @GetMapping("/listar")
-    public String listar(Model m) {
-        m.addAttribute("usuario", interfazUsu.findAll());
-
-        // Aca se retorna a la vista
-        return "views/usuario/tablausu";
-    }
 
     // ------------------------- Ruta para Abrir Formulario -------------//
     @GetMapping(value = "/addu")

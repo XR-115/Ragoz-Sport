@@ -16,6 +16,13 @@
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/vendors.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/forms/select/select2.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css}">
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/vendors.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/app-assets/vendors/css/forms/select/select2.min.css}">
     <link rel="stylesheet" type="text/css"
         th:href="@{/app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css}">
     <link rel="stylesheet" type="text/css"
@@ -44,7 +51,11 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
     <!-- END: Custom CSS-->
 
-
+    <!-- ESTILOS DATATABLES UWU -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css"/>
+    
 </head>
 
 <div class="scripts" th:fragment="script">
@@ -63,10 +74,33 @@
     <script th:src="@{/app-assets/js/scripts/customizer.min.js}"></script>
     <!-- END: Theme JS-->
 
+    <script th:src="@{/app-assets/vendors/js/vendors.min.js}"></script>
+    <!-- END: Page Vendor JS-->
+
     <!-- BEGIN: Page JS-->
-    <script th:src="@{/app-assets/js/scripts/pages/dashboard-ecommerce.min.js}"></script>
+    <script th:src="@{/app-assets/js/scripts/pages/app-user-list.min.js}"></script>
     <!-- END: Page JS-->
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script th:src="@{/app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js}"></script>
+    <!-- END: Page JS-->
+
+    <script type="text/Javascript">
+        $(document).ready(function(){
+            $('#example').DataTable({
+        "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+        }
+        });
+    });
+    </script>
     <script>
         $(window).on('load', function () {
             if (feather) {
