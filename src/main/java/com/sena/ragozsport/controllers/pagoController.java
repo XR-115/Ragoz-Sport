@@ -53,7 +53,7 @@ public class pagoController {
         m.addAttribute("pago",pago);
 
         
-    return "views/pago/pago";
+    return "views/pago/pagos";
     }
 //-------------------------------------------------------------POST DE AGREGAR Y ACTUALIZAR----------------------------------------------------//
     @PostMapping("/pagoAgregar")

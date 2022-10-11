@@ -3,7 +3,7 @@
 <html xlmns:th="https://www.thymeleaf.org">
 
 <head>
-  
+
   <title>Dashboard</title>
   <link rel="icon" th:href="@{/img/icon-envioz.png}">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
@@ -31,13 +31,14 @@
   <link rel="stylesheet" type="text/css" th:href="@{/app-assets/css/plugins/extensions/ext-component-toastr.min.css}">
   <!-- END: Page CSS-->
 
- 
+
   <!-- END: Custom CSS-->
 
 </head>
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
+
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
   data-menu="vertical-menu-modern" data-col="">
 
@@ -62,22 +63,22 @@
               data-search="search">
             <div class="search-input-close"><i data-feather="x"></i></div>
             <ul class="search-list search-list-main"></ul>
-            
+
           </div>
         </li>
         <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
             id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">Johan Garzon</span><span
                 class="user-status">Gerente</span></div><span class="avatar"><img class="round"
-                  th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40"
-                  width="40"><span class="avatar-status-online"></span></span>
+                th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40"><span
+                class="avatar-status-online"></span></span>
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-            <a class="dropdown-item"href="page-profile.html">
+            <a class="dropdown-item" href="page-profile.html">
               <i class="me-50" data-feather="user"></i>Perfil</a>
             <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i
-                class="me-50" data-feather="settings"></i> Configuración</a></a><a
-              class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Cerrar sesión</a>
+                class="me-50" data-feather="settings"></i> Configuración</a></a><a class="dropdown-item"
+              href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Cerrar sesión</a>
           </div>
         </li>
       </ul>
@@ -85,360 +86,10 @@
   </nav>
   <!-- END: Header-->
 
-
-  <!-- BEGIN: Main Menu-->
-  <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
-    <div class="navbar-header">
-      <ul class="nav navbar-nav flex-row">
-        <li class="nav-item me-auto">
-          
-          <a class="navbar-brand" th:href="@{../vertical-menu-template/index.html}">
-            <img 
-            th:src="@{/img/icon-envioz.png}" alt="avatar" height="40"
-            width="40">
-            <h2 class="brand-text">Envioz</h2>
-          </a></li>
-        <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i
-              class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
-              class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc"
-              data-ticon="disc"></i></a></li>
-      </ul>
-    </div>
-    <div class="shadow-bottom"></div>
-    <div class="main-menu-content">
-      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-        <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="home"></i><span
-              class="menu-title text-truncate" data-i18n="Dashboards">Inicio</span></a>
-          <ul class="menu-content">
-            <li class="active"><a class="d-flex align-items-center" href="index.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate"
-                  data-i18n="eCommerce">Inicio </span></a>
-            </li>
-          </ul>
-        </li>
-        <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Módulos </span><i
-            data-feather="more-horizontal"></i>
-        </li>
-       
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span
-              class="menu-title text-truncate" data-i18n="User">Usuario</span></a>
-          <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="usuario.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="List">List</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span
-              class="menu-item text-truncate" data-i18n="List">Formulario</span></a>
-        </li>
-          </ul>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='package'></i><span
-              class="menu-title text-truncate" data-i18n="Pages">Pedido</span></a>
-          <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="Pedido.html"><i data-feather="circle"></i><span
-              class="menu-item text-truncate" data-i18n="List">List</span></a>
-        </li>
-        <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span
-          class="menu-item text-truncate" data-i18n="List">Formulario</span></a>
-    </li>
-          </ul>
-          <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='shopping-bag'></i><span
-            class="menu-title text-truncate" data-i18n="Pages">Producto</span></a>
-        <ul class="menu-content">
-          <li><a class="d-flex align-items-center" href="Producto.html"><i data-feather="circle"></i><span
-            class="menu-item text-truncate" data-i18n="List">List</span></a>
-      </li>
-      <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span
-        class="menu-item text-truncate" data-i18n="List">Formulario</span></a>
-  </li>
-        </ul>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='dollar-sign'></i><span
-          class="menu-title text-truncate" data-i18n="Pages">Metodo de pago </span></a>
-      <ul class="menu-content">
-        <li><a class="d-flex align-items-center" href="pago.html"><i data-feather="circle"></i><span
-          class="menu-item text-truncate" data-i18n="List">List</span></a>
-          <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span
-            class="menu-item text-truncate" data-i18n="List">Formulario</span></a>
-      </li>
-    </li>
-      </ul>
-      <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='truck'></i><span
-        class="menu-title text-truncate" data-i18n="Pages">Envio</span></a>
-    <ul class="menu-content">
-      <li><a class="d-flex align-items-center" href="envios.html"><i data-feather="circle"></i><span
-        class="menu-item text-truncate" data-i18n="List">List</span></a>
-        <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span
-          class="menu-item text-truncate" data-i18n="List">Formulario</span></a>
-    </li>
-  </li>
-    </ul>
-
-    <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span
-      class="menu-title text-truncate" data-i18n="Pages">Guia</span></a>
-  <ul class="menu-content">
-    <li><a class="d-flex align-items-center" href="Guia.html"><i data-feather="circle"></i><span
-      class="menu-item text-truncate" data-i18n="List">List</span></a>
-      <li><a class="d-flex align-items-center" href="app-user-list.html"><i data-feather="circle"></i><span
-        class="menu-item text-truncate" data-i18n="List">Formulario</span></a>
-  </li>
-</li>
-  </ul>
-
-  
-        
-
-        
-        
-      
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="modal-examples.html"><i
-              data-feather="square"></i><span class="menu-title text-truncate" data-i18n="Modal Examples">Modales
-              Ejemplos</span></a>
-        </li>
-        <li class=" navigation-header"><span data-i18n="User Interface">Interfaz de usuario</span><i
-            data-feather="more-horizontal"></i>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i
-              data-feather="type"></i><span class="menu-title text-truncate"
-              data-i18n="Typography">Tipografía</span></a>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="ui-feather.html"><i
-              data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Feather">Iconos</span></a>
-        </li>
-
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="briefcase"></i><span
-              class="menu-title text-truncate" data-i18n="Components">Componentes</span></a>
-          <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="component-accordion.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Accordion">Accordion</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-alerts.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Alerts">Alerts</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-avatar.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Avatar">Avatar</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-badges.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Badges">Badges</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-breadcrumbs.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate"
-                  data-i18n="Breadcrumbs">Breadcrumbs</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-buttons.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Buttons">Buttons</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-carousel.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Carousel">Carousel</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-collapse.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Collapse">Collapse</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-divider.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Divider">Divider</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-dropdowns.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Dropdowns">Dropdowns</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-list-group.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="List Group">List Group</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-modals.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Modals">Modals</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-navs-component.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Navs Component">Navs
-                  Component</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-offcanvas.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Offcanvas">Offcanvas</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-pagination.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Pagination">Pagination</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-pill-badges.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pill Badges">Pill
-                  Badges</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-pills-component.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pills Component">Pills
-                  Component</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-popovers.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Popovers">Popovers</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-progress.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Progress">Progress</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-spinner.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Spinner">Spinner</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-tabs-component.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Tabs Component">Tabs
-                  Component</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-timeline.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Timeline">Timeline</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-bs-toast.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Toasts">Toasts</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="component-tooltips.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Tooltips">Tooltips</span></a>
-            </li>
-          </ul>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="box"></i><span
-              class="menu-title text-truncate" data-i18n="Extensions">Extensiones</span></a>
-          <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="ext-component-sweet-alerts.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Sweet Alert">Sweet
-                  Alert</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-blockui.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate"
-                  data-i18n="Block UI">BlockUI</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-toastr.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Toastr">Toastr</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-sliders.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Sliders">Sliders</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-drag-drop.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Drag &amp; Drop">Drag &amp;
-                  Drop</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-tour.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Tour">Tour</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-clipboard.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate"
-                  data-i18n="Clipboard">Clipboard</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-media-player.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Media player">Media
-                  Player</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-context-menu.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Context Menu">Context
-                  Menu</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-swiper.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="swiper">Swiper</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-tree.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Tree">Tree</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-ratings.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Ratings">Ratings</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="ext-component-i18n.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="l18n">l18n</span></a>
-            </li>
-          </ul>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="layout"></i><span
-              class="menu-title text-truncate" data-i18n="Page Layouts">Diseños de páginas</span></a>
-          <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="layout-collapsed-menu.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Collapsed Menu">Collapsed
-                  Menu</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="layout-full.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Layout Full">Layout Full</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="layout-without-menu.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Without Menu">Without Menu</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="layout-empty.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Layout Empty">Layout Empty</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="layout-blank.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Layout Blank">Layout Blank</span></a>
-            </li>
-          </ul> -->
-        <!-- </li>
-        <li class=" navigation-header"><span data-i18n="Forms &amp; Tables">Formularios &amp; Tablas</span><i
-            data-feather="more-horizontal"></i>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="copy"></i><span
-              class="menu-title text-truncate" data-i18n="Form Elements">Form Elements</span></a>
-          <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="form-input.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Input">Input</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-input-groups.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Input Groups">Input Groups</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-input-mask.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Input Mask">Input Mask</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-textarea.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Textarea">Textarea</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-checkbox.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Checkbox">Checkbox</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-radio.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Radio">Radio</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-custom-options.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Custom Options">Custom Options</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-switch.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Switch">Switch</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-select.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Select">Select</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-number-input.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Number Input">Number Input</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-file-uploader.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="File Uploader">File Uploader</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-quill-editor.html"><i data-feather="circle"></i><span
-                  class="menu-item text-truncate" data-i18n="Quill Editor">Quill Editor</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="form-date-time-picker.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate"
-                  data-i18n="Date &amp; Time Picker">Date &amp; Time Picker</span></a>
-            </li>
-          </ul> -->
-        <!-- </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="form-layout.html"><i
-              data-feather="box"></i><span class="menu-title text-truncate" data-i18n="Form Layout">Form
-              Layout</span></a>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="form-wizard.html"><i
-              data-feather="package"></i><span class="menu-title text-truncate" data-i18n="Form Wizard">Form
-              Wizard</span></a>
-        </li> -->
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="form-validation.html"><i
-              data-feather="check-circle"></i><span class="menu-title text-truncate" data-i18n="Form Validation">Form
-              Validation</span></a>
-        </li> -->
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="form-repeater.html"><i
-              data-feather="rotate-cw"></i><span class="menu-title text-truncate" data-i18n="Form Repeater">Form
-              Repeater</span></a>
-        </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="table-bootstrap.html"><i
-              data-feather="server"></i><span class="menu-title text-truncate" data-i18n="Table">Table</span></a>
-        </li> -->
-        <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="grid"></i><span
-              class="menu-title text-truncate" data-i18n="Datatable">Datatable</span></a>
-          <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="table-datatable-basic.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Basic</span></a>
-            </li>
-            <li><a class="d-flex align-items-center" href="table-datatable-advanced.html"><i
-                  data-feather="circle"></i><span class="menu-item text-truncate"
-                  data-i18n="Advanced">Advanced</span></a>
-            </li>
-          </ul>
-        </li> -->
-        
-    </div>
+  <!-- MENÚ DASHBOARD INCLUDE-->
+  <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
   </div>
+  
   <!-- END: Main Menu-->
 
   <!-- BEGIN: Content-->
@@ -519,10 +170,11 @@
           <div class="col-lg-12 col-22">
             <div class="card card-revenue-budget">
               <div class="row mx-0">
-               
+
                 <div class="budget-wrapper">
-                  <H1>¡Bienvenido al apartado del admin de nuestro software, acá podrás realizar todas las acciones que nuestro software ofrece!</H1>
-                  
+                  <H1>¡Bienvenido al apartado del admin de nuestro software, acá podrás realizar todas las acciones que
+                    nuestro software ofrece!</H1>
+
                 </div>
               </div>
             </div>
@@ -531,295 +183,6 @@
       </div>
 
       <div class="row match-height">
-        <!-- Company Table Card -->
-        <div class="col-lg-8 col-12">
-          <div class="card card-company-table">
-            <div class="card-body p-0">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Company</th>
-                      <th>Category</th>
-                      <th>Views</th>
-                      <th>Revenue</th>
-                      <th>Sales</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar rounded">
-                            <div class="avatar-content">
-                              <img th:src="@{/app-assets/images/icons/toolbox.svg}" alt="Toolbar svg" />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="fw-bolder">Dixons</div>
-                            <div class="font-small-2 text-muted">meguc@ruj.io</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar bg-light-primary me-1">
-                            <div class="avatar-content">
-                              <i data-feather="monitor" class="font-medium-3"></i>
-                            </div>
-                          </div>
-                          <span>Technology</span>
-                        </div>
-                      </td>
-                      <td class="text-nowrap">
-                        <div class="d-flex flex-column">
-                          <span class="fw-bolder mb-25">23.4k</span>
-                          <span class="font-small-2 text-muted">in 24 hours</span>
-                        </div>
-                      </td>
-                      <td>$891.2</td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <span class="fw-bolder me-1">68%</span>
-                          <i data-feather="trending-down" class="text-danger font-medium-1"></i>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar rounded">
-                            <div class="avatar-content">
-                              <img th:src="@{/app-assets/images/icons/parachute.svg}" alt="Parachute svg" />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="fw-bolder">Motels</div>
-                            <div class="font-small-2 text-muted">vecav@hodzi.co.uk</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar bg-light-success me-1">
-                            <div class="avatar-content">
-                              <i data-feather="coffee" class="font-medium-3"></i>
-                            </div>
-                          </div>
-                          <span>Grocery</span>
-                        </div>
-                      </td>
-                      <td class="text-nowrap">
-                        <div class="d-flex flex-column">
-                          <span class="fw-bolder mb-25">78k</span>
-                          <span class="font-small-2 text-muted">in 2 days</span>
-                        </div>
-                      </td>
-                      <td>$668.51</td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <span class="fw-bolder me-1">97%</span>
-                          <i data-feather="trending-up" class="text-success font-medium-1"></i>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar rounded">
-                            <div class="avatar-content">
-                              <img th:src="@{/app-assets/images/icons/brush.svg}" alt="Brush svg" />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="fw-bolder">Zipcar</div>
-                            <div class="font-small-2 text-muted">davcilse@is.gov</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar bg-light-warning me-1">
-                            <div class="avatar-content">
-                              <i data-feather="watch" class="font-medium-3"></i>
-                            </div>
-                          </div>
-                          <span>Fashion</span>
-                        </div>
-                      </td>
-                      <td class="text-nowrap">
-                        <div class="d-flex flex-column">
-                          <span class="fw-bolder mb-25">162</span>
-                          <span class="font-small-2 text-muted">in 5 days</span>
-                        </div>
-                      </td>
-                      <td>$522.29</td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <span class="fw-bolder me-1">62%</span>
-                          <i data-feather="trending-up" class="text-success font-medium-1"></i>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar rounded">
-                            <div class="avatar-content">
-                              <img th:src="@{/app-assets/images/icons/star.svg}" alt="Star svg" />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="fw-bolder">Owning</div>
-                            <div class="font-small-2 text-muted">us@cuhil.gov</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar bg-light-primary me-1">
-                            <div class="avatar-content">
-                              <i data-feather="monitor" class="font-medium-3"></i>
-                            </div>
-                          </div>
-                          <span>Technology</span>
-                        </div>
-                      </td>
-                      <td class="text-nowrap">
-                        <div class="d-flex flex-column">
-                          <span class="fw-bolder mb-25">214</span>
-                          <span class="font-small-2 text-muted">in 24 hours</span>
-                        </div>
-                      </td>
-                      <td>$291.01</td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <span class="fw-bolder me-1">88%</span>
-                          <i data-feather="trending-up" class="text-success font-medium-1"></i>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar rounded">
-                            <div class="avatar-content">
-                              <img th:src="@{/app-assets/images/icons/book.svg}" alt="Book svg" />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="fw-bolder">Cafés</div>
-                            <div class="font-small-2 text-muted">pudais@jife.com</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar bg-light-success me-1">
-                            <div class="avatar-content">
-                              <i data-feather="coffee" class="font-medium-3"></i>
-                            </div>
-                          </div>
-                          <span>Grocery</span>
-                        </div>
-                      </td>
-                      <td class="text-nowrap">
-                        <div class="d-flex flex-column">
-                          <span class="fw-bolder mb-25">208</span>
-                          <span class="font-small-2 text-muted">in 1 week</span>
-                        </div>
-                      </td>
-                      <td>$783.93</td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <span class="fw-bolder me-1">16%</span>
-                          <i data-feather="trending-down" class="text-danger font-medium-1"></i>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar rounded">
-                            <div class="avatar-content">
-                              <img th:src="@{/app-assets/images/icons/rocket.svg}" alt="Rocket svg" />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="fw-bolder">Kmart</div>
-                            <div class="font-small-2 text-muted">bipri@cawiw.com</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar bg-light-warning me-1">
-                            <div class="avatar-content">
-                              <i data-feather="watch" class="font-medium-3"></i>
-                            </div>
-                          </div>
-                          <span>Fashion</span>
-                        </div>
-                      </td>
-                      <td class="text-nowrap">
-                        <div class="d-flex flex-column">
-                          <span class="fw-bolder mb-25">990</span>
-                          <span class="font-small-2 text-muted">in 1 month</span>
-                        </div>
-                      </td>
-                      <td>$780.05</td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <span class="fw-bolder me-1">78%</span>
-                          <i data-feather="trending-up" class="text-success font-medium-1"></i>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar rounded">
-                            <div class="avatar-content">
-                              <img th:src="@{/app-assets/images/icons/speaker.svg}" alt="Speaker svg" />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="fw-bolder">Payers</div>
-                            <div class="font-small-2 text-muted">luk@izug.io</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar bg-light-warning me-1">
-                            <div class="avatar-content">
-                              <i data-feather="watch" class="font-medium-3"></i>
-                            </div>
-                          </div>
-                          <span>Fashion</span>
-                        </div>
-                      </td>
-                      <td class="text-nowrap">
-                        <div class="d-flex flex-column">
-                          <span class="fw-bolder mb-25">12.9k</span>
-                          <span class="font-small-2 text-muted">in 12 hours</span>
-                        </div>
-                      </td>
-                      <td>$531.49</td>
-                      <td>
-                        <div class="d-flex align-items-center">
-                          <span class="fw-bolder me-1">42%</span>
-                          <i data-feather="trending-up" class="text-success font-medium-1"></i>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--/ Company Table Card -->
 
         <!-- Developer Meetup Card -->
         <div class="col-lg-4 col-md-6 col-12">
@@ -830,11 +193,11 @@
             <div class="card-body">
               <div class="meetup-header d-flex align-items-center">
                 <div class="meetup-day">
-                  <h6 class="mb-0">THU</h6>
-                  <h3 class="mb-0">24</h3>
+                  <h6 class="mb-0">Jue</h6>
+                  <h3 class="mb-0">10</h3>
                 </div>
                 <div class="my-auto">
-                  <h4 class="card-title mb-25">Equipo de envíos</h4>
+                  <h4 class="card-title mb-25">Equipo de envíoz</h4>
                   <p class="card-text mb-0">Reuniones financieras</p>
                 </div>
               </div>
@@ -845,8 +208,8 @@
                   </div>
                 </div>
                 <div class="more-info">
-                  <h6 class="mb-0">Sat, May 25, 2020</h6>
-                  <small>10:AM to 6:PM</small>
+                  <h6 class="mb-0">Sáb, Oct 25, 2022</h6>
+                  <small>10:00AM to 6:00PM</small>
                 </div>
               </div>
               <div class="mt-2">
@@ -856,8 +219,8 @@
                   </div>
                 </div>
                 <div class="more-info">
-                  <h6 class="mb-0">Central Park</h6>
-                  <small>Manhattan, New york City</small>
+                  <h6 class="mb-0">Bogotá D.C.</h6>
+                  <small>Bogotá D.C, Cundinamarca</small>
                 </div>
               </div>
               <div class="avatar-group">
@@ -886,7 +249,7 @@
                   <img th:src="@{/app-assets/images/portrait/small/avatar-s-20.jpg}" alt="Avatar" width="33"
                     height="33" />
                 </div>
-                <h6 class="align-self-center cursor-pointer ms-50 mb-0">+42</h6>
+                <h6 class="align-self-center cursor-pointer ms-50 mb-0">+3</h6>
               </div>
             </div>
           </div>
@@ -904,7 +267,7 @@
   <!-- END: Content-->
 
 
-<script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
 
 
   <!-- BEGIN: Footer-->
@@ -917,35 +280,8 @@
   <!-- END: Footer-->
 
 
-  <!-- BEGIN: Vendor JS-->
-  <script th:src="@{/app-assets/vendors/js/vendors.min.js}"></script>
-  <!-- BEGIN Vendor JS-->
-
-  <!-- BEGIN: Page Vendor JS-->
-  <script th:src="@{/app-assets/vendors/js/charts/apexcharts.min.js}"></script>
-
-  <!-- END: Page Vendor JS-->
-
-  <!-- BEGIN: Theme JS-->
-  <script th:src="@{/app-assets/js/core/app-menu.min.js}"></script>
-  <script th:src="@{/app-assets/js/core/app.min.js}"></script>
-  <script th:src="@{/app-assets/js/scripts/customizer.min.js}"></script>
-  <!-- END: Theme JS-->
-
-  <!-- BEGIN: Page JS-->
-  <script th:src="@{/app-assets/js/scripts/pages/dashboard-ecommerce.min.js}"></script>
-  <!-- END: Page JS-->
-
-  <script>
-    $(window).on('load', function () {
-      if (feather) {
-        feather.replace({ width: 14, height: 14 });
-      }
-    })
-  </script>
+  <div class="scripts" th:include="views/header::script"></div>
 </body>
 <!-- END: Body-->
 
 </html>
-  
-  

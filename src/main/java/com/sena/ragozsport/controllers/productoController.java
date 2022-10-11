@@ -35,12 +35,12 @@ public class productoController {
         m.addAttribute("Producto", interfazPro.findAll());
     
         //Aca se retorna a la vista
-        return "views/producto/tablaPr";
+        return "views/producto/producto";
     }
     
     //------------------------- Ruta para Abrir Formulario -------------//
-    @GetMapping("/abrirform")
-    public String abrirform(Model m){
+    @GetMapping("/abrirForm")
+    public String abrirForm(Model m){
         Producto producto=new Producto(); //Para instanciar un objeto de la clase 
         m.addAttribute("Producto",producto);
         m.addAttribute("accion","Agregar Producto");

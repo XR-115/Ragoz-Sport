@@ -55,7 +55,7 @@ public class envioController {
         m.addAttribute("fkusuario", usuD.findAll());
         m.addAttribute("guia", guiD.findAll());
         m.addAttribute("envio", envio);
-        return "views/envio/envio";
+        return "views/envio/envios";
     }        
 
 

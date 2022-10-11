@@ -21,7 +21,7 @@ import com.sena.ragozsport.model.service.pedido.IPedidoService;
 @Controller
 @SessionAttributes("pedido")
 // ----RUTA PRINCIPAL
-@RequestMapping("pedido")
+@RequestMapping("/pedido")
 public class pedidoController {
     
     @Autowired IPedidoService interfazPed;
@@ -40,12 +40,12 @@ public class pedidoController {
         m.addAttribute("pedido", interfazPed.findAll());
     
         //Aca se retorna a la vista
-        return "views/pedido/tablaPe";
+        return "views/pedido/pedido";
     }
     
 //------------------------- Ruta para Abrir Formulario -------------//
-    @GetMapping("/abrirform")
-    public String abrirform(Model m){
+    @GetMapping("/abrirForm")
+    public String abrirForm(Model m){
         Pedido pedido = new Pedido(); //Para instanciar un objeto de la clase 
         m.addAttribute("fkproducto", iProducto.findAll());
         m.addAttribute("fkguia", iGuia.findAll());
