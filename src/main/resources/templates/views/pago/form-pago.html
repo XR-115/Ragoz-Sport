@@ -1,34 +1,12 @@
 <!DOCTYPE html>
-<!--
-Template Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://1.envato.market/vuexy_admin
-Renew Support: https://1.envato.market/vuexy_admin
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
-
--->
 <html class="loading" lang="en" data-textdirection="ltr">
   <!-- BEGIN: Head-->
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
     <title>Formulario Pago</title>
     <th:block th:include="views/header::head"></th:block>
   </head>
-  <!-- END: Head-->
-
-  <!-- BEGIN: Body-->
   <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
-    <!-- BEGIN: Header-->
     <nav
     class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
     <div class="navbar-container d-flex content">
@@ -88,11 +66,11 @@ License: You must have a valid license purchased only from themeforest(the above
           <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
               <div class="col-12">
-                <h2 class="content-header-title float-start mb-0">Formulario Metodo de Pago</h2>
+                <h2 class="content-header-title float-start mb-0">Registrar nuevo método de pago</h2>
                 <div class="breadcrumb-wrapper">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a>
-                    </li>
+                    <li class="breadcrumb-item"><a a th:href="@{/pago/pago}">Listar</a></li>
+                    <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a></li>
                   </ol>
                 </div>
               </div>
@@ -118,19 +96,16 @@ License: You must have a valid license purchased only from themeforest(the above
           <h4 class="card-title">Metodo de pago</h4>
         </div>
         <div class="card-body">
-          <form class="form">
+          <form class="form" th:action="@{/pago/pagoAgregar}" th:object="${pago}" method="post" >
             <div class="row">
               <div class="col-md-12 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Metodo de Pago</label>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese el metodo de pago"
-                    name="fname-column"
-                    required pattern="[A-Za-z]{3,15}"
-                  />
+                  <label class="form-label" for="first-name-column">Método de Pago</label>
+                  <input type="hidden" class="form-control"  id="idPago" th:field="*{idPago}"/>
+                  <input type="text" class="form-control" id="metodoPago" th:field="*{metodoPago}" placeholder="Ingrese el método de pago" required pattern="[A-Za-z]{3,15}"/>
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('metodoPago')}" th:errors="*{metodoPago}">Error método de pago</div>
+                  <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+           
                 </div>
                 </div>
 

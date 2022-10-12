@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<!--
-Template Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://1.envato.market/vuexy_admin
-Renew Support: https://1.envato.market/vuexy_admin
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+<html xlmns:th="https://www.thymeleaf.org">
 
--->
-<html xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
 <head>
   <th:block th:include="views/header::head"> </th:block>
+  <title>Envios</title>
 </head>
 <!-- END: Head-->
 
@@ -70,101 +60,7 @@ License: You must have a valid license purchased only from themeforest(the above
       </ul>
     </div>
   </nav>
-  <ul class="main-search-list-defaultlist d-none">
-    <li class="d-flex align-items-center"><a href="#">
-        <h6 class="section-label mt-75 mb-0">Files</h6>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-        href="app-file-manager.html">
-        <div class="d-flex">
-          <div class="me-75"><img th:src="@{/app-assets/images/icons/xls.png}" alt="png" height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">Two new item submitted</p><small class="text-muted">Marketing
-              Manager</small>
-          </div>
-        </div><small class="search-data-size me-50 text-muted">&apos;17kb</small>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-        href="app-file-manager.html">
-        <div class="d-flex">
-          <div class="me-75"><img th:src="@{/app-assets/images/icons/jpg.png}" alt="png" height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">52 JPG file Generated</p><small class="text-muted">FontEnd
-              Developer</small>
-          </div>
-        </div><small class="search-data-size me-50 text-muted">&apos;11kb</small>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-        href="app-file-manager.html">
-        <div class="d-flex">
-          <div class="me-75"><img src="../../../app-assets/images/icons/pdf.png" alt="png" height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">25 PDF File Uploaded</p><small class="text-muted">Digital Marketing
-              Manager</small>
-          </div>
-        </div><small class="search-data-size me-50 text-muted">&apos;150kb</small>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-        href="app-file-manager.html">
-        <div class="d-flex">
-          <div class="me-75"><img src="../../../app-assets/images/icons/doc.png" alt="png" height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">Anna_Strong.doc</p><small class="text-muted">Web Designer</small>
-          </div>
-        </div><small class="search-data-size me-50 text-muted">&apos;256kb</small>
-      </a></li>
-    <li class="d-flex align-items-center"><a href="#">
-        <h6 class="section-label mt-75 mb-0">Members</h6>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-        href="app-user-view-account.html">
-        <div class="d-flex align-items-center">
-          <div class="avatar me-75"><img src="../../../app-assets/images/portrait/small/avatar-s-8.jpg" alt="png"
-              height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">John Doe</p><small class="text-muted">UI designer</small>
-          </div>
-        </div>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-        href="app-user-view-account.html">
-        <div class="d-flex align-items-center">
-          <div class="avatar me-75"><img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="png"
-              height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">Michal Clark</p><small class="text-muted">FontEnd Developer</small>
-          </div>
-        </div>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-        href="app-user-view-account.html">
-        <div class="d-flex align-items-center">
-          <div class="avatar me-75"><img src="../../../app-assets/images/portrait/small/avatar-s-14.jpg" alt="png"
-              height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">Milena Gibson</p><small class="text-muted">Digital Marketing
-              Manager</small>
-          </div>
-        </div>
-      </a></li>
-    <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-        href="app-user-view-account.html">
-        <div class="d-flex align-items-center">
-          <div class="avatar me-75"><img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="png"
-              height="32"></div>
-          <div class="search-data">
-            <p class="search-data-title mb-0">Anna Strong</p><small class="text-muted">Web Designer</small>
-          </div>
-        </div>
-      </a></li>
-  </ul>
-  <ul class="main-search-list-defaultlist-other-list d-none">
-    <li class="auto-suggestion justify-content-between"><a
-        class="d-flex align-items-center justify-content-between w-100 py-50">
-        <div class="d-flex justify-content-start"><span class="me-75" data-feather="alert-circle"></span><span>No
-            results found.</span></div>
-      </a></li>
-  </ul>
+
   <!-- END: Header-->
 
 
@@ -175,102 +71,73 @@ License: You must have a valid license purchased only from themeforest(the above
 
   <!-- END: Main Menu-->
 
-  <!-- BEGIN: Content-->
   <div class="app-content content ">
-    <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper container-xxl p-0">
       <div class="content-header row">
-      </div>
-      <div class="content-body">
-        <!-- users list start -->
-        <section class="app-user-list">
-          <div class="row">
 
-          </div>
-      </div>
-      <!-- list and filter start -->
-      <div class="card">
-        <div class="card-body border-bottom">
-          <h4 class="card-title">Busqueda</h4>
-          <div class="row">
-            <div class="col-md-4 user_role"></div>
-            <div class="col-md-4 user_plan"></div>
-            <div class="col-md-4 user_status"></div>
-          </div>
-        </div>
-        <div class="card-datatable table-responsive pt-3">
-          <table class="user-list-table table">
-            <thead class="table-light">
-              <tr>
-                <th>Costo</th>
-                <th>Estado</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Metodo de pago</th>
-                <th>Usuario</th>
-                <th>Destinatario</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-        <!-- Modal to add new user starts-->
-        <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
-          <div class="modal-dialog">
-            <form class="add-new-user modal-content pt-0">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              <div class="modal-header mb-1">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar Usuario</h5>
+        <div class="content-body">
+          <!-- users list start -->
+
+          <!-- list and filter start -->
+          <div class="card">
+            <div class="card-body border-bottom">
+              <div class="col-12">
+                <h2 class="content-header-title float-start mb-0">Envíos registrados</h2>
+                <div class="breadcrumb-wrapper">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a></li>
+                  </ol>
+                </div>
               </div>
-              <div class="modal-body flex-grow-1">
-                <div class="mb-1">
-                  <label class="form-label" for="basic-icon-default-fullname">Nombre</label>
-                  <input type="text" class="form-control dt-full-name" id="basic-icon-default-fullname"
-                    placeholder="John Doe" name="user-fullname" />
-                </div>
-                <div class="mb-1">
-                  <label class="form-label" for="basic-icon-default-uname">Apellido</label>
-                  <input type="text" id="basic-icon-default-uname" class="form-control dt-uname"
-                    placeholder="Web Developer" name="user-name" />
-                </div>
-                <div class="mb-1">
-                  <label class="form-label" for="basic-icon-default-email">Email</label>
-                  <input type="text" id="basic-icon-default-email" class="form-control dt-email"
-                    placeholder="john.doe@example.com" name="user-email" />
-                </div>
-                <div class="mb-1">
-                  <label class="form-label" for="basic-icon-default-contact">Contact</label>
-                  <input type="text" id="basic-icon-default-contact" class="form-control dt-contact"
-                    placeholder="+1 (609) 933-44-22" name="user-contact" />
-                </div>
-                <div class="mb-1">
-                  <label class="form-label" for="basic-icon-default-company">Company</label>
-                  <input type="text" id="basic-icon-default-company" class="form-control dt-contact"
-                    placeholder="PIXINVENT" name="user-company" />
-                </div>
+            </div>
+            <div class="card-datatable table-responsive pt-3">
+              <table id="example" class="table table-striped display responsive nowrap" style="width:100%">
+                <thead class="bg bg-info ">
+                  <tr>
+                    <th>ID</th>
+                    <th>FECHA</th>
+                    <th>HORA</th>
+                    <th>ESTADO</th>
+                    <th>COSTO</th>
+                    <th>MÉTODO PAGO</th>
+                    <th>USUARIO</th>
+                    <th>GUÍA</th>
+                    <th>ACCIONES</th>
+                  </tr>
+                </thead>
+                <tbody class="bg bg-white">
+                  <tr th:if="${envio.size>0}" th:each="e:${envio}">
+                    <td class="text-dark" th:text="${e.idEnvio}"></td>
+                    <td class="text-dark" th:text="${e.fechaEnvio}"></td>
+                    <td class="text-dark" th:text="${e.horaEnvio}"></td>
+                    <td class="text-dark" th:text="${e.estadoEnvio}"></td>
+                    <td class="text-dark" th:text="${e.costoTotalEnvio}"></td>
+                    <td class="text-dark" th:text="${e.fkpago.metodoPago}"></td>
+                    <td class="text-dark" th:text="${e.fkusuario.Actor}"></td>
+                    <td class="text-dark" th:text="${e.guia.destinatario}"></td>
+                    <td>
+                      <a rol="button" class="btn btn-info" th:href="@{/envio/editarEn/}+${e.idEnvio}">
+                        <i class="fa-solid fa-pen"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
 
-                <div class="mb-2">
-                  <label class="form-label" for="user-plan">Select Usuario</label>
-                  <select id="user-plan" class="select2 form-select">
-                    <option value="basic">Gerente</option>
-                    <option value="enterprise">Jefe de transportadora</option>
+                <tr>
+                  <td>
+                    <a type="button" class="btn btn-info" th:href="@{addEn}">
+                      <i class="bi bi-plus-circle"></i>Agregar envío
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </div>
 
-                  </select>
-                </div>
-                <button type="submit" class="btn btn-dark me-1 data-submit">Subir</button>
-                <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-              </div>
-            </form>
           </div>
         </div>
-        <!-- Modal to add new user Ends-->
       </div>
-      <!-- list and filter end -->
-      </section>
-      <!-- users list ends -->
-
     </div>
-  </div>
   </div>
   <!-- END: Content-->
 
