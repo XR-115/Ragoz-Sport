@@ -72,7 +72,7 @@ public class pagoController {
                 } catch (Exception e) {
                     model.addAttribute("errorMessage",e.getMessage());
                     model.addAttribute("metodoPago", pago);
-                    return "views/pago/pago";
+                    return "views/pago/form-pago";
                 }
                
             }
@@ -100,14 +100,14 @@ public class pagoController {
         if (idPago>0) {
             pago=pagoD.findOne(idPago);
         }else{
-            return("views/pago/pago");
+            return("views/pago/form-pago");
         }
         m.addAttribute("pago", pago);
         m.addAttribute("accion","editarPago()");
         m.addAttribute("titulo","EDITAR");
 
     
-        return "views/pago/pago";
+        return "views/pago/form-pago";
     } 
 
 //-------------------------------------------------------------VOLVER----------------------------------------------------//

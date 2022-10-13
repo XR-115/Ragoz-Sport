@@ -63,7 +63,7 @@ public class envioController {
     @PostMapping("/addEn")
     public String addEn(@Valid Envio envio,BindingResult br, Model m, SessionStatus status){
         if(br.hasErrors()){
-            return "views/envio/envio";
+            return "views/envio/form-envio";
             }
             else{
                 try {
@@ -73,7 +73,7 @@ public class envioController {
                 } catch (Exception e) {
                     m.addAttribute("errorMessage",e.getMessage());
                     m.addAttribute("idGuia", envio);
-                    return "views/envio/envio";
+                    return "views/envio/form-envio";
                 }
                 
             }
@@ -106,6 +106,7 @@ public class envioController {
         } else {
             return "redirect:envio";
         }
+        m.addAttribute("accion","editarEnvio()");
         m.addAttribute("fkpago", pagD.findAll());
         m.addAttribute("fkusuario", usuD.findAll());
         m.addAttribute("guia", guiD.findAll());

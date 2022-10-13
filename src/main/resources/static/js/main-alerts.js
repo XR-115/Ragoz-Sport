@@ -15,7 +15,7 @@ const editarEnvio=()=>{
   
   swalWithBootstrapButtons.fire({
     title: '¿Está seguro de que desea editar?',
-    text: "¿Usted va a editar este método de pago?",
+    text: "¿Usted va a editar este envío?",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonText: 'Si, editalo',
@@ -25,7 +25,7 @@ const editarEnvio=()=>{
     if (result.isConfirmed) {
       swalWithBootstrapButtons.fire(
         'Editando',
-        'Su método de pago se va a editar',
+        'Su envío se va a editar',
         'success'
       )
     } else if (

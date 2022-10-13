@@ -111,7 +111,10 @@
                     <td class="text-dark" th:text="${e.idEnvio}"></td>
                     <td class="text-dark" th:text="${e.fechaEnvio}"></td>
                     <td class="text-dark" th:text="${e.horaEnvio}"></td>
-                    <td class="text-dark" th:text="${e.estadoEnvio}"></td>
+                    <td>
+                      <span class="badge bg-success active"th:if="${e.estadoEnvio==true}">Activo</span>                                            
+                      <span class="badge bg-danger active" th:if="${e.estadoEnvio==false}">Inactivo</span>                                           
+                    </td>
                     <td class="text-dark" th:text="${e.costoTotalEnvio}"></td>
                     <td class="text-dark" th:text="${e.fkpago.metodoPago}"></td>
                     <td class="text-dark" th:text="${e.fkusuario.Actor}"></td>

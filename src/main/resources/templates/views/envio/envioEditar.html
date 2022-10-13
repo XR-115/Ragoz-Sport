@@ -1,81 +1,225 @@
 <!DOCTYPE html>
-<html xlmns:th="https://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar envío </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<html xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
 
-    <link rel="stylesheet" th:href="@{/css/estilos.css}">
-</head>
-<body th:onload="editarEnvio()">
-    <button class="btn btn-info">
-        <a th:href="@{/dash}">Dashboard</a>
-    </button>
+  <!-- BEGIN: Head-->
+  <head>
+    <title>Formulario envío</title>
+    <th:block th:include="views/header::head"> </th:block>
+  </head>
+  <!-- END: Head-->
 
-    <div class="login-usuario">
-        <form th:action="@{/envio/UpdateEn}" th:object="${envio}" method="post">
-            <section class="form-register">
 
-                <p class="text-info" id="tituloForm">Actualizar envío</p>
-                <br>
-                <label>
-                    <h4>Fecha envío</h4>
-                </label>
-                <input type="hidden" class="controls"  id="idEnvio" th:field="*{idEnvio}" />
-                <input type="date" class="controls" id="fechaEnvio" th:field="*{fechaEnvio}" placeholder="Ingrese la fecha del envío" required/>
-               
-                <label>
-                    <h4>Hora envío</h4>
-                </label>
-                <input type="text" class="controls" id="horaEnvio" th:field="*{horaEnvio}" placeholder="Ingrese la hora del envío" required/>
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('horaEnvio')}" th:errors="*{horaEnvio}"></div>
+  <!-- BEGIN: Body-->
+  <body th:attr="onload=(${accion})" class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
-                <label>
-                    <h4>Estado envío</h4>
-                </label>
-                
-                <input type="checkbox"  class="form-check form-switch"  id="estadoEnvio" th:field="*{estadoEnvio}" />
-                
-                <label>
-                    <h4>Costo envío</h4>
-                </label>
-                <input type="number" class="controls" id="costoTotalEnvio" th:field="*{costoTotalEnvio}" placeholder="Ingrese el costo del envío" required />
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('costoTotalEnvio')}" th:errors="*{costoTotalEnvio}"></div>
-                <label>
-                    <h4>Asociar método de pago</h4>
-                </label>
-                    <select class="controls" th:field="*{fkpago}" id="fkpago" required>
-                        <option th:each="fkpago:${fkpago}" th:text="${fkpago.metodoPago}" th:value="${fkpago.idPago}" ></option>            
+    <!-- BEGIN: Header-->
+    <nav
+    class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
+    <div class="navbar-container d-flex content">
+      <div class="bookmark-wrapper d-flex align-items-center">
+        <ul class="nav navbar-nav d-xl-none">
+          <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav navbar-nav align-items-center ms-auto">
+        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon"
+              data-feather="moon"></i></a></li>
+        <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon"
+              data-feather="search"></i></a>
+          <div class="search-input">
+            <div class="search-input-icon"><i data-feather="search"></i></div>
+            <input class="form-control input" type="text" placeholder="Explore Envioz..." tabindex="-1"
+              data-search="search">
+            <div class="search-input-close"><i data-feather="x"></i></div>
+            <ul class="search-list search-list-main"></ul>
+
+          </div>
+        </li>
+        <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
+            id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">Johan Garzon</span><span
+                class="user-status">Gerente</span></div><span class="avatar"><img class="round"
+                th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40"><span
+                class="avatar-status-online"></span></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
+            <a class="dropdown-item" href="page-profile.html">
+              <i class="me-50" data-feather="user"></i>Perfil</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i
+                class="me-50" data-feather="settings"></i> Configuración</a></a><a class="dropdown-item"
+              href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Cerrar sesión</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+    <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
+    data-scroll-to-active="true">
+    </div>
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+      <div class="content-overlay"></div>
+      <div class="header-navbar-shadow"></div>
+      <div class="content-wrapper container-xxl p-0">
+        <div class="content-header row">
+          <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+              <div class="col-12">
+                <h2 class="content-header-title float-start mb-0">Editar Envío</h2>
+                <div class="breadcrumb-wrapper">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a a th:href="@{/envio/envio}">Ver envios</a>
+                    <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+            <div class="mb-1 breadcrumb-right">
+              
+            </div>
+          </div>
+        </div>
+        <div class="content-body"><!-- Basic Horizontal form layout section start -->
+
+
+
+
+<!-- Basic multiple Column Form section start -->
+<section id="multiple-column-form">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Envío</h4>
+        </div>
+        <div class="card-body">
+          <form class="form" th:action="@{/envio/UpdateEn}" th:object="${envio}" method="post">
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="first-name-column">Fecha envío</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    placeholder="Ingrese la fecha del envío"
+                    name="fname-column"
+                    id="fechaEnvio" th:field="*{fechaEnvio}"
+                    required 
+                  />
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaEnvio')}" th:errors="*{fechaEnvio}"></div>
+                </div>
+                </div>
+
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="first-name-column">Hora envío</label>
+                  <input
+                    type="time"
+       
+                    class="form-control"
+                    placeholder="Ingrese la hora del envío"
+                    name="fname-column"
+                    id="horaEnvio" th:field="*{horaEnvio}"
+                    required
+                  />
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('horaEnvio')}" th:errors="*{horaEnvio}"></div>
+                </div>
+              </div>
+              <div class="col-md-15 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="last-name-column">Estado:</label>
+                  <input
+                    type="checkbox"
+
+                    class="form-check-input"
+                    id="estadoEnvio" th:field="*{estadoEnvio}" 
+                    
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="city-column">Costo envío</label>
+                  <input type="number" id="costoTotalEnvio" th:field="*{costoTotalEnvio}" placeholder="Ingrese el costo del envío" class="form-control" name="city-column" required  />
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('costoTotalEnvio')}" th:errors="*{costoTotalEnvio}"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="last-name-column">Asociar método de pago </label>
+                  <select class="select2 form-select" th:field="*{fkpago}" id="fkpago" required>
+                      <option th:each="fkpago:${fkpago}" th:text="${fkpago.metodoPago}" th:value="${fkpago.idPago}"></option>
                     </select>
+                </div>
+              </div>
 
-                <label>
-                    <h4>Asociar usuario</h4>
-                </label>
-                    <select class="controls" th:field="*{fkusuario}" id="fkusuario" required>
-                        <option th:each="fkusuario:${fkusuario}" th:text="${fkusuario.Actor}" th:value="${fkusuario.idUsuario}"></option>            
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="last-name-column">Asociar usuario</label>
+                  <select class="select2 form-select" th:field="*{fkusuario}" id="fkusuario" required>
+                      <option th:each="fkusuario:${fkusuario}" th:text="${fkusuario.Actor}" th:value="${fkusuario.idUsuario}"></option>
                     </select>
+                </div>
+              </div>
 
-                
-                <label>
-                    <h4>Asociar guia</h4>
-                </label>
-                    <select class="controls" th:field="*{guia}" id="guia" required disabled >
-                        <option th:each="guia:${guia}" th:text="${guia.remitente}" th:value="${guia.idGuia}"></option>            
-                    </select>
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="last-name-column">Asociar guia</label>
+                  <select class="select2 form-select" th:field="*{guia}" id="guia" required disabled>
+                      <option th:each="guia:${guia}" th:text="${guia.remitente}" th:value="${guia.idGuia}"></option>
+                  </select>
                     <div class="form-text text-danger" th:if="${#fields.hasErrors('guia')}" th:errors="*{guia}">Error método de pago</div>
                     <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
-
-                
-
-                <button type="submit" class="botons bg bg-info text-center" hr> Registrar Envío</button>
-
-
-            </section>
-        </form>
+                </div>
+              </div>
+              
+              <div class="col-lg-12">
+                <button type="submit" class="btn btn-info">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+<!-- Basic Floating Label Form section end -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->
+
+
+
+    </div>
+    
+
+
+    </div>
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light">
+      <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
+    </footer>
+
+    <!-- END: Footer-->
     <script th:src="@{/js/main-alerts.js}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
+    <div class="scripts" th:include="views/header::script"></div>
+  </body>
+  <!-- END: Body-->
 </html>

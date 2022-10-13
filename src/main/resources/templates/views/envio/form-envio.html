@@ -75,6 +75,7 @@
                 <h2 class="content-header-title float-start mb-0">Formulario Envío</h2>
                 <div class="breadcrumb-wrapper">
                   <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a a th:href="@{/envio/envio}">Ver envios</a>
                     <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a>
                     </li>
                   </ol>
@@ -115,6 +116,7 @@
                     id="fechaEnvio" th:field="*{fechaEnvio}"
                     required 
                   />
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaEnvio')}" th:errors="*{fechaEnvio}"></div>
                 </div>
                 </div>
 
@@ -141,7 +143,7 @@
 
                     class="form-check-input"
                     id="estadoEnvio" th:field="*{estadoEnvio}" 
-                    required 
+                    
                   />
                 </div>
               </div>
@@ -215,7 +217,7 @@
     </footer>
 
     <!-- END: Footer-->
-
+   
     <div class="scripts" th:include="views/header::script"></div>
   </body>
   <!-- END: Body-->

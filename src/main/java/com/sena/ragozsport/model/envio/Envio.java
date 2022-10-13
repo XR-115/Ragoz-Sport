@@ -1,9 +1,5 @@
 package com.sena.ragozsport.model.envio;
 
-import java.sql.Date;
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,8 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Pattern;
 
 import com.sena.ragozsport.model.guia.guia;
 import com.sena.ragozsport.model.pago.Pago;
@@ -30,15 +28,17 @@ import com.sena.ragozsport.model.usuario.Usuario;
 
 //*--------------------------------ATRIBUTOS DE LAS TABLAS--------------------------------*//
 public class Envio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEnvio;
 
     @NotNull
     @Column(name="fechaEnvio")
-    private Date fechaEnvio;
+    private String fechaEnvio;
 
     @NotNull
+    @Pattern(regexp = "([01]?[0-9]|2[0-3]):[0-5][0-9]")
     @Column(name="horaEnvio")
     private String horaEnvio;
 
@@ -46,9 +46,11 @@ public class Envio {
     private boolean estadoEnvio;
 
 
-
+    @NotNull
+    @Min(45000)
+    @Max(99999999)
     @Column(name="costoTotalEnvio",length = 10)
-    private double costoTotalEnvio;
+    private Integer costoTotalEnvio;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Pago fkpago;
@@ -70,8 +72,11 @@ public class Envio {
        
     }
 
-    public Envio(Integer idEnvio, Date fechaEnvio, String horaEnvio, boolean estadoEnvio, double costoTotalEnvio,
-            Pago fkpago, Usuario fkusuario, com.sena.ragozsport.model.guia.guia guia) {
+   
+public Envio(Integer idEnvio, @NotNull String fechaEnvio,
+            @NotNull @Pattern(regexp = "([01]?[0-9]|2[0-3]):[0-5][0-9]") String horaEnvio, boolean estadoEnvio,
+            @NotNull Integer costoTotalEnvio, Pago fkpago, Usuario fkusuario,
+            com.sena.ragozsport.model.guia.guia guia) {
         this.idEnvio = idEnvio;
         this.fechaEnvio = fechaEnvio;
         this.horaEnvio = horaEnvio;
@@ -81,7 +86,9 @@ public class Envio {
         this.fkusuario = fkusuario;
         this.guia = guia;
     }
-//*-------------------------------MÉTODOS ACCESORES GETTERS Y SETTERS--------------------------------*//   
+
+
+    //*-------------------------------MÉTODOS ACCESORES GETTERS Y SETTERS--------------------------------*//   
     public Integer getIdEnvio() {
         return idEnvio;
     }
@@ -90,11 +97,11 @@ public class Envio {
         this.idEnvio = idEnvio;
     }
 
-    public Date getFechaEnvio() {
+    public String getFechaEnvio() {
         return fechaEnvio;
     }
 
-    public void setFechaEnvio(Date fechaEnvio) {
+    public void setFechaEnvio(String fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
 
@@ -114,11 +121,11 @@ public class Envio {
         this.estadoEnvio = estadoEnvio;
     }
 
-    public double getCostoTotalEnvio() {
+    public Integer getCostoTotalEnvio() {
         return costoTotalEnvio;
     }
 
-    public void setCostoTotalEnvio(double costoTotalEnvio) {
+    public void setCostoTotalEnvio(Integer costoTotalEnvio) {
         this.costoTotalEnvio = costoTotalEnvio;
     }
 

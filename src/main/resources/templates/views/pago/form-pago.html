@@ -5,7 +5,7 @@
     <title>Formulario Pago</title>
     <th:block th:include="views/header::head"></th:block>
   </head>
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+  <body th:attr="onload=(${accion})" class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <nav
     class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
@@ -145,8 +145,13 @@
 
     <!-- END: Footer-->
 
-
+    <script th:src="@{/js/main-alerts.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="scripts" th:include="views/header::script"></div>
+    
+   
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   </body>
   <!-- END: Body-->
 </html>
