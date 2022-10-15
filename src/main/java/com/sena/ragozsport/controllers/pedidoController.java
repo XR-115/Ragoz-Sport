@@ -49,7 +49,7 @@ public class pedidoController {
         Pedido pedido = new Pedido(); //Para instanciar un objeto de la clase 
         m.addAttribute("fkproducto", iProducto.findAll());
         m.addAttribute("fkguia", iGuia.findAll());
-        m.addAttribute("pedido",pedido);
+        m.addAttribute("pedido", pedido);
         m.addAttribute("accion","Agregar Pedido");
         //Aca se retorna a la vista
         return "views/pedido/form-pedido";
@@ -59,7 +59,7 @@ public class pedidoController {
 @PostMapping("/add")
     public String add(@Valid Pedido pedido,BindingResult resultado,Model m, SessionStatus status){
         if(resultado.hasErrors()){
-            return "views/pedido/formularioPedido";
+            return "views/pedido/form-pedido";
         }
         
         interfazPed.save(pedido);

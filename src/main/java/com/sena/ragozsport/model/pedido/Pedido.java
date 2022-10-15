@@ -1,15 +1,10 @@
 package com.sena.ragozsport.model.pedido;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import java.util.List;
+
+import javax.persistence.*;
+
 import javax.validation.constraints.NotNull;
 
 import com.sena.ragozsport.model.producto.Producto;
@@ -32,10 +27,15 @@ public class Pedido {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Producto fkproducto;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     private guia fkguia;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "pedido_producto",
+        joinColumns = @JoinColumn(name = "id_pedido"),
+        inverseJoinColumns = @JoinColumn(name = "id_producto")
+    )
+    private List<Producto> producto;
     
 
 
@@ -44,13 +44,14 @@ public class Pedido {
 
     }   
 
-    public Pedido(Integer idPedido, @NotNull Integer cantidadTotalPed,
-            Producto fkproducto, guia fkguia) {
+    public Pedido(Integer idPedido, @NotNull Integer cantidadTotalPed, guia fkguia, List<Producto> producto) {
         this.idPedido = idPedido;
         this.cantidadTotalPed = cantidadTotalPed;
-        this.fkproducto = fkproducto;
         this.fkguia = fkguia;
+        this.producto = producto;
     }
+
+    
 
 
     //-- METODOS GET Y SET --// 
@@ -71,14 +72,6 @@ public class Pedido {
         this.cantidadTotalPed = cantidadTotalPed;
     }
 
-    public Producto getFkproducto() {
-        return fkproducto;
-    }
-
-    public void setFkproducto(Producto fkproducto) {
-        this.fkproducto = fkproducto;
-    }
-
     public guia getFkguia() {
         return fkguia;
     }
@@ -86,6 +79,12 @@ public class Pedido {
     public void setFkguia(guia fkguia) {
         this.fkguia = fkguia;
     }
-    
 
+    public List<Producto> getProducto() {
+        return producto;
+    }
+
+    public void setProducto(List<Producto> producto) {
+        this.producto = producto;
+    }
 }

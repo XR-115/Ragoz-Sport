@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<!--
-Template Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://1.envato.market/vuexy_admin
-Renew Support: https://1.envato.market/vuexy_admin
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
-
--->
 <html class="loading" lang="en" data-textdirection="ltr">
-  <!-- BEGIN: Head-->
-  <head>
-    <th:block th:include="views/header::head"> </th:block>
+<!-- BEGIN: Head-->
 
-  </head>
-  <!-- END: Head-->
+<head>
+  <title>Formulario pedido</title>
+  <th:block th:include="views/header::head"> </th:block>
 
-  <!-- BEGIN: Body-->
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+</head>
+<!-- END: Head-->
 
-    <!-- BEGIN: Header-->
-    <nav
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
+  data-menu="vertical-menu-modern" data-col="">
+
+  <!-- BEGIN: Header-->
+  <nav
     class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
     <div class="navbar-container d-flex content">
       <div class="bookmark-wrapper d-flex align-items-center">
@@ -64,170 +56,133 @@ License: You must have a valid license purchased only from themeforest(the above
       </ul>
     </div>
   </nav>
-    <!-- END: Header-->
+  <!-- END: Header-->
 
 
-    <!-- BEGIN: Main Menu-->
-    <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
+  <!-- BEGIN: Main Menu-->
+  <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
     data-scroll-to-active="true">
-    </div>
-    <!-- END: Main Menu-->
-
-    <!-- BEGIN: Content-->
-    <div class="app-content content ">
-      <div class="content-overlay"></div>
-      <div class="header-navbar-shadow"></div>
-      <div class="content-wrapper container-xxl p-0">
-        <div class="content-header row">
-          <div class="content-header-left col-md-9 col-12 mb-2">
-            <div class="row breadcrumbs-top">
-              <div class="col-12">
-                <h2 class="content-header-title float-start mb-0">Pedido</h2>
-                <div class="breadcrumb-wrapper">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a th:href="@{/dash}">Home</a>
-                    </li>
-                    <li class="breadcrumb-item active">Pedido
-                    </li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-           
-          </div>
-        </div>
-        <div class="content-body"><!-- Bootstrap Select start -->
-<section class="bootstrap-select">
-  <div class="row">
-
-
   </div>
-</section>
-<!-- Bootstrap Select end -->
+  <!-- END: Main Menu-->
 
-<!-- Select2 Start  -->
- <section class="basic-select2">
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Pedido</h4>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <!-- Basic -->
-            <div class="col-md-6 mb-1">
-              <label class="form-label" for="select2-basic">Categoria del Producto</label>
-              <select class="select2 form-select" id="select2-basic">
-                <option value="AK">Categoria de su producto</option>
-                <option value="HI">Hawaii</option>
-                <option value="CA">California</option>
-                <option value="NV">Nevada</option>
-                <option value="OR">Oregon</option>
-                <option value="WA">Washington</option>
-              </select>
-            </div>
-
-            <!-- Nested -->
-            <div class="col-md-6 mb-1">
-              <label class="form-label" for="select2-nested">Numero de guia </label>
-              <select class="select2 form-select" id="select2-nested">
-                <optgroup label="Alaskan/Hawaiian Time Zone">
-                  <option value="AK">Numero de su guia</option>
-                  <option value="HI">Hawaii</option>
-                </optgroup>
-                <optgroup label="Pacific Time Zone">
-                  <option value="CA">California</option>
-                  <option value="NV">Nevada</option>
-                 
-                </optgroup>
-                <optgroup label="Mountain Time Zone">
-                  <option value="AZ">Arizona</option>
-                  <option value="CO">Colorado</option>
-                  <option value="ID">Idaho</option>
-                  
-                </optgroup>
-                <optgroup label="Central Time Zone">
-                  <option value="AL">Alabama</option>
-                  <option value="AR">Arkansas</option>
-             
-                </optgroup>
-                <optgroup label="Eastern Time Zone">
-                  <option value="CT">Connecticut</option>
-                  <option value="DE">Delaware</option>
-                 
-                </optgroup>
-              </select>
-            </div>
-
-            <!-- Multiple -->
-            <div class="col-md-6 mb-1">
-              <label class="form-label" for="select2-multiple">Referencia del producto</label>
-              <select class="select2 form-select" id="select2-multiple" multiple>
-                <optgroup label="Alaskan/Hawaiian Time Zone">
-                  <option value="AK">Alaska</option>
-                  <option value="HI">Hawaii</option>
-                </optgroup>
-                <optgroup label="Pacific Time Zone">
-                  <option value="CA">California</option>
-                  <option value="NV">Nevada</option>
-                  <option value="OR">Oregon</option>
-                  <option value="WA">Washington</option>
-                </optgroup>
-                <optgroup label="Mountain Time Zone">
-                  <option value="AZ">Arizona</option>
-                  <option value="CO" selected>Colorado</option>
-                  <option value="ID">Idaho</option>
-                  <option value="MT">Montana</option>
-                  <option value="NE">Nebraska</option>
-                  <option value="NM">New Mexico</option>
-                  <option value="ND">North Dakota</option>
-                  <option value="UT">Utah</option>
-                  <option value="WY">Wyoming</option>
-                </optgroup>
-        
-              </select>
-            </div> 
-
-            <!-- Remote Data -->
-            <div class="col-md-6 mb-1">
-              <label class="form-label" for="select2-ajax">Cantidad de Pares</label>
-              <div class="mb-1">
-                
-                  <input type="number" class="form-control" id="cantidadTotalPed" placeholder="Total de pares a enviar" min="2" required>
-              
+  <!-- BEGIN: Content-->
+  <div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+      <div class="content-header row">
+        <div class="content-header-left col-md-9 col-12 mb-2">
+          <div class="row breadcrumbs-top">
+            <div class="col-12">
+              <h2 class="content-header-title float-start mb-0">Pedido</h2>
+              <div class="breadcrumb-wrapper">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a th:href="@{/dash}">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active">Pedido
+                  </li>
+                </ol>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
 
-            <!-- Limit Selected Options -->
-
-
-            <!-- Modal Demo -->
-            <div class="col-md-6">
-              <!-- Basic trigger modal -->
-              <div class="basic-modal">
-                <button
-                  type="button"
-                  class="btn btn-info"
-                >
-                 Enviar
-                </button>
-</section>
-
-    <div class="sidenav-overlay"></div>
-    <div class="drag-target"></div>
-
-    <!-- BEGIN: Footer-->
-    <footer class="footer footer-static footer-light">
-      <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
-    </footer>
-    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
-    <!-- END: Footer-->
+        </div>
+      </div>
+      <div class="content-body">
+        <!-- Bootstrap Select start -->
+        <section class="bootstrap-select">
+          <div class="row">
 
 
-    <div class="scripts" th:include="views/header::script"></div>
-  </body>
-  <!-- END: Body-->
+          </div>
+        </section>
+      </div>
+      <!-- Bootstrap Select end -->
+
+      <!-- Select2 Start  -->
+      <section class="basic-select2">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Pedido</h4>
+              </div>
+              <div class="card-body">
+                <form th:action="@{/pedido/add}" method="post" th:object="${pedido}">
+                <div class="row">
+
+                  <!-- Nested -->
+                  <div class="col-md-6 mb-1">
+                    <label class="form-label" for="select2-nested">Número de guía </label>
+                    <select th:field="*{fkguia}" class="select2 form-select"  id="fkguia" required>
+                      <option th:each="fkguia:${fkguia}" th:text="${fkguia.idGuia}" th:value="${fkguia.idGuia}">
+                      </option>
+                    </select>
+                  </div>
+
+                  <!-- Multiple -->
+                  <div class="col-md-6 mb-1">
+                    <label class="form-label" for="select2-multiple">Referencia del producto</label>
+                    <select th:field="*{producto}" multiple="multiple" class="select2 form-select"  id="fkproducto" required>
+                      <option th:each="fkproducto:${fkproducto}" th:text="${fkproducto.referenciaProd}"
+                        th:value="${fkproducto.idProducto}"></option>
+                    </select>
+                  </div>
+
+                  <!-- Remote Data -->
+                  <div class="col-md-6 mb-1">
+                    <label class="form-label" for="select2-ajax">Cantidad de Pares</label>
+                    <div class="mb-1">
+
+                      <input type="number" class="form-control" id="cantidadTotalPed" th:field="*{cantidadTotalPed}"
+                        placeholder="Total de pares a enviar" min="2" required />
+
+                    </div>
+                  </div>
+
+                  <!-- Limit Selected Options -->
+
+
+                  <!-- Modal Demo -->
+                  <div class="col-md-6">
+                    <!-- Basic trigger modal -->
+                    <div class="basic-modal">
+                      <button type="submit" class="btn btn-info">
+                        Enviar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="sidenav-overlay"></div>
+      <div class="drag-target"></div>
+
+      <!-- BEGIN: Footer-->
+      <footer class="footer footer-static footer-light">
+        <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
+              class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span
+              class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
+      </footer>
+      <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+      <!-- END: Footer-->
+
+
+      <script th:src="@{/js/main-alerts.js}"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <div class="scripts" th:include="views/header::script"></div>
+
+
+
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</body>
+<!-- END: Body-->
+
 </html>
