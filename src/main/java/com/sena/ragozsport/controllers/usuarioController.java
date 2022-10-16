@@ -72,11 +72,13 @@ public class usuarioController {
         if (idUsuario > 0) {
             usuario = interfazUsu.findOne(idUsuario);
         } else {
-            return "redirect:usuario";
+            return("views/usuario/form-usuario");
         }
         m.addAttribute("usuario", usuario);
         m.addAttribute("accionusu", "editarUsuario()");
         m.addAttribute("accion", "Actualizar Producto");
+
+        
         return "views/usuario/form-usuario";
     }
 
