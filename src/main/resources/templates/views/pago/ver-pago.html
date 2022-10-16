@@ -76,54 +76,52 @@
 
           <!-- list and filter start -->
           <div class="card">
-            <div class="card-body border-bottom">
-              <div class="col-12">
-                <h2 class="content-header-title float-start mb-0">Métodos de pago registrados</h2>
-                <div class="breadcrumb-wrapper">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a></li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-            <div class="card-datatable table-responsive pt-3">
-              <table id="example" class="table table-striped display responsive nowrap" style="width:100%">
-                <thead class="bg bg-info ">
-                  <tr>
-                    <th>ID</th>
-                    <th>MÉTODO DE PAGO</th>
-                    <th>ACCIONES</th>
-                  </tr>
-                </thead>
-                <tbody class="bg bg-white">
-                  <tr th:if="${pago.size>0}" th:each="p:${pago}">
-                    <td class="text-dark" th:text="${p.idPago}"></td>
-                    
-                    <td class="text-dark" th:text="${p.metodoPago}"></td>
-
-                    <td>
-                      <a rol="button" class="btn btn-info text-dark " th:href="@{/pago/editarP/}+${p.idPago}">
-                        <i class="fa-solid fa-pen"></i>
-                      </a>
-                      <a rol="button" class="btn btn-danger" th:onclick="|borrarPago('${p.idPago}')|">
-                        <i class="fa-solid fa-eraser"></i>
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tr>
-                  <td>
-                    <a type="button" class="btn btn-info" th:href="@{pagoAgregar}">
-                      <i class="bi bi-plus-circle"></i>Agregar pago
+            <div class="container"> 
+              <div class="row">
+                  <div class="col">
+                      <table id="example" class="table table-striped display responsive nowrap" >
+                          <thead class="bg bg-info">
+                              <tr>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>MÉTODO DE PAGO</th>
+                                    <th>ACCIONES</th>
+                                </tr>
+                              </tr>
+                          </thead>
+                          <tbody class="bg bg-white text-light">
+                           
+                            <tr th:if="${pago.size>0}" th:each="p:${pago}">
+                                <td class="text-dark" th:text="${p.idPago}"></td>
+            
+                                <td class="text-dark" th:text="${p.metodoPago}"></td>
+            
+                                <td> 
+                                    <a rol="button" class="btn btn-info text-light " th:href="@{/pago/editarP/}+${p.idPago}">
+                                    <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    <a rol="button" class="btn btn-danger" th:onclick="|borrarPago('${p.idPago}')|">                            
+                                        <i class="fa-solid fa-eraser"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                          </tbody>
+                        
+                      </table>
+                      
+                      <div class="card">
+                        <div class="col">
+                      <a type="button" class="btn btn-info" th:href="@{pagoAgregar}">  
+                        <i class="bi bi-plus-circle"></i>Agregar Pago
                     </a>
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
+                  </div>
+                  </div>
+                  </div>
+              </div>
           </div>
+       
+        
+        </div>
         </div>
       </div>
     </div>
