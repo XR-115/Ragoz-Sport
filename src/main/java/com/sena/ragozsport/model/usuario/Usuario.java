@@ -48,6 +48,10 @@ public class Usuario {
     @Column(name="numeroDocumento")
     private String numeroDocumento;
 
+    @NotBlank
+    @Column(name="tipident ")
+    private String tipident ;
+
     @NotEmpty
     @Column(name="Password")
     private String Password;
@@ -68,14 +72,15 @@ public Usuario() {
 
 
 public Usuario(Integer idUsuario, String actor, @NotEmpty String nombreUsuario, @NotBlank String apellidoUsuario,
-        @NotNull Double numerodeTelefono, @NotNull String numeroDocumento, @NotEmpty String password,
-        @Email @NotBlank String correo, List<Envio> envioi) {
+        @NotNull Double numerodeTelefono, @NotNull String numeroDocumento, @NotBlank String tipident,
+        @NotEmpty String password, @Email @NotBlank String correo, List<Envio> envioi) {
     this.idUsuario = idUsuario;
     Actor = actor;
     this.nombreUsuario = nombreUsuario;
     ApellidoUsuario = apellidoUsuario;
     NumerodeTelefono = numerodeTelefono;
     this.numeroDocumento = numeroDocumento;
+    this.tipident = tipident;
     Password = password;
     this.correo = correo;
     this.envioi = envioi;
@@ -155,6 +160,18 @@ public void setNumeroDocumento(String numeroDocumento) {
 
 
 
+public String getTipident() {
+    return tipident;
+}
+
+
+
+public void setTipident(String tipident) {
+    this.tipident = tipident;
+}
+
+
+
 public String getPassword() {
     return Password;
 }
@@ -188,7 +205,6 @@ public List<Envio> getEnvioi() {
 public void setEnvioi(List<Envio> envioi) {
     this.envioi = envioi;
 }
-
 
 
 

@@ -77,7 +77,7 @@ public class usuarioController {
         m.addAttribute("usuario", usuario);
         m.addAttribute("accionusu", "editarUsuario()");
         m.addAttribute("accion", "Actualizar Producto");
-        return "views/usuario/usuario";
+        return "views/usuario/form-usuario";
     }
 
     // ------------------------- ELIMINAR -------------//

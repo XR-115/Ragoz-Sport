@@ -27,7 +27,7 @@ License: You must have a valid license purchased only from themeforest(the above
   <!-- END: Head-->
 
   <!-- BEGIN: Body-->
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+  <body th:attr="onload=(${accionusu})" class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <!-- BEGIN: Header-->
     <nav
@@ -120,15 +120,17 @@ License: You must have a valid license purchased only from themeforest(the above
           <h4 class="card-title">Usuario</h4>
         </div>
         <div class="card-body">
-          <form class="form">
+          <form class="form" th:action="@{/usuario/addu}" th:object="${usuario}" method="post">
             <div class="row">
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Rol</label>
+                  <input type="hidden" class="controls"  id="idEnvio" th:field="*{idUsuario}" valid/>
                   <input
                     type="text"
                     id="first-name-column"
                     class="form-control"
+                    th:field="*{Actor}"
                     placeholder="Rol"
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
@@ -144,6 +146,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     id="first-name-column"
                     class="form-control"
                     placeholder="Nombre"
+                    th:field="*{nombreUsuario}"
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
                   />
@@ -156,6 +159,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     type="text"
                     id="last-name-column"
                     class="form-control"
+                    th:field="*{ApellidoUsuario}"
                     placeholder="Apellido"
                     name="lname-column"
                     required pattern="[a-z A-Z]{2,15}"
@@ -165,16 +169,17 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="city-column">Contraseña</label>
-                  <input type="password" id="city-column" class="form-control" placeholder="Contraseña" name="city-column" required  />
+                  <input type="password" id="city-column" class="form-control" placeholder="Contraseña" th:field="*{Password}" name="city-column" required  />
                 </div>
               </div>
 
-              <div class="col-md-6 col-12">
+               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="last-name-column">Tipo de documento </label>
-                  <select class="select2 form-select" id="select2-nested" required>
-                      <option value="AK">cc</option>
-                      <option value="HI">t.i</option>
+                  <select class="select2 form-select" id="select2-nested" th:field="*{tipident}" required>
+                    <option value="AK">Escoge tu </option>
+                    <option value="cc">cc</option>
+                      <option value="Ti">Ti</option>
                     </select>
                 </div>
               </div>
@@ -186,6 +191,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     type="number"
                     id="company-column"
                     class="form-control"
+                    th:field="*{NumeroDocumento}"
                     name="company-column"
                     placeholder="Documento"
                     required  pattern="[a-z A-Z]{2,15}"
@@ -199,12 +205,19 @@ License: You must have a valid license purchased only from themeforest(the above
                     type="email"
                     id="email-id-column"
                     class="form-control"
+                    th:field="*{correo}"
                     name="email-id-column"
                     placeholder="Correo"
                     required pattern=".+@gmail\.com" size="30"
                   />
                 </div>
               </div>
+
+              <div class="form-text text-danger" th:if="${#fields.hasErrors('NumeroDocumento')}" th:errors="*{NumeroDocumento}">Error método de pago</div>
+                    <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+
+                    <div class="form-text text-danger" th:if="${Error}" th:text="${Error}"></div>
+
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="email-id-column">Numero Celular</label>
@@ -213,13 +226,14 @@ License: You must have a valid license purchased only from themeforest(the above
                     id="email-id-column"
                     class="form-control"
                     name="email-id-column"
+                    th:field="*{NumerodeTelefono}"
                     placeholder="Numero"
                     required 
                   />
                 </div>
               </div>
               <div class="col-lg-12">
-                <button type="submit" class="btn btn-info">Enviar</button>
+                <button type="submit" class="btn btn-info" th:onclick="|editarusu()|" hr>Enviar</button>
               </div>
             </div>
           </form>
@@ -247,12 +261,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN: Footer-->
     <footer class="footer footer-static footer-light">
-      <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
+      <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Ragoz</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
     </footer>
 
     <!-- END: Footer-->
 
-
+    <script th:src="@{/js/main-alerts.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <div class="scripts" th:include="views/header::script"></div>
   </body>
   <!-- END: Body-->

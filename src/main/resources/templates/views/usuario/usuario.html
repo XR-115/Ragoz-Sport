@@ -78,7 +78,7 @@
     <div class="container"> 
       <div class="row">
           <div class="col">
-              <table id="example" class="table table-striped display responsive nowrap" style="width:100%">
+              <table id="example" class="table table-striped display responsive nowrap" >
                   <thead class="bg bg-info">
                       <tr>
                           <th>ID</th>
@@ -86,6 +86,7 @@
                           <th>nombre Usuario</th>
                           <th>Apellido Usuario</th>
                           <th>Telefono</th>
+                          <th>Tipo de documento</th>
                           <th>Numero documento</th>
                           <th>correo</th>
                           <th>ACCIONES</th>
@@ -95,19 +96,20 @@
                    
                       <tr th:if="${usuario.size>0}" th:each="u:${usuario}">
 
-                          <td class="text-light" th:text="${u.idUsuario}"></td>
-                          <td  class="text-light"th:text="${u.Actor}"></td>
-                          <td  class="text-light" th:text="${u.nombreUsuario}"></td>
-                          <td class="text-light" th:text="${u.ApellidoUsuario}"></td>
-                           <td  class="text-light" th:text="${u.NumerodeTelefono}"></td> 
-                          <td  class="text-light" th:text="${u.NumeroDocumento}"></td>
-                          <td class="text-light" th:text="${u.correo}"></td>
+                          <td class="text-dark" th:text="${u.idUsuario}"></td>
+                          <td  class="text-dark"th:text="${u.Actor}"></td>
+                          <td  class="text-dark" th:text="${u.nombreUsuario}"></td>
+                          <td class="text-dark" th:text="${u.ApellidoUsuario}"></td>
+                           <td  class="text-dark" th:text="${u.NumerodeTelefono}"></td> 
+                           <td  class="text-dark" th:text="${u.tipident}"></td>
+                          <td  class="text-dark" th:text="${u.NumeroDocumento}"></td>
+                          <td class="text-dark" th:text="${u.correo}"></td>
                       
                           <td> 
-                              <!-- <a rol="button" class="btn btn-info" th:href="@{/usuario/editarusu/}+${u.idUsuario}">
+                              <a rol="button" class="btn btn-info" th:href="@{/usuario/editarusu/}+${u.idUsuario}">
                                   <i class="fa-solid fa-pen"></i>
                                   </a>
-                               -->
+                               
                               <!-- <a rol="button" class="btn btn-danger" th:onclick="|eliminar('${u.idUsuario}')|">                            
                                   <i class="fa-solid fa-eraser"></i>
                               </a> -->
@@ -131,71 +133,7 @@
         </div>
       </div>
     </div>
-    <!-- END: Content-->
-
-
-    <!-- BEGIN: Customizer-->
-    <div class="customizer d-none d-md-block"><a class="customizer-toggle d-flex align-items-center justify-content-center" th:href="@{#}"><i class="spinner" data-feather="settings"></i></a><div class="customizer-content">
-  <!-- Customizer header -->
-  <div class="customizer-header px-2 pt-1 pb-0 position-relative">
-    <h4 class="mb-0">Escoge tu color </h4>
-    <p class="m-0">Customiza el color de tu agrado</p>
-
-    <a class="customizer-close" th:href="@{#}"><i data-feather="x"></i></a>
-  </div>
-
-  <hr />
-
-  <!-- Styling & Text Direction -->
-  <div class="customizer-styling-direction px-2">
-    <p class="fw-bold">Skin</p>
-    <div class="d-flex">
-      <div class="form-check me-1">
-        <input
-          type="radio"
-          id="skinlight"
-          name="skinradio"
-          class="form-check-input layout-name"
-          checked
-          data-layout=""
-        />
-        <label class="form-check-label" for="skinlight">Light</label>
-      </div>
-      <div class="form-check me-1">
-        <input
-          type="radio"
-          id="skinbordered"
-          name="skinradio"
-          class="form-check-input layout-name"
-          data-layout="bordered-layout"
-        />
-        <label class="form-check-label" for="skinbordered">Bordered</label>
-      </div>
-      <div class="form-check me-1">
-        <input
-          type="radio"
-          id="skindark"
-          name="skinradio"
-          class="form-check-input layout-name"
-          data-layout="dark-layout"
-        />
-        <label class="form-check-label" for="skindark">Dark</label>
-      </div>
-      <div class="form-check">
-        <input
-          type="radio"
-          id="skinsemidark"
-          name="skinradio"
-          class="form-check-input layout-name"
-          data-layout="semi-dark-layout"
-        />
-        <label class="form-check-label" for="skinsemidark">Semi Dark</label>
-      </div>
-    </div>
-  </div>
-
-
-  
+    <!-- END: Content--> 
 
     <!-- BEGIN: Footer-->
      <footer class="footer footer-static footer-light">
@@ -204,7 +142,9 @@
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button> 
     <!-- END: Footer-->
 
-
+    <script th:src="@{/js/main-alerts.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <div class="scripts" th:include="views/header::script"></div>
   </body>
   <!-- END: Body-->
