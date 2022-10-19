@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html  xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
-  <!-- BEGIN: Head-->
-  <head>
-    <th:block th:include="views/header::head"> </th:block>
-  </head>
-  <!-- END: Head-->
+<html xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
 
-  <!-- BEGIN: Body-->
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+<head>
+  <th:block th:include="views/header::head"> </th:block>
+</head>
+<!-- END: Head-->
 
-    <!-- BEGIN: Header-->
-    <nav
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
+  data-menu="vertical-menu-modern" data-col="">
+
+  <!-- BEGIN: Header-->
+  <nav
     class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
     <div class="navbar-container d-flex content">
       <div class="bookmark-wrapper d-flex align-items-center">
@@ -51,97 +54,153 @@
       </ul>
     </div>
   </nav>
-   
-  
-    <!-- END: Header-->
 
 
-   <!-- MENÚ DASHBOARD INCLUDE-->
+  <!-- END: Header-->
+
+
+  <!-- MENÚ DASHBOARD INCLUDE-->
   <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
-  data-scroll-to-active="true">
+    data-scroll-to-active="true">
   </div>
-    <!-- BEGIN: Content-->
-    <div class="app-content content ">
-      <div class="content-overlay"></div>
-      <div class="header-navbar-shadow"></div>
-      <div class="content-wrapper container-xxl p-0">
-        <div class="content-header row">
-        </div>
-        <div class="content-body"><!-- users list start -->
-<section class="app-user-list">
-  <div class="row">
-  
-    </div>
-  </div>
-  <!-- list and filter start -->
-  <div class="card">
-    <div class="container"> 
-      <div class="row">
-          <div class="col">
-              <table id="example" class="table table-striped display responsive nowrap" >
-                  <thead class="bg bg-info">
-                      <tr>
-                        <th>Id</th>
-                        <th>Número de la guía</th>
-                        <th>Referencias del producto</th>
-                        <th>Cantidad total de Pares</th>
-                        <th>ACCIONES</th>
-                      </tr>
-                  </thead>
-                  <tbody class="bg bg-white text-light">
-                   
-                      <tr th:if="${pedido.size>0}" th:each="pe:${pedido}">
+  <!-- BEGIN: Content-->
+  <div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+      <div class="content-header row">
+      </div>
+      <div class="content-body">
+        <!-- users list start -->
+        <section class="app-user-list">
+          <div class="row">
 
-                          <td class="text-dark" th:text="${pe.idPedido}"></td>
-                          <td  class="text-dark"th:text="${pe.fkguia}"></td>
-                          <td  class="text-dark" th:text="${pe.producto}"></td>
-                          <td class="text-dark" th:text="${pe.cantidadTotalPed}"></td>
-                      
-                          <td> 
-                              <a rol="button" class="btn btn-info" th:href="@{/pedido/editar/}+${pe.idPedido}">
-                                  <i class="fa-solid fa-pen"></i>
-                                  </a>
-                               
-                              <!-- <a rol="button" class="btn btn-danger" th:onclick="|eliminar('${u.idUsuario}')|">                            
+          </div>
+      </div>
+      <!-- list and filter start -->
+      <div class="card">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <table id="example" class="table table-striped display responsive nowrap">
+                <thead class="bg bg-info">
+                  <tr>
+                    <th>Id</th>
+                    <th>Número de la guía</th>
+                    <th>Cantidad total de Pares</th>
+                    <th>Referencias del producto</th>
+                    <th>ACCIONES</th>
+                  </tr>
+                </thead>
+                <tbody class="bg bg-white text-light">
+
+                  <tr th:if="${pedido.size>0}" th:each="pe:${pedido}">
+
+                    <td class="text-dark" th:text="${pe.idPedido}"></td>
+                    <td class="text-dark" th:text="${pe.fkguia.idGuia}"></td>
+                    <td class="text-dark" th:text="${pe.cantidadTotalPed}"></td>
+                    <!-- <td  class="text-dark" th:text="${pe.fkproducto.referenciaProd}"></td> -->
+                    <td>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+
+                    </td>
+
+                    <td>
+                      <a rol="button" class="btn btn-info" th:href="@{/pedido/editar/}+${pe.idPedido}">
+                        <i class="fa-solid fa-pen"></i>
+                      </a>
+
+                      <!-- <a rol="button" class="btn btn-danger" th:onclick="|eliminar('${u.idUsuario}')|">                            
                                   <i class="fa-solid fa-eraser"></i>
                               </a>            th:href="@{/producto/eliminar/} + ${pr.idProducto}-->
-                       
-                          </td>
-                      </tr>
-                  </tbody>
-                
+
+                    </td>
+                  </tr>
+                </tbody>
+
               </table>
-              
+
               <div class="card">
                 <div class="col">
-              <a type="button" class="btn btn-info" th:href="@{abrirForm}">  
-                <i class="bi bi-plus-circle"></i>Agregrar Pedido
-            </a>
-          </div>
-          </div>
-          </div>
-      </div>
-  </div>
-  <!-- list and filter end -->
-</section>
-<!-- users list ends -->
+                  <a type="button" class="btn btn-info" th:href="@{abrirForm}">
+                    <i class="bi bi-plus-circle"></i>Agregrar Pedido
+                  </a>
+                </div>
+              </div>
 
+              <!-- Modal -->
+              <div class="modal fade modal-dialog modal-dialog-centered" id="exampleModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                      <button type="button" data-bs-dismiss="modal"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                    <div class="modal-body">
+                      <table id="example" class="table table-striped display responsive nowrap">
+                        <thead class="bg bg-info">
+                          <tr>
+                            <th>Id</th>
+                            <th>Referencias prodcto</th>
+                            <th>ACCIONES</th>
+                          </tr>
+                        </thead>
+                        <tbody class="bg bg-white text-light">
+        
+                          <tr th:if="${pedido.size>0}" th:each="pe:${pedido}">
+                            <td class="text-dark" th:text="${pe.cantidadTotalPed}"></td>
+                            <td class="text-dark" th:text="${pe.cantidadTotalPed}"></td>
+                            <!-- <td  class="text-dark" th:text="${pe.fkproducto.referenciaProd}"></td> -->
+                            <td>
+                              <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                <i class="fa-solid fa-eraser"></i>
+                              </button>
+        
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
         </div>
+        <!-- list and filter end -->
+        </section>
+        <!-- users list ends -->
+
       </div>
     </div>
-    <!-- END: Content--> 
+  </div>
+  <!-- END: Content-->
 
-    <!-- BEGIN: Footer-->
-     <footer class="footer footer-static footer-light">
-      <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" th:href="@{https://1.envato.market/pixinvent_portfolio}" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span> </p>
-    </footer>
-    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button> 
-    <!-- END: Footer-->
+  <!-- BEGIN: Footer-->
+  <footer class="footer footer-static footer-light">
+    <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
+          class="ms-25" th:href="@{https://1.envato.market/pixinvent_portfolio}" target="_blank">Pixinvent</a><span
+          class="d-none d-sm-inline-block">, All rights Reserved</span></span> </p>
+  </footer>
+  <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+  <!-- END: Footer-->
 
-    <script th:src="@{/js/main-alerts.js}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <div class="scripts" th:include="views/header::script"></div>
-  </body>
-  <!-- END: Body-->
+  <script th:src="@{/js/main-alerts.js}"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+  <div class="scripts" th:include="views/header::script"></div>
+
+</body>
+<!-- END: Body-->
+
 </html>
