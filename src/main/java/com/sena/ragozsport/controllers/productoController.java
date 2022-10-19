@@ -52,16 +52,15 @@ public class productoController {
     @PostMapping("/add")
     public String add(@Valid @ModelAttribute("Producto") Producto producto,BindingResult resultado,Model m, SessionStatus status){
         if(resultado.hasErrors()){
-            return "views/producto/formularioProducto";
+            return "views/producto/form-producto";
         }
-        
         
         try {
             interfazPro.createProducto(producto);
         } 
         catch (Exception e) {
             m.addAttribute("ErrorReferencia",e.getMessage());
-            return "views/producto/formularioProducto";
+            return "views/producto/form-producto";
         }
 
         // interfazPro.save(producto);
@@ -82,7 +81,7 @@ public class productoController {
         m.addAttribute("Producto",producto);
         m.addAttribute("accionPro","editarProducto()");
         m.addAttribute("accion","Actualizar Producto");
-        return "views/producto/formularioProducto";
+        return "views/producto/form-producto";
     }
     
     //------------------------- ELIMINAR -------------//

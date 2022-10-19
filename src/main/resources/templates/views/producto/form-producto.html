@@ -2,7 +2,7 @@
 <html class="loading" lang="en" data-textdirection="ltr">
   <!-- BEGIN: Head-->
   <head>
-    <title>Formulario producto</title>
+    <title>Formulario Producto</title>
     <th:block th:include="views/header::head"></th:block>
 
   </head>
@@ -101,64 +101,81 @@
           <h4 class="card-title">Producto</h4>
         </div>
         <div class="card-body">
-          <form class="form">
+          <form class="form" th:action="@{/producto/add}" th:object="${Producto}" method="post">
             <div class="row">
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Tipo de Calzado</label>
+                  <input type="hidden" class="controls" id="idProducto" th:field="*{idProducto}">
                   <input
                     type="text"
                     id="first-name-column"
                     class="form-control"
+                    th:field="*{tipoCalzadoPro}"
                     placeholder="Deportivo"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required="obligatorio"
+                    minlength="9" maxlength="9"
                   />
                 </div>
                 </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Categoria del producto</label>
+                  <label class="form-label" for="first-name-column">Categoría del producto</label>
                   <input
                     type="text"
                     id="first-name-column"
                     class="form-control"
                     placeholder="Dama"
+                    th:field="*{categoriaProd}"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required="obligatorio"
+                    minlength="4" maxlength="9"
                   />
                 </div>
               </div>
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="last-name-column">Referencia del producto</label>
+                  <label class="form-label" for="last-name-column">Referencia del Producto</label>
                   <input
                     type="text"
                     id="last-name-column"
                     class="form-control"
                     placeholder="Referencia"
+                    th:field="*{referenciaProd}"
                     name="lname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required="obligatorio"
+                    minlength="4" maxlength="6" 
                   />
                 </div>
               </div>
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="city-column">Numeración del Producto</label>
-                  <input type="text" id="city-column" class="form-control" placeholder="24-42" name="city-column" required  />
+                  <label class="form-label" for="last-name-column">Numeración del Producto</label>
+                  <input
+                    type="text"
+                    id="last-name-column"
+                    class="form-control"
+                    placeholder="24-42"
+                    th:field="*{numeracionProd}"
+                    name="lname-column"
+                    required="obligatorio"
+                    maxlength="5" 
+                  />
                 </div>
               </div> 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="company-column">Cantidad Total de Pares</label>
+                  <label class="form-label" for="last-name-column">Cantidad total de Pares</label>
                   <input
                     type="number"
-                    id="company-column"
+                    id="last-name-column"
                     class="form-control"
-                    name="company-column"
-                    placeholder="Total Pares"
-                    required  pattern="[a-z A-Z]{2,15}"
+                    placeholder="Total de Pares"
+                    th:field="*{totalProd}"
+                    name="lname-column"
+                    required="obligatorio"
                   />
                 </div>
               </div>

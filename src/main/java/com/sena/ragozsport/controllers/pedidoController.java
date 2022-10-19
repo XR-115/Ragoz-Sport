@@ -81,7 +81,7 @@ public class pedidoController {
         m.addAttribute("pedido",pedido);
         m.addAttribute("accionPedido","editarPedido()");
         m.addAttribute("accion","Actualizar Pedido");
-        return "views/pedido/formularioPedido";
+        return "views/pedido/form-pedido";
     }
     
 //------------------------- ELIMINAR -------------//

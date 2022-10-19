@@ -132,16 +132,22 @@
                   </div>
 
                   <!-- Remote Data -->
-                  <div class="col-md-6 mb-1">
-                    <label class="form-label" for="select2-ajax">Cantidad de Pares</label>
+
+                  <div class="col-md-6 col-12">
                     <div class="mb-1">
-
-                      <input type="number" class="form-control" id="cantidadTotalPed" th:field="*{cantidadTotalPed}"
-                        placeholder="Total de pares a enviar" min="2" required />
-
+                      <label class="form-label" for="first-name-column">Cantidad de Pares</label>
+                      <input
+                        type="number"
+                        id="first-name-column"
+                        class="form-control"
+                        placeholder="Total de pares a enviar"
+                        th:field="*{cantidadTotalPed}"
+                        name="fname-column"
+                        required="obligatorio"
+                        minlength="2"
+                      />
                     </div>
                   </div>
-
                   <!-- Limit Selected Options -->
 
 
