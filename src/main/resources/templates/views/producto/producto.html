@@ -95,7 +95,7 @@
                       <tr th:if="${Producto.size>0}" th:each="pr:${Producto}">
 
                           <td class="text-dark" th:text="${pr.idProducto}"></td>
-                          <td  class="text-dark"th:text=${pr.tipoCalzadoPro}></td>
+                          <td  class="text-dark"th:text="${pr.tipoCalzadoPro}"></td>
                           <td  class="text-dark" th:text="${pr.categoriaProd}"></td>
                           <td class="text-dark" th:text="${pr.referenciaProd}"></td>
                            <td  class="text-dark" th:text="${pr.numeracionProd}"></td> 
