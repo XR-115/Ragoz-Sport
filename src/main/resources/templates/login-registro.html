@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html class="loading" lang="en" data-textdirection="ltr">
+  <!-- BEGIN: Head-->
+  <head>
+    <title>Registrar</title>
+    <th:block th:include="views/header::head"> </th:block>
+  </head>
+  <!-- END: Head-->
+
+  <!-- BEGIN: Body-->
+  <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+      <div class="content-overlay"></div>
+      <div class="header-navbar-shadow"></div>
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+          <div class="auth-wrapper auth-cover">
+            <div class="auth-inner row m-0">
+              <!-- Brand logo--><a class="brand-logo" href="index.html">
+                <svg viewBox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
+                </svg>
+                <img 
+                th:src="@{/app-assets/images/logo/logo-envioz.png}" alt="avatar" height="50"
+                > 
+                <h2 class="brand-text text-primary ms-1"></h2></a>
+              <!-- /Brand logo-->
+              <!-- Left Text-->
+              <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
+                <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" th:src="@{/app-assets/images/pages/register-v2-dark.svg}" alt="Register V2"/></div>
+              </div>
+              <!-- /Left Text-->
+              <!-- Register-->
+              <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
+                  <h1 class="card-title fw-bold mb-1">Registrarte</h1>
+                  <p class="card-text mb-2">Es rapido y facil</p>
+                  <form  class="auth-register-form mt-2" action="index.html" >
+                      <div class="mb-1">
+                        <label class="form-label" for="first-name-column">Rol</label>
+                        <input
+                          type="text"
+                          id="first-name-column"
+                          class="form-control"
+                          placeholder="Rol"
+                          name="fname-column"
+                          required pattern="[a-z A-Z]{2,15}"
+                        />
+                      </div>
+                    <div class="mb-1">
+                      <label class="form-label" for="register-username">Nombre</label>
+                      <input class="form-control" id="register-username" type="text" name="register-username" placeholder="Ingresa tuu nombre" aria-describedby="register-username" autofocus="" tabindex="1"/>
+                    </div>
+                    <div class="mb-1">
+                      <label class="form-label" for="register-username">Apellido</label>
+                      <input class="form-control" id="register-username" type="text" name="register-username" placeholder="Ingresa tu apellido" aria-describedby="register-username" autofocus="" tabindex="1"/>
+                    </div>
+                    <div class="mb-1">
+                      <label class="form-label" for="last-name-column">Tipo de documento </label>
+                      <select class="select2 form-select" id="select2-nested" required>
+                          <option value="AK">cc</option>
+                          <option value="HI">t.i</option>
+                        </select>
+                    </div>
+                      <div class="mb-1">
+                        <label class="form-label" for="company-column">Numero de documento</label>
+                        <input
+                          type="number"
+                          id="company-column"
+                          class="form-control"
+                          name="company-column"
+                          placeholder="Documento"
+                          required  pattern="[a-z A-Z]{2,15}"
+                        />
+                      </div>
+                    <div class="mb-1">
+                      <label class="form-label" for="email-id-column">Numero Celular</label>
+                  <input type="number"id="email-id-column" class="form-control" name="email-id-column" placeholder="Numero" required 
+                  />
+                    </div>
+                    <div class="mb-1">
+                      <label class="form-label" for="register-email">Email</label>
+                      <input class="form-control" id="register-email" type="text" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
+                    </div>
+                    <div class="mb-1">
+                      <label class="form-label" for="register-password">Password</label>
+                      <div class="input-group input-group-merge form-password-toggle">
+                        <input class="form-control form-control-merge" id="register-password" type="password" name="register-password" placeholder="············" aria-describedby="register-password" tabindex="3"/><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                      </div>
+                    </div>
+                    <style>
+                      #o{
+                        background:#025c98;
+                        color: white;
+                      }
+                      #b{
+                        color: #025c98;
+                      }
+                    </style>
+                    <button class="btn btn- w-100" id="o" tabindex="5">Registrar</button>
+                  </form>
+                  <p class="text-center mt-2"><span>¿Ya tienes una cuenta?</span><a th:href="@{/login}" id="b"><span>&nbsp;Iniciar sesión en su lugar
+                  </span></a></p>
+                </div>
+              </div>
+              <!-- /Register-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->
+
+
+
+  </body>
+  <!-- END: Body-->
+</html>

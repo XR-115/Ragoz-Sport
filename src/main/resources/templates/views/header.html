@@ -7,7 +7,7 @@
         content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="Ragoz">
     
-
+    <link rel="icon" th:href="@{/img/icon-envioz.png}">
     <!-- FONTAWESOME LINK -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- LOGO -->
@@ -73,7 +73,7 @@
       <link rel="stylesheet" type="text/css" th:href="@{/app-assets/css/themes/dark-layout.min.css}">
       <link rel="stylesheet" type="text/css" th:href="@{/app-assets/css/themes/bordered-layout.min.css}">
       <link rel="stylesheet" type="text/css" th:href="@{/app-assets/css/themes/semi-dark-layout.min.css}">
-  
+      <link rel="stylesheet" type="text/css" th:href="@{/app-assets/css/pages/authentication.css}">
       <!-- BEGIN: Page CSS-->
       <link rel="stylesheet" type="text/css" th:href="@{/app-assets/css/core/menu/menu-types/vertical-menu.min.css}">
       <!-- END: Page CSS-->
@@ -150,6 +150,10 @@
   <!-- BEGIN: Page JS-->
   <!-- END: Page JS-->
 
-
-
+  <!--- Login --->
+  <script th:src="@{/app-assets/vendors/js/forms/validation/jquery.validate.min.js}"></script>
+  <script th:src="@{/app-assets/js/scripts/pages/auth-login.js}"></script>
+  <script th:src="@{/app-assets/js/scripts/pages/auth-register.min.js}"></script>
+  <script th:src="@{/app-assets/js/scripts/pages/auth-forgot-password.min.js}"></script>
+ 
 </div>

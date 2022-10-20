@@ -22,5 +22,15 @@ public class indexController {
     public String login(){
         return "login";
     }
+
+    @GetMapping("/loginre")
+    public String loginre(){
+        return "login-registro";
+    }
+
+    @GetMapping("/loginpa")
+    public String loginpa(){
+        return "login-password";
+    }
     
 }
