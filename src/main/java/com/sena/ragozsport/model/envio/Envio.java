@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.sena.ragozsport.model.guia.guia;
-import com.sena.ragozsport.model.pago.Pago;
 import com.sena.ragozsport.model.usuario.Usuario;
 
 
@@ -52,19 +51,20 @@ public class Envio {
     @Column(name="costoTotalEnvio",length = 10)
     private Integer costoTotalEnvio;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Pago fkpago;
-   
+    @Column(name="metodoPago")
+    private String metodoPago;
+
+
+   //----------------- RELACIÓN CON USUARIO -----------------//
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario fkusuario;
 
-    
+    //----------------- RELACIÓN CON GUIA -----------------//
     @OneToOne
     @JoinColumn(name = "FK_GUIA", updatable = false, nullable = false)
     private guia guia;
 
-   /* @OneToOne(mappedBy="FKguia")
-    private guia FKguia;*/
+
 
 
 //*--------------------------------CONSTRUCTORES--------------------------------*//    
@@ -72,23 +72,21 @@ public class Envio {
        
     }
 
-   
-public Envio(Integer idEnvio, @NotNull String fechaEnvio,
+    public Envio(Integer idEnvio, @NotNull String fechaEnvio,
             @NotNull @Pattern(regexp = "([01]?[0-9]|2[0-3]):[0-5][0-9]") String horaEnvio, boolean estadoEnvio,
-            @NotNull Integer costoTotalEnvio, Pago fkpago, Usuario fkusuario,
+            @NotNull @Min(45000) @Max(99999999) Integer costoTotalEnvio, String metodoPago, Usuario fkusuario,
             com.sena.ragozsport.model.guia.guia guia) {
         this.idEnvio = idEnvio;
         this.fechaEnvio = fechaEnvio;
         this.horaEnvio = horaEnvio;
         this.estadoEnvio = estadoEnvio;
         this.costoTotalEnvio = costoTotalEnvio;
-        this.fkpago = fkpago;
+        this.metodoPago = metodoPago;
         this.fkusuario = fkusuario;
         this.guia = guia;
     }
-
-
     //*-------------------------------MÉTODOS ACCESORES GETTERS Y SETTERS--------------------------------*//   
+
     public Integer getIdEnvio() {
         return idEnvio;
     }
@@ -113,7 +111,7 @@ public Envio(Integer idEnvio, @NotNull String fechaEnvio,
         this.horaEnvio = horaEnvio;
     }
 
-    public boolean getEstadoEnvio() {
+    public boolean isEstadoEnvio() {
         return estadoEnvio;
     }
 
@@ -129,12 +127,12 @@ public Envio(Integer idEnvio, @NotNull String fechaEnvio,
         this.costoTotalEnvio = costoTotalEnvio;
     }
 
-    public Pago getFkpago() {
-        return fkpago;
+    public String getMetodoPago() {
+        return metodoPago;
     }
 
-    public void setFkpago(Pago fkpago) {
-        this.fkpago = fkpago;
+    public void setMetodoPago(String metodoPago) {
+        this.metodoPago = metodoPago;
     }
 
     public Usuario getFkusuario() {
@@ -152,8 +150,10 @@ public Envio(Integer idEnvio, @NotNull String fechaEnvio,
     public void setGuia(guia guia) {
         this.guia = guia;
     }
+    
 
-    //*--------------------------------MÉTODOS ACCESORES--------------------------------*//
+    
+}
    
         
 
@@ -166,4 +166,3 @@ public Envio(Integer idEnvio, @NotNull String fechaEnvio,
     
 
     
-}

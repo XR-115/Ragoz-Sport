@@ -16,7 +16,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.sena.ragozsport.model.envio.Envio;
 import com.sena.ragozsport.model.service.envio.EnvioServiceImpl;
 import com.sena.ragozsport.model.service.guia.GuiaServiceImpl;
-import com.sena.ragozsport.model.service.pago.PagoServiceImpl;
 import com.sena.ragozsport.model.service.usuario.UsuarioServiceImpl;
 
 
@@ -30,8 +29,7 @@ public class envioController {
 
     @Autowired
     private EnvioServiceImpl enviD;
-    @Autowired
-    private PagoServiceImpl pagD;
+
     @Autowired
     private UsuarioServiceImpl usuD;
     @Autowired
@@ -51,7 +49,6 @@ public class envioController {
     public String addEn(Model m) {
         Envio envio=new Envio();
 
-        m.addAttribute("fkpago", pagD.findAll());
         m.addAttribute("fkusuario", usuD.findAll());
         m.addAttribute("guia", guiD.findAll());
         m.addAttribute("envio", envio);
@@ -107,7 +104,6 @@ public class envioController {
             return "redirect:envio";
         }
         m.addAttribute("accion","editarEnvio()");
-        m.addAttribute("fkpago", pagD.findAll());
         m.addAttribute("fkusuario", usuD.findAll());
         m.addAttribute("guia", guiD.findAll());
         m.addAttribute("envio",envio);
