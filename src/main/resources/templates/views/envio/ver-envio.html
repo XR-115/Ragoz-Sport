@@ -92,21 +92,22 @@
               </div>
             </div>
             <div class="card-datatable table-responsive pt-3">
-              <table id="example" class="table table-striped display responsive nowrap" style="width:100%">
-                <thead class="bg bg-info ">
+              <table id="example" class="table table-striped display responsive nowrap">
+                <thead class="bg bg-info">
                   <tr>
+                    <tr>
                     <th>ID</th>
                     <th>FECHA</th>
                     <th>HORA</th>
                     <th>ESTADO</th>
                     <th>COSTO</th>
-                    <th>MÉTODO PAGO</th>
                     <th>USUARIO</th>
                     <th>GUÍA</th>
                     <th>ACCIONES</th>
+                    </tr>
                   </tr>
                 </thead>
-                <tbody class="bg bg-white">
+                <tbody class="bg bg-white text-light">
                   <tr th:if="${envio.size>0}" th:each="e:${envio}">
                     <td class="text-dark" th:text="${e.idEnvio}"></td>
                     <td class="text-dark" th:text="${e.fechaEnvio}"></td>
@@ -116,7 +117,6 @@
                       <span class="badge bg-danger active" th:if="${e.estadoEnvio==false}">Inactivo</span>                                           
                     </td>
                     <td class="text-dark" th:text="${e.costoTotalEnvio}"></td>
-                    <td class="text-dark" th:text="${e.fkpago.metodoPago}"></td>
                     <td class="text-dark" th:text="${e.fkusuario.Actor}"></td>
                     <td class="text-dark" th:text="${e.guia.destinatario}"></td>
                     <td>
@@ -126,7 +126,7 @@
                     </td>
                   </tr>
                 </tbody>
-
+              </table>
                 <tr>
                   <td>
                     <a type="button" class="btn btn-info" th:href="@{addEn}">
@@ -134,7 +134,7 @@
                     </a>
                   </td>
                 </tr>
-              </table>
+             
             </div>
 
           </div>

@@ -4,54 +4,58 @@
       <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                   <li class="nav-item me-auto">
-
                         <a class="navbar-brand" th:href="@{../vertical-menu-template/index.html}">
                               <img th:src="@{/img/icon-envioz.png}" alt="avatar" height="40" width="40">
                               <h2 class="brand-text">Envioz</h2>
                         </a>
                   </li>
-                  <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0"
-                              data-bs-toggle="collapse"><i
-                                    class="d-block d-xl-none text-primary toggle-icon font-medium-4"
-                                    data-feather="x"></i><i
-                                    class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary"
-                                    data-feather="disc" data-ticon="disc"></i></a></li>
+                  <li class="nav-item nav-toggle">
+                        <a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse">
+                              <i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i>
+                              <i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary"
+                                    data-feather="disc" data-ticon="disc"></i>
+                        </a>
+                  </li>
             </ul>
       </div>
-      <div class="shadow-bottom"></div>
+
+      <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
       <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                  <li class=" nav-item">
-                        <a class="d-flex align-items-center" href="index"><i
-                                    data-feather="home"></i><span class="menu-title text-truncate"
-                                    data-i18n="Dashboards">Inicio</span></a>
-                        <ul class="menu-content">
-                              <li class="active"><a class="d-flex align-items-center" th:href="@{/dash}"><i
-                                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                                data-i18n="eCommerce">Inicio </span></a>
-                              </li>
-                        </ul>
+                  <li class="menu-content">
+                        <li class="active">
+                              <a class="d-flex align-items-center" th:href="@{/dash}">
+                                    <i data-feather="home"></i>
+                                    <span class="menu-item text-truncate" data-i18n="eCommerce">Inicio</span>
+                              </a>
+                        </li>
                   </li>
-                  <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Módulos</span><i
-                              data-feather="more-horizontal"></i>
+                  <li class=" navigation-header">
+                        <span data-i18n="Apps &amp; Pages">Módulos</span>
+                        <i data-feather="more-horizontal"></i>
                   </li>
-
+      <!------------------ MÓDULO DE USUARIO ------------------>
                   <li class=" nav-item">
                         <a class="d-flex align-items-center">
                               <i data-feather="user"></i>
                               <span class="menu-title text-truncate" data-i18n="User">Usuario</span>
                         </a>
                         <ul class="menu-content">
-                              <li><a class="d-flex align-items-center" th:href="@{/usuario/usuario}"><i
-                                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                                data-i18n="List">Listar</span></a>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/usuario/usuario}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                                    </a>
                               </li>
-                              <li><a class="d-flex align-items-center" th:href="@{/usuario/addu}"><i
-                                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                                data-i18n="List">Formulario</span></a>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/usuario/addu}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                                    </a>
                               </li>
                         </ul>
                   </li>
+                  <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
                   <li class=" nav-item">
                         <a class="d-flex align-items-center" href="">
                               <i data-feather='package'></i>
@@ -64,13 +68,15 @@
                                           <span class="menu-item text-truncate" data-i18n="List">Listar</span>
                                     </a>
                               </li>
-                              <li><a class="d-flex align-items-center" th:href="@{/pedido/abrirForm}"><i
-                                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                                data-i18n="List">Formulario</span></a>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/pedido/abrirForm}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                                    </a>
                               </li>
                         </ul>
                   </li>
-
+                  <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
                   <li class="nav-item">
                         <a class="d-flex align-items-center" href="#">
                               <i data-feather='shopping-bag'></i>
@@ -91,27 +97,9 @@
                               </li>
                         </ul>
                   </li>
-                  <li class=" nav-item">
-                        <a class="d-flex align-items-center" href="#">
-                              <i data-feather='dollar-sign'></i>
-                              <span class="menu-title text-truncate" data-i18n="Pages">Método de pago </span>
-                        </a>
-                        <ul class="menu-content">
-                              <li>
-                                    <a class="d-flex align-items-center" th:href="@{/pago/pago}">
-                                          <i data-feather="circle"></i>
-                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
-                                    </a>
-                              </li>
-                              <li>
-                                    <a class="d-flex align-items-center" th:href="@{/pago/pagoAgregar}">
-                                          <i data-feather="circle"></i>
-                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
-                                    </a>
-                              </li>
-                        </ul>
-                  </li>
-
+                  <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
+                  
+                  <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
                   <li class=" nav-item">
                         <a class="d-flex align-items-center" href="#">
                               <i data-feather='truck'></i>
@@ -132,7 +120,7 @@
                               </li>
                         </ul>
                   </li>
-
+                  <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
                   <li class=" nav-item">
                         <a class="d-flex align-items-center" href="#">
                               <i data-feather="file-text"></i>
