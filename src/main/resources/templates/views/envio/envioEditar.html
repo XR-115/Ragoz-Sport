@@ -147,19 +147,25 @@
                   />
                 </div>
               </div>
+
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="city-column">Costo envío</label>
-                  <input type="number" id="costoTotalEnvio" th:field="*{costoTotalEnvio}" placeholder="Ingrese el costo del envío" class="form-control" name="city-column" required  />
+                  <input type="number" id="costoTotalEnvios" th:field="*{costoTotalEnvio}" placeholder="Ingrese el costo del envío" class="form-control" name="city-column" required  />
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('costoTotalEnvio')}" th:errors="*{costoTotalEnvio}"></div>
                 </div>
               </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="last-name-column">Asociar método de pago </label>
-                  <select class="select2 form-select" th:field="*{fkpago}" id="fkpago" required>
-                      <option th:each="fkpago:${fkpago}" th:text="${fkpago.metodoPago}" th:value="${fkpago.idPago}"></option>
+                  <label class="form-label" for="last-name-column">Método de pago </label>
+                  <select class="select2 form-select" th:field="*{metodoPago}" id="metodoPago" required>
+                      <option value="">Elegir método pago</option>
+                      <option value="1">Efectivo</option>
+                      <option value="2">Nequi</option>
+                      <option value="3">Daviplata</option>
+                      <option value="4">Tarjeta</option>
+                      <option value="5">Otro</option>
                     </select>
                 </div>
               </div>
@@ -179,8 +185,7 @@
                   <select class="select2 form-select" th:field="*{guia}" id="guia" required disabled>
                       <option th:each="guia:${guia}" th:text="${guia.remitente}" th:value="${guia.idGuia}"></option>
                   </select>
-                    <div class="form-text text-danger" th:if="${#fields.hasErrors('guia')}" th:errors="*{guia}">Error método de pago</div>
-                    <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+                
                 </div>
               </div>
               
@@ -217,8 +222,10 @@
     </footer>
 
     <!-- END: Footer-->
+   
     <script th:src="@{/js/main-alerts.js}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script th:src="@{/js/pago.js}"></script>
     <div class="scripts" th:include="views/header::script"></div>
   </body>
   <!-- END: Body-->
