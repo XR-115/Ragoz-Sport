@@ -83,7 +83,7 @@ public class envioController {
     public String UpdateEn(@Valid Envio envio,BindingResult br, Model m, SessionStatus status){
 
         if(br.hasErrors()){
-            return "views/guia";
+            return "views/envio/envioEditar";
         }
        enviD.saveU(envio);
         m.addAttribute("envio", envio);

@@ -46,7 +46,7 @@ public class Envio {
 
 
     @NotNull
-    @Min(45000)
+    @Min(1000)
     @Max(99999999)
     @Column(name="costoTotalEnvio",length = 10)
     private Integer costoTotalEnvio;
