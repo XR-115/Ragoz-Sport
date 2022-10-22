@@ -48,12 +48,12 @@ public class usuarioController {
     public String add(@Valid Usuario usuario, BindingResult resultado, Model m, SessionStatus status) {
         if (resultado.hasErrors()) {
             m.addAttribute("numeroDocumento", usuario);
-
+            return "views/usuario/usuario";
         } else {
             try {
                 interfazUsu.save(usuario);
                 status.setComplete();
-                return "redirect:usuario";
+                
 
             } catch (Exception e) {
                 m.addAttribute("errorMessage", e.getMessage());
@@ -72,7 +72,7 @@ public class usuarioController {
         if (idUsuario > 0) {
             usuario = interfazUsu.findOne(idUsuario);
         } else {
-            return("views/usuario/form-usuario");
+            return "redirect:usuario";
         }
         m.addAttribute("usuario", usuario);
         m.addAttribute("accionusu", "editarUsuario()");
