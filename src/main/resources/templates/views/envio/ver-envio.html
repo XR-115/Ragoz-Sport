@@ -15,33 +15,9 @@
   data-col="">
 
   <!-- BEGIN: Header-->
-  <nav
-    class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
-    <div class="navbar-container d-flex content">
-      <div class="bookmark-wrapper d-flex align-items-center">
-        <ul class="nav navbar-nav d-xl-none">
-          <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a>
-          </li>
-        </ul>
-      </div>
-      <ul class="nav navbar-nav align-items-center ms-auto">
-        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon"
-              data-feather="moon"></i></a></li>
-        <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
-            id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">Johan Garzon</span><span
-                class="user-status">Gerente</span></div><span class="avatar"><img class="round"
-                th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40"><span
-                class="avatar-status-online"></span></span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-       <a class="dropdown-item"
-       th:href="@{/login}"><i class="me-50" data-feather="power"></i> Cerrar sesión</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <nav  th:include="views/Nav::nav"
+  class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
+</nav>
 
   <!-- END: Header-->
 
@@ -166,11 +142,7 @@
 
 
       <!-- BEGIN: Footer-->
-      <footer class="foote footer-light">
-        <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
-              class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span
-              class="d-none d-sm-inline-block">, All rights Reserved</span></span><span
-            class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
+      <footer  th:include="views/Footer::footer" class="footer footer-static footer-light">
       </footer>
       <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button> -->
       <!-- END: Footer-->
