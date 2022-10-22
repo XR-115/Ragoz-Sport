@@ -31,3 +31,21 @@ let metodopago = () => {
 
 costo.addEventListener('blur',metodopago);
 
+//-----------------------------------------CREACIÓN FECHA MÍNIMA----------------------------//
+const fechaInput = document.querySelector('#fechaEnvio');
+function deshabilitarFechaAnterior() {
+    
+    const fecha= new Date()
+    let texto = fecha.toLocaleDateString("sv-SE")
+
+    
+
+    fechaInput.setAttribute('min',texto)
+    console.log(texto);
+}
+fechaInput.addEventListener('click',deshabilitarFechaAnterior);
+
+
+
+
+

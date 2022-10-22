@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <Title>Error 404</Title>
+    <th:block th:include="views/header::head"> </th:block>
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click"
+    data-menu="vertical-menu-modern" data-col="blank-page">
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <!-- Error page-->
+                <div class="misc-wrapper">
+                    <a class="brand-logo p-sm-2 pt-2" th:href="@{/}">
+                        <img th:src="@{/app-assets/images/logo/logo-envioz.png}" alt="avatar" height="100" width="500">
+                    </a>
+                    <div class="misc-inner p-2 p-sm-3">
+                        <div class="w-100 text-center">
+                            <h2 class="mb-1">No hemos encontrado tu página 🕵🏻‍♀️</h2>
+                            <p class="mb-2">Oops! 😖 El requerimiento no se encuentra disponible.</p>
+                            <a class="btn btn-info mb-2 btn-sm-block" th:href="@{/}">Volver</a>
+                            <img class="img-fluid" th:src="@{/app-assets/images/pages/error.svg}" alt="Error page" />
+                        </div>
+                    </div>
+                </div>
+                <!-- / Error page-->
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="scripts" th:include="views/header::script"></div>
+</body>
+<!-- END: Body-->
+
+</html>

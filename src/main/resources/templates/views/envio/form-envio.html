@@ -116,6 +116,7 @@
                     name="fname-column"
                     id="fechaEnvio" th:field="*{fechaEnvio}"
                     required 
+                    min="" max="2030-01-01"
                   />
                   <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaEnvio')}" th:errors="*{fechaEnvio}"></div>
                 </div>
