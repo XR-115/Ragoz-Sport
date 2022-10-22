@@ -47,21 +47,18 @@ public class usuarioController {
     @PostMapping("/addu")
     public String add(@Valid Usuario usuario, BindingResult resultado, Model m, SessionStatus status) {
         if (resultado.hasErrors()) {
-            m.addAttribute("numeroDocumento", usuario);
-            return "views/usuario/usuario";
-        } else {
+            return "views/usuario/form-usuario";
+        } 
             try {
                 interfazUsu.save(usuario);
-                status.setComplete();
-                
-
             } catch (Exception e) {
                 m.addAttribute("errorMessage", e.getMessage());
                 m.addAttribute("numeroDocumento", usuario);
-                return "views/usuario/usuario";
+                return "views/usuario/form-usuario";
             }
 
-        }
+    
+        status.setComplete();
         return "redirect:usuario";
     }
 
@@ -77,8 +74,6 @@ public class usuarioController {
         m.addAttribute("usuario", usuario);
         m.addAttribute("accionusu", "editarUsuario()");
         m.addAttribute("accion", "Actualizar Producto");
-
-        
         return "views/usuario/form-usuario";
     }
 
