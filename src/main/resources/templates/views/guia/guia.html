@@ -138,32 +138,59 @@ License: You must have a valid license purchased only from themeforest(the above
   </div>
   <!-- list and filter start -->
   <div class="card">
-    <div class="card-body border-bottom">
-      <h4 class="card-title">Busqueda</h4>
+    <div class="container"> 
       <div class="row">
-        <div class="col-md-4 user_role"></div>
-        <div class="col-md-4 user_plan"></div>
-        <div class="col-md-4 user_status"></div>
+          <div class="col">
+              <table id="example" class="table table-striped display responsive nowrap" >
+                  <thead class="bg bg-info">
+                    <tr>
+                      <th>ID</th>
+                      <th>Teléfono</th>
+                      <th>Dirección</th>
+                      <th>Fecha</th>
+                      <th>N° Cajas</th>
+                      <th>Valor Mercancía</th>
+                      <th>Remitente</th>
+                      <th>Destinatario</th>
+                      <th>C. Origen</th>
+                      <th>C. Destino</th>
+                      <th>Acciones</th>
+                     </tr>
+                  </thead>
+                  <tbody class="bg bg-white text-light">
+                    <tr th:if="${guia.size>0}" th:each="g:${guia}">
+                      <td class="text-dark" th:text="${g.idGuia}"></td>
+                          <td  class="text-dark"th:text="${g.telGuia}"></td>
+                          <td  class="text-dark" th:text="${g.direcGuia}"></td>
+                          <td class="text-dark" th:text="${g.fechaGuia}"></td>
+                          <td  class="text-dark" th:text="${g.numCajasGuia}"></td>
+                          <td  class="text-dark" th:text="${g.valorMercancia}"></td>
+                          <td  class="text-dark" th:text="${g.remitente}"></td>
+                          <td  class="text-dark" th:text="${g.destinatario}"></td>
+                          <td  class="text-dark" th:text="${g.ciudadOrigen}"></td>
+                          <td  class="text-dark" th:text="${g.ciudadDestino}"></td>
+                          <td> 
+                              <a rol="button" class="btn btn-info" th:href="@{/guia/editarG/}+${g.idGuia}">
+                              <i class="fa-solid fa-pen" ></i>
+                              </a>
+      
+                      
+                          </td>
+                      </tr>
+                  </tbody>
+                
+              </table>
+              
+              <div class="card">
+                <div class="col">
+                  <a type="button" class="btn btn-info" th:href="@{/guia/registrar}">  
+                    <i class="bi bi-plus-circle"></i>Crear guía
+                </a>
+          </div>
+          </div>
+          </div>
       </div>
-    </div>
-    <div class="card-datatable table-responsive pt-3">
-      <table class="user-list-table table">
-        <thead class="table-light">
-          <tr>
-            <th></th>
-            <th>Ciudad Origen</th>
-            <th>Ciudad Destino</th>
-            <th>Destinatario</th>
-            <th>Remitente</th>
-            <th>Dirreccion</th>
-            <th>Fecha</th>
-            <th>Numero de cajas</th>
-            <th>Telefono</th>
-            <th>Valor Mercancia</th>
-          </tr>
-        </thead>
-      </table>
-    </div>
+  </div>
     <!-- Modal to add new user starts-->
     <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
       <div class="modal-dialog">

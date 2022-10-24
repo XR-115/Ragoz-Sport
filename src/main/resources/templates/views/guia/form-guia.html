@@ -11,7 +11,7 @@ Renew Support: https://1.envato.market/vuexy_admin
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 
 -->
-<html class="loading" lang="en" data-textdirection="ltr">
+<html xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
   <!-- BEGIN: Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -119,12 +119,12 @@ License: You must have a valid license purchased only from themeforest(the above
           <h4 class="card-title">Guia</h4>
         </div>
         <div class="card-body">
-          <form class="form">
+          <form class="form" th:action="@{/guia/addG}" th:object="${guia}" method="post">
             <div class="row">
-
                 <div class="col-md-6 col-12">
                     <div class="mb-1">
                       <label class="form-label" for="company-column">Teléfono</label>
+                      <input type="hidden" class="controls"  id="idGuia" th:field="*{idGuia}" >
                       <input
                         type="number"
                         id="company-column"
@@ -133,12 +133,14 @@ License: You must have a valid license purchased only from themeforest(the above
                         placeholder="Ingrese el telefono"
                         required  pattern="[a-z A-Z]{2,15}"
                       />
+                      <div  th:if="${#fields.hasErrors('telGuia')}" th:errors="*{telGuia}">
+                      </div>
                     </div>
                   </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Dirreción</label>
+                  <label class="form-label" for="first-name-column">Dirección</label>
                   <input
                     type="text"
                     id="first-name-column"
@@ -147,6 +149,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
                   />
+                </div>
+                <div  th:if="${#fields.hasErrors('direcGuia')}" th:errors="*{direcGuia}">
                 </div>
               </div>
               <div class="col-md-6 col-12">
@@ -160,6 +164,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     name="fname-column"
                     required 
                   />
+                  <div  th:if="${#fields.hasErrors('fechaGuia')}" th:errors="*{fechaGuia}"></div>
                 </div>
                 </div>
               
@@ -173,7 +178,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     name="company-column"
                     placeholder="Ingrese su numero de cajas "
                     required  pattern="[a-z A-Z]{2,15}"
+                   
                   />
+                  <div th:if="${#fields.hasErrors('numCajasGuia')}" th:errors="*{numCajasGuia}"></div>
                 </div>
               </div>
 
@@ -187,7 +194,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     name="company-column"
                     placeholder="Valor"
                     required  pattern="[a-z A-Z]{2,15}"
+                   
                   />
+                  <div  th:if="${#fields.hasErrors('valorMercancia')}" th:errors="*{valorMercancia}"></div>
                 </div>
               </div>
 
@@ -201,7 +210,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     placeholder="Ingrese el Remitente"
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
+                   
                   />
+                  <div  th:if="${#fields.hasErrors('remitente')}" th:errors="*{remitente}"></div>
                 </div>
               </div>
 
@@ -215,7 +226,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     placeholder="Ingrese el Destinatario"
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
+                    
                   />
+                  <div th:if="${#fields.hasErrors('destinatario')}" th:errors="*{destinatario}"></div>
                 </div>
               </div>
 
@@ -229,7 +242,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     placeholder="Ingrese la Ciudad de origen "
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
+                   
                   />
+                  <div th:if="${#fields.hasErrors('ciudadOrigen')}" th:errors="*{ciudadOrigen}"></div>
                 </div>
               </div>
 
@@ -243,7 +258,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     placeholder="Ingrese la ciudad de destino"
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
+                    
                   />
+                  <div th:if="${#fields.hasErrors('ciudadDestino')}" th:errors="*{ciudadDestino}"></div>
                 </div>
               </div>
 
