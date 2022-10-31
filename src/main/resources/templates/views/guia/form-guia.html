@@ -125,7 +125,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="mb-1">
                       <label class="form-label" for="company-column">Teléfono</label>
                       <input type="hidden" class="controls"  id="idGuia" th:field="*{idGuia}" >
-                      <input
+                      <input th:field="*{telGuia}"
                         type="number"
                         id="company-column"
                         class="form-control"
@@ -141,13 +141,13 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Dirección</label>
-                  <input
+                  <input th:field="*{direcGuia}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
                     placeholder="Ingrese la Dirreción"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required 
                   />
                 </div>
                 <div  th:if="${#fields.hasErrors('direcGuia')}" th:errors="*{direcGuia}">
@@ -156,7 +156,7 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Fecha</label>
-                  <input
+                  <input th:field="*{fechaGuia}"
                     type="date"
                     id="first-name-column"
                     class="form-control"
@@ -171,7 +171,7 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="company-column">N° de Cajas</label>
-                  <input
+                  <input th:field="*{numCajasGuia}"
                     type="number"
                     id="company-column"
                     class="form-control"
@@ -187,7 +187,7 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="company-column">Valor Mercancia</label>
-                  <input
+                  <input th:field="*{valorMercancia}"
                     type="number"
                     id="company-column"
                     class="form-control"
@@ -203,7 +203,7 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Remitente</label>
-                  <input
+                  <input th:field="*{remitente}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
@@ -219,7 +219,7 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Destinatario</label>
-                  <input
+                  <input th:field="*{destinatario}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
@@ -235,7 +235,7 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Ciudad Origen</label>
-                  <input
+                  <input th:field="*{ciudadOrigen}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
@@ -251,7 +251,7 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Ciudad de Destino</label>
-                  <input
+                  <input th:field="*{ciudadDestino}"
                     type="text"
                     id="first-name-column"
                     class="form-control"

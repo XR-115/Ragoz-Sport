@@ -1,17 +1,5 @@
 <!DOCTYPE html>
-<!--
-Template Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://1.envato.market/vuexy_admin
-Renew Support: https://1.envato.market/vuexy_admin
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
-
--->
-<html class="loading" lang="en" data-textdirection="ltr">
+<html xlmns:th="https://www.thymeleaf.org">
   <!-- BEGIN: Head-->
   <head>
     <th:block th:include="views/header::head"> </th:block>
@@ -348,6 +336,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END: Footer-->
 
 
+    <script th:src="@{/js/main-alerts.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
    <div class="scripts" th:include="views/header::script"></div>
   </body>
   <!-- END: Body-->
