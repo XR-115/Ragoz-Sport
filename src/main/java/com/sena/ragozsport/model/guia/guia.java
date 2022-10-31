@@ -25,7 +25,7 @@ public class guia {
 
     @NotNull
     @Column (name="telGuia")
-    private Integer telGuia;
+    private Long telGuia;
 
     @NotEmpty
     @Column(name="direcGuia", length=50)
@@ -71,7 +71,7 @@ public class guia {
         
     }
 
-    public guia(Integer idGuia, @NotNull Integer telGuia, @NotEmpty String direcGuia, @NotNull Date fechaGuia,
+    public guia(Integer idGuia, @NotNull Long telGuia, @NotEmpty String direcGuia, @NotNull Date fechaGuia,
     @NotNull Integer numCajasGuia, @NotNull double valorMercancia, @NotEmpty String remitente,
     @NotEmpty String destinatario, @NotEmpty String ciudadOrigen, @NotEmpty String ciudadDestino, Envio envio) {
     this.idGuia = idGuia;
@@ -101,12 +101,12 @@ public class guia {
     }
 
 
-    public Integer getTelGuia() {
+    public Long getTelGuia() {
         return telGuia;
     }
 
 
-    public void setTelGuia(Integer telGuia) {
+    public void setTelGuia(Long telGuia) {
         this.telGuia = telGuia;
     }
 
