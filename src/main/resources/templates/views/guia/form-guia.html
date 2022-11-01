@@ -121,6 +121,7 @@
                     class="form-control"
                     name="company-column"
                     placeholder="Ingrese el número de cajas "
+                    max-length="4"
                     required  pattern="[a-z A-Z]{2,15}"
                    
                   />
@@ -153,6 +154,7 @@
                     class="form-control"
                     placeholder="Ingrese el remitente"
                     name="fname-column"
+                    onkeypress="return sololetras(event)" 
                     required pattern="[a-z A-Z]{2,15}"
                    
                   />
@@ -169,6 +171,7 @@
                     class="form-control"
                     placeholder="Ingrese el destinatario"
                     name="fname-column"
+                    onkeypress="return sololetras(event)"
                     required pattern="[a-z A-Z]{2,15}"
                     
                   />
@@ -185,6 +188,7 @@
                     class="form-control"
                     placeholder="Ingrese la ciudad de origen "
                     name="fname-column"
+                    onkeypress="return sololetras(event)"
                     required pattern="[a-z A-Z]{2,15}"
                    
                   />
@@ -201,6 +205,7 @@
                     class="form-control"
                     placeholder="Ingrese la ciudad de destino"
                     name="fname-column"
+                    onkeypress="return sololetras(event)"
                     required pattern="[a-z A-Z]{2,15}"
                     
                   />
@@ -234,6 +239,7 @@
     </footer>
 
     <!-- END: Footer-->
+    
     <script th:src="@{/js/guia.js}"></script>
     <script th:src="@{/js/main-alerts.js}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
