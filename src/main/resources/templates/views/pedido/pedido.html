@@ -14,9 +14,9 @@
   data-menu="vertical-menu-modern" data-col="">
 
   <!-- BEGIN: Header-->
-  <nav  th:include="views/Nav::nav"
-  class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
-</nav>
+  <nav th:include="views/Nav::nav"
+    class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
+  </nav>
 
 
   <!-- END: Header-->
@@ -61,7 +61,6 @@
 
                     <td class="text-dark" th:text="${pe.idPedido}"></td>
                     <td class="text-dark" th:text="${pe.fkguia.idGuia}"></td>
-
                     <td class="text-dark" th:text="${pe.cantidadTotalPed}"></td>
                     <!-- <td  class="text-dark" th:text="${pe.fkproducto.referenciaProd}"></td> -->
                     <td>
@@ -76,11 +75,6 @@
                       <a rol="button" class="btn btn-info" th:href="@{/pedido/editar/}+${pe.idPedido}">
                         <i class="fa-solid fa-pen"></i>
                       </a>
-
-                      <!-- <a rol="button" class="btn btn-danger" th:onclick="|eliminar('${u.idUsuario}')|">                            
-                                  <i class="fa-solid fa-eraser"></i>
-                              </a>            th:href="@{/producto/eliminar/} + ${pr.idProducto}-->
-
                     </td>
                   </tr>
                 </tbody>
@@ -109,31 +103,20 @@
                         <thead class="bg bg-info">
                           <tr>
                             <th>Id</th>
-                            <th>Tipo de Calzado</th>
-                            <th>Categoria</th>
-                            <th>Referencia</th>
-                            <th>Numeración</th>
-                            <th>Total de Pares Por Referencia </th>
-                            <th>ACCIONES</th>
+                            <th>Número de la guía</th>
                           </tr>
-                      </thead>
+                        </thead>
                         <tbody class="bg bg-white text-light">
+        
                           <tr th:if="${pedido.size>0}" th:each="pe:${pedido}">
-
+                            
                             <td class="text-dark" th:text="${pe.idPedido}"></td>
-                            <td class="text-dark" th:text="${pe.}"></td>
-                            <!-- <td  class="text-dark" th:text="${pe.fkproducto.referenciaProd}"></td> -->
                             <td>
-                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <i class="fa-solid fa-eye"></i>
-                              </button>
-        
+                              <p class="text-dark" th:each="fk:${pe.producto}" th:text="${fk.referenciaProd}"></p>
                             </td>
-        
-                          
                           </tr>
                         </tbody>
+        
                       </table>
                     </div>
                     <div class="modal-footer">
@@ -156,7 +139,7 @@
   <!-- END: Content-->
 
   <!-- BEGIN: Footer-->
-  <footer  th:include="views/Footer::footer" class="footer footer-static footer-light">
+  <footer th:include="views/Footer::footer" class="footer footer-static footer-light">
   </footer>
   <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
   <!-- END: Footer-->
