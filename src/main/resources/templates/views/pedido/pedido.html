@@ -64,10 +64,58 @@
                     <td class="text-dark" th:text="${pe.cantidadTotalPed}"></td>
                     <!-- <td  class="text-dark" th:text="${pe.fkproducto.referenciaProd}"></td> -->
                     <td>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                        th:attr="data-bs-target='#exampleModal'+${pe.idPedido}">
                         <i class="fa-solid fa-eye"></i>
                       </button>
+
+                      <div class="modal fade text-start" tabindex="-1" aria-labelledby="myModalLabel18"
+                        aria-hidden="true" th:id="exampleModal+${pe.idPedido}">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="myModalLabel18">Productos asociados</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <table id="example" class="table table-striped display responsive nowrap">
+                                <thead class="bg bg-info">
+                                  <tr>
+                                    <th>Id</th>
+                                    <th>Total</th>
+                                    <th>Categoria</th>
+                                    <th>Referencia producto</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="bg bg-white text-light">
+                                  <tr th:if="${pedido.size>0}">
+                                    <td class="text-dark" th:text="${pe.idPedido}"></td>
+                                    <td>
+                                      <p class="text-dark" th:each="fk:${pe.producto}" th:text="${fk.totalProd}">
+                                      </p>
+                                    </td>
+                                    <td>
+                                      <p class="text-dark" th:each="fk:${pe.producto}" th:text="${fk.categoriaProd}">
+                                      </p>
+                                    </td>
+                                    <td>
+                                      <p class="text-dark" th:each="fk:${pe.producto}" th:text="${fk.referenciaProd}">
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+
+                              </table>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Accept</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
 
                     </td>
 
@@ -89,42 +137,7 @@
                 </div>
               </div>
 
-              <!-- Modal -->
-              <div class="modal fade modal-dialog modal-dialog-centered" id="exampleModal" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Productos</h1>
-                      <button type="button" data-bs-dismiss="modal"><i class="fa-solid fa-eye"></i></button>
-                    </div>
-                    <div class="modal-body">
-                      <table id="example" class="table table-striped display responsive nowrap">
-                        <thead class="bg bg-info">
-                          <tr>
-                            <th>Id</th>
-                            <th>Número de la guía</th>
-                          </tr>
-                        </thead>
-                        <tbody class="bg bg-white text-light">
-        
-                          <tr th:if="${pedido.size>0}" th:each="pe:${pedido}">
-                            
-                            <td class="text-dark" th:text="${pe.idPedido}"></td>
-                            <td>
-                              <p class="text-dark" th:each="fk:${pe.producto}" th:text="${fk.referenciaProd}"></p>
-                            </td>
-                          </tr>
-                        </tbody>
-        
-                      </table>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
 
             </div>
           </div>
@@ -133,9 +146,14 @@
         </section>
         <!-- users list ends -->
 
+
+        <!-- Modal -->
+
+
       </div>
     </div>
   </div>
+
   <!-- END: Content-->
 
   <!-- BEGIN: Footer-->
