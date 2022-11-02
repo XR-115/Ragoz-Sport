@@ -57,14 +57,20 @@
               data-feather="moon"></i></a></li>
         <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
             id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">Johan Garzon</span><span
-                class="user-status">Gerente</span></div><span class="avatar"><img class="round"
-                th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40"><span
-                class="avatar-status-online"></span></span>
+            <!-- th:if="${session.usuario != null()" th:text="${session.usuario.nombre}" -->
+            <div class="user-nav d-sm-flex d-none">
+              <span th:text="${session.usuario.username}" class="user-name fw-bolder"></span>
+              <span th:text="${session.usuario.actor}" class="user-status"></span>
+            </div>
+            <span class="avatar">
+              <img class="round" th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40">
+              <span class="avatar-status-online"></span>
+            </span>
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-       <a class="dropdown-item"
-       th:href="@{/login}"><i class="me-50" data-feather="power"></i> Cerrar sesión</a>
+            <a sec:authorize="isAuthenticated()" class="dropdown-item" th:href="@{/logout}">
+              <i class="me-50" data-feather="power"></i>
+              Cerrar sesión</a>
           </div>
         </li>
       </ul>
@@ -73,9 +79,10 @@
   <!-- END: Header-->
 
   <!-- MENÚ DASHBOARD INCLUDE-->
-  <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+  <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
+    data-scroll-to-active="true">
   </div>
-  
+
   <!-- END: Main Menu-->
 
   <!-- BEGIN: Content-->
@@ -97,9 +104,11 @@
             <div class="col-xl-12 col-md-8 col-12">
               <div class="card card-statistics">
                 <div class="card-header">
-                  <h4 class="card-title">¡Bienvenido gerente!</h4>
+                  <h4 class="card-title">¡Bienvenido <span th:text="${session.usuario.actor}"></span>!
+                  
+                  </h4>
                   <div class="d-flex align-items-center">
-                    <p class="card-text font-small-2 me-25 mb-0">Johan Garzon</p>
+                    <p class="card-text font-small-2 me-25 mb-0"></p>
                   </div>
                 </div>
                 <div class="card-body statistics-body">
@@ -112,7 +121,7 @@
                           </div>
                         </div>
                         <div class="my-auto">
-                          <h4 class="fw-bolder mb-0">Gerente</h4>
+                          <h4 th:text="${session.usuario.actor}"  class="fw-bolder mb-0"></h4>
 
                         </div>
                       </div>
@@ -257,7 +266,7 @@
 
 
   <!-- BEGIN: Footer-->
-  <footer  th:include="views/Footer::footer" class="footer footer-static footer-light">
+  <footer th:include="views/Footer::footer" class="footer footer-static footer-light">
   </footer>
   <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
   <!-- END: Footer-->

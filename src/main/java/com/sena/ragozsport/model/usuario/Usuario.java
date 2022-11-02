@@ -30,8 +30,8 @@ public class Usuario {
     private Integer idUsuario;
 
    
-    @Column(name="Actor")
-    private String  Actor ;
+    @Column(name="actor")
+    private String actor;
 
     @NotEmpty
     @Column(name="nombreUsuario")
@@ -39,6 +39,9 @@ public class Usuario {
     @NotBlank
     @Column(name="apellidoUsuario ")
     private String ApellidoUsuario;
+
+    @Column(name="username")
+    private String username;
 
     @NotNull
     @Column(name="numerodeTelefono", length = 10)
@@ -72,12 +75,13 @@ public Usuario() {
 
 
 public Usuario(Integer idUsuario, String actor, @NotEmpty String nombreUsuario, @NotBlank String apellidoUsuario,
-        @NotNull Double numerodeTelefono, @NotNull String numeroDocumento, @NotBlank String tipident,
+        String username, @NotNull Double numerodeTelefono, @NotNull String numeroDocumento, @NotBlank String tipident,
         @NotEmpty String password, @Email @NotBlank String correo, List<Envio> envioi) {
     this.idUsuario = idUsuario;
-    Actor = actor;
+    this.actor = actor;
     this.nombreUsuario = nombreUsuario;
     ApellidoUsuario = apellidoUsuario;
+    this.username = username;
     NumerodeTelefono = numerodeTelefono;
     this.numeroDocumento = numeroDocumento;
     this.tipident = tipident;
@@ -101,13 +105,13 @@ public void setIdUsuario(Integer idUsuario) {
 
 
 public String getActor() {
-    return Actor;
+    return actor;
 }
 
 
 
 public void setActor(String actor) {
-    Actor = actor;
+    this.actor = actor;
 }
 
 
@@ -132,6 +136,18 @@ public String getApellidoUsuario() {
 
 public void setApellidoUsuario(String apellidoUsuario) {
     ApellidoUsuario = apellidoUsuario;
+}
+
+
+
+public String getUsername() {
+    return username;
+}
+
+
+
+public void setUsername(String username) {
+    this.username = username;
 }
 
 
@@ -205,6 +221,15 @@ public List<Envio> getEnvioi() {
 public void setEnvioi(List<Envio> envioi) {
     this.envioi = envioi;
 }
+
+
+
+
+
+
+
+
+
 
 
 

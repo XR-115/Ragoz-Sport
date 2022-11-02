@@ -97,6 +97,20 @@
               </div>
               <div class="col-md-6 col-12">
                 <div class="mb-1">
+                  <label class="form-label" for="first-name-column">Nombre de usuario</label>
+                  <input
+                    type="text"
+                    id="first-name-column"
+                    class="form-control"
+                    placeholder="username"
+                    th:field="*{username}"
+                    name="fname-column"
+                    required pattern="[a-z A-Z]{2,15}"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
                   <label class="form-label" for="last-name-column">Apellido</label>
                   <input
                     type="text"
