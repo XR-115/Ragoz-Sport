@@ -50,26 +50,13 @@
                 <label for="">Ciudad de destino</label>
                 <input type="text" class="controls" id="ciudadDestino" th:field="*{ciudadDestino}" placeholder="Ingrese la ciudad de destino" max-length="20" required/>
                 <label>
-
-           
-
-                    <h4>Agregar pedido</h4>
-                </label>
-                    <select class="controls" th:field="*{pedido}" id="pedido" readonly required>
-                        <option th:each="pedido:${pedido}" th:text="${pedido.cantidadTotalPed}" th:value="${pedido.idPedido}" ></option>            
-                    </select>
-
-                <button type="submit" class="botons bg bg-info text-center" hr>Registrar guía</button>
-
-
             </section>
         </form>
     </div>
 
     <script th:src="@{/js/main-alerts.js}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
-    
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <div class="scripts" th:include="views/header::script"></div>
 </body>
 </html>

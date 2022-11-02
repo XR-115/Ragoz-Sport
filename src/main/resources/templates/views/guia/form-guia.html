@@ -1,75 +1,18 @@
 <!DOCTYPE html>
-<!--
-Template Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-Author: PixInvent
-Website: http://www.pixinvent.com/
-Contact: hello@pixinvent.com
-Follow: www.twitter.com/pixinvents
-Like: www.facebook.com/pixinvents
-Purchase: https://1.envato.market/vuexy_admin
-Renew Support: https://1.envato.market/vuexy_admin
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 
--->
 <html xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
   <!-- BEGIN: Head-->
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>Formulario Guia</title>
+    <title>Formulario guía</title>
     <th:block th:include="views/header::head"> </th:block>
-
   </head>
   <!-- END: Head-->
-
   <!-- BEGIN: Body-->
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
-
+  <body th:attr="onload=(${accionGuia})" class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+    
     <!-- BEGIN: Header-->
-    <nav
+    <nav  th:include="views/Nav::nav"
     class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
-    <div class="navbar-container d-flex content">
-      <div class="bookmark-wrapper d-flex align-items-center">
-        <ul class="nav navbar-nav d-xl-none">
-          <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a>
-          </li>
-        </ul>
-      </div>
-      <ul class="nav navbar-nav align-items-center ms-auto">
-        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon"
-              data-feather="moon"></i></a></li>
-        <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon"
-              data-feather="search"></i></a>
-          <div class="search-input">
-            <div class="search-input-icon"><i data-feather="search"></i></div>
-            <input class="form-control input" type="text" placeholder="Explore Envioz..." tabindex="-1"
-              data-search="search">
-            <div class="search-input-close"><i data-feather="x"></i></div>
-            <ul class="search-list search-list-main"></ul>
-
-          </div>
-        </li>
-        <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
-            id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">Johan Garzon</span><span
-                class="user-status">Gerente</span></div><span class="avatar"><img class="round"
-                th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40"><span
-                class="avatar-status-online"></span></span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-            <a class="dropdown-item" href="page-profile.html">
-              <i class="me-50" data-feather="user"></i>Perfil</a>
-            <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i
-                class="me-50" data-feather="settings"></i> Configuración</a></a><a class="dropdown-item"
-              href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Cerrar sesión</a>
-          </div>
-        </li>
-      </ul>
-    </div>
   </nav>
     <!-- END: Header-->
 
@@ -89,7 +32,7 @@ License: You must have a valid license purchased only from themeforest(the above
           <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
               <div class="col-12">
-                <h2 class="content-header-title float-start mb-0">Formulario Guia</h2>
+                <h2 class="content-header-title float-start mb-0">Formulario Guía</h2>
                 <div class="breadcrumb-wrapper">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a>
@@ -116,7 +59,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Guia</h4>
+          <h4 class="card-title">Guía</h4>
         </div>
         <div class="card-body">
           <form class="form" th:action="@{/guia/addG}" th:object="${guia}" method="post">
@@ -125,12 +68,12 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="mb-1">
                       <label class="form-label" for="company-column">Teléfono</label>
                       <input type="hidden" class="controls"  id="idGuia" th:field="*{idGuia}" >
-                      <input
+                      <input th:field="*{telGuia}"
                         type="number"
                         id="company-column"
                         class="form-control"
                         name="company-column"
-                        placeholder="Ingrese el telefono"
+                        placeholder="Ingrese el teléfono"
                         required  pattern="[a-z A-Z]{2,15}"
                       />
                       <div  th:if="${#fields.hasErrors('telGuia')}" th:errors="*{telGuia}">
@@ -141,13 +84,13 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Dirección</label>
-                  <input
+                  <input th:field="*{direcGuia}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
-                    placeholder="Ingrese la Dirreción"
+                    placeholder="Ingrese la dirección"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required 
                   />
                 </div>
                 <div  th:if="${#fields.hasErrors('direcGuia')}" th:errors="*{direcGuia}">
@@ -156,13 +99,14 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Fecha</label>
-                  <input
+                  <input th:field="*{fechaGuia}"
                     type="date"
-                    id="first-name-column"
+                    id="fechaGuia"
                     class="form-control"
-                    placeholder="Ingrese la fecha "
+                    placeholder="Ingrese la fecha"
                     name="fname-column"
                     required 
+                    min="" max="2030-01-01"
                   />
                   <div  th:if="${#fields.hasErrors('fechaGuia')}" th:errors="*{fechaGuia}"></div>
                 </div>
@@ -171,12 +115,13 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="company-column">N° de Cajas</label>
-                  <input
+                  <input th:field="*{numCajasGuia}"
                     type="number"
                     id="company-column"
                     class="form-control"
                     name="company-column"
-                    placeholder="Ingrese su numero de cajas "
+                    placeholder="Ingrese el número de cajas "
+                    max-length="4"
                     required  pattern="[a-z A-Z]{2,15}"
                    
                   />
@@ -186,8 +131,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="company-column">Valor Mercancia</label>
-                  <input
+                  <label class="form-label" for="company-column">Valor Mercancía</label>
+                  <input th:field="*{valorMercancia}"
                     type="number"
                     id="company-column"
                     class="form-control"
@@ -203,12 +148,13 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Remitente</label>
-                  <input
+                  <input th:field="*{remitente}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
-                    placeholder="Ingrese el Remitente"
+                    placeholder="Ingrese el remitente"
                     name="fname-column"
+                    onkeypress="return sololetras(event)" 
                     required pattern="[a-z A-Z]{2,15}"
                    
                   />
@@ -219,12 +165,13 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Destinatario</label>
-                  <input
+                  <input th:field="*{destinatario}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
-                    placeholder="Ingrese el Destinatario"
+                    placeholder="Ingrese el destinatario"
                     name="fname-column"
+                    onkeypress="return sololetras(event)"
                     required pattern="[a-z A-Z]{2,15}"
                     
                   />
@@ -235,12 +182,13 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Ciudad Origen</label>
-                  <input
+                  <input th:field="*{ciudadOrigen}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
-                    placeholder="Ingrese la Ciudad de origen "
+                    placeholder="Ingrese la ciudad de origen "
                     name="fname-column"
+                    onkeypress="return sololetras(event)"
                     required pattern="[a-z A-Z]{2,15}"
                    
                   />
@@ -251,12 +199,13 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="first-name-column">Ciudad de Destino</label>
-                  <input
+                  <input th:field="*{ciudadDestino}"
                     type="text"
                     id="first-name-column"
                     class="form-control"
                     placeholder="Ingrese la ciudad de destino"
                     name="fname-column"
+                    onkeypress="return sololetras(event)"
                     required pattern="[a-z A-Z]{2,15}"
                     
                   />
@@ -264,9 +213,6 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
               </div>
 
-              
-             
-              
               <div class="col-lg-12">
                 <button type="submit" class="btn btn-info">Enviar</button>
               </div>
@@ -282,13 +228,7 @@ License: You must have a valid license purchased only from themeforest(the above
       </div>
     </div>
     <!-- END: Content-->
-
-
-
     </div>
-    
-
-
     </div>
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
@@ -299,9 +239,13 @@ License: You must have a valid license purchased only from themeforest(the above
     </footer>
 
     <!-- END: Footer-->
-
-
+    
+    <script th:src="@{/js/guia.js}"></script>
+    <script th:src="@{/js/main-alerts.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <div class="scripts" th:include="views/header::script"></div>
+
   </body>
   <!-- END: Body-->
 </html>

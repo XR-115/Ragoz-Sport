@@ -52,6 +52,7 @@ public class guiaController {
     @PostMapping("/addG")
     public String add(@Valid guia guia,BindingResult res, Model m, SessionStatus status){
         if(res.hasErrors()){
+            m.addAttribute("guia", guia);
             return "views/guia/form-guia";
             }
             else{

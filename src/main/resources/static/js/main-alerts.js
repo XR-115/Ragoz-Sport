@@ -232,7 +232,7 @@ swalWithBootstrapButtons.fire({
 
 }
 
-//-------------------------------------- ALERTAS PARA MÓDULO DE PEDIDO ----------------------------------//
+//-------------------------------------- ALERTAS PARA MÓDULO DE GUÍA ----------------------------------//
 
 const editarGuia=()=>{
 
@@ -246,17 +246,17 @@ const editarGuia=()=>{
   
   swalWithBootstrapButtons.fire({
     title: '¿Está seguro de que desea editar?',
-    text: "¿Usted va a editar este método de pago?",
+    text: "¿Usted va a editar esta guía?",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonText: 'Si, editalo',
-    cancelButtonText: 'No, cancelar',
+    confirmButtonText: 'Editar',
+    cancelButtonText: 'Cancelar',
     reverseButtons: true
   }).then((result) => {
     if (result.isConfirmed) {
       swalWithBootstrapButtons.fire(
         'Editando',
-        'Su método de pago se va a editar',
+        'Su guía se editará',
         'success'
       )
     } else if (
