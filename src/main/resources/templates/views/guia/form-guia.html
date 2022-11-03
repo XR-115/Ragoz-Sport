@@ -131,7 +131,7 @@
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="company-column">Valor Mercancía</label>
+                  <label class="form-label" for="company-column">Valor de la mercancía</label>
                   <input th:field="*{valorMercancia}"
                     type="number"
                     id="company-column"
@@ -142,6 +142,23 @@
                    
                   />
                   <div  th:if="${#fields.hasErrors('valorMercancia')}" th:errors="*{valorMercancia}"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="first-name-column">Ciudad de Origen</label>
+                  <input th:field="*{ciudadOrigen}"
+                    type="text"
+                    id="first-name-column"
+                    class="form-control"
+                    placeholder="Ingrese la ciudad de origen "
+                    name="fname-column"
+                    onkeypress="return sololetras(event)"
+                    required pattern="[a-z A-Z]{2,15}"
+                   
+                  />
+                  <div th:if="${#fields.hasErrors('ciudadOrigen')}" th:errors="*{ciudadOrigen}"></div>
                 </div>
               </div>
 
@@ -164,40 +181,6 @@
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Destinatario</label>
-                  <input th:field="*{destinatario}"
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese el destinatario"
-                    name="fname-column"
-                    onkeypress="return sololetras(event)"
-                    required pattern="[a-z A-Z]{2,15}"
-                    
-                  />
-                  <div th:if="${#fields.hasErrors('destinatario')}" th:errors="*{destinatario}"></div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Ciudad Origen</label>
-                  <input th:field="*{ciudadOrigen}"
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    placeholder="Ingrese la ciudad de origen "
-                    name="fname-column"
-                    onkeypress="return sololetras(event)"
-                    required pattern="[a-z A-Z]{2,15}"
-                   
-                  />
-                  <div th:if="${#fields.hasErrors('ciudadOrigen')}" th:errors="*{ciudadOrigen}"></div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
                   <label class="form-label" for="first-name-column">Ciudad de Destino</label>
                   <input th:field="*{ciudadDestino}"
                     type="text"
@@ -210,6 +193,23 @@
                     
                   />
                   <div th:if="${#fields.hasErrors('ciudadDestino')}" th:errors="*{ciudadDestino}"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="first-name-column">Destinatario</label>
+                  <input th:field="*{destinatario}"
+                    type="text"
+                    id="first-name-column"
+                    class="form-control"
+                    placeholder="Ingrese el destinatario"
+                    name="fname-column"
+                    onkeypress="return sololetras(event)"
+                    required pattern="[a-z A-Z]{2,15}"
+                    
+                  />
+                  <div th:if="${#fields.hasErrors('destinatario')}" th:errors="*{destinatario}"></div>
                 </div>
               </div>
 

@@ -81,7 +81,7 @@
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Nombre</label>
+                  <label class="form-label" for="first-name-column">Nombres</label>
                   <input
                     type="text"
                     id="first-name-column"
@@ -95,7 +95,7 @@
               </div>
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Nombre de usuario</label>
+                  <label class="form-label" for="first-name-column">Usuario</label>
                   <input
                     type="text"
                     id="first-name-column"
@@ -109,7 +109,7 @@
               </div>
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="last-name-column">Apellido</label>
+                  <label class="form-label" for="last-name-column">Apellidos</label>
                   <input
                     type="text"
                     id="last-name-column"
@@ -132,27 +132,13 @@
                 <div class="mb-1">
                   <label class="form-label" for="last-name-column">Tipo de documento </label>
                   <select class="select2 form-select" id="select2-nested" th:field="*{tipident}" required>
-                    <option value="AK">Escoge tu </option>
-                    <option value="cc">cc</option>
-                      <option value="Ti">Ti</option>
+                    <option value="AK">Escoge tu tipo de documento</option>
+                    <option value="cc">C.C</option>
+                      <option value="Ti">T.I</option>
                     </select>
                 </div>
               </div>
               
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="company-column">Numero de documento</label>
-                  <input
-                    type="number"
-                    id="company-column"
-                    class="form-control"
-                    th:field="*{NumeroDocumento}"
-                    name="company-column"
-                    placeholder="Documento"
-                    required  pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-              </div>
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="email-id-column">Email</label>
@@ -168,6 +154,21 @@
                 </div>
               </div>
 
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="company-column">Número de documento</label>
+                  <input
+                    type="number"
+                    id="company-column"
+                    class="form-control"
+                    th:field="*{NumeroDocumento}"
+                    name="company-column"
+                    placeholder="Documento"
+                    required  pattern="[a-z A-Z]{2,15}"
+                  />
+                </div>
+              </div>
+
               <div class="form-text text-danger" th:if="${#fields.hasErrors('NumeroDocumento')}" th:errors="*{NumeroDocumento}">Error método de pago</div>
                     <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
 
@@ -175,7 +176,7 @@
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="email-id-column">Numero Celular</label>
+                  <label class="form-label" for="email-id-column">Número Celular</label>
                   <input
                     type="number"
                     id="email-id-column"

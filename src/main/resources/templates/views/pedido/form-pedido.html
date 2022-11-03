@@ -86,7 +86,7 @@
 
                     <!-- Multiple -->
                     <div class="col-md-6 mb-1">
-                      <label class="form-label" for="select2-multiple">Referencia del producto</label>
+                      <label class="form-label" for="select2-multiple">Referencias del producto</label>
                       <select th:field="*{producto}" multiple="multiple" class="select2 form-select" name="producto" id="producto" required>
                         <th:block th:each="fkp:${fkproducto}">
                           <option th:text="${fkp.referenciaProd}"

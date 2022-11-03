@@ -99,7 +99,6 @@ swalWithBootstrapButtons.fire({
 
 }
 
-//
 //--------------------BORRAR---------------------//
 function borrarPago(idPago) {
   let id=idPago;
@@ -140,7 +139,7 @@ const swalWithBootstrapButtons = Swal.mixin({
 
 swalWithBootstrapButtons.fire({
   title: '¿Está seguro de que desea editar?',
-  text: "¿Usted va a editar este método de pago?",
+  text: "¿Usted va a editar este producto?",
   icon: 'warning',
   showCancelButton: true,
   confirmButtonText: 'Si, editalo',
@@ -150,7 +149,7 @@ swalWithBootstrapButtons.fire({
   if (result.isConfirmed) {
     swalWithBootstrapButtons.fire(
       'Editando',
-      'Su método de pago se va a editar',
+      'Su producto se va a editar',
       'success'
     )
   } else if (
@@ -160,6 +159,40 @@ swalWithBootstrapButtons.fire({
 })
 
 }
+
+//-------------------------------------- ALERTAS PARA MÓDULO DE PEDIDO ----------------------------------//
+const editarPedido=()=>{
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: '¿Está seguro de que desea editar?',
+    text: "¿Usted va a editar este pedido?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Si, editalo',
+    cancelButtonText: 'No, cancelar',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      swalWithBootstrapButtons.fire(
+        'Editando',
+        'Su pedido se va a editar',
+        'success'
+      )
+    } else if (
+      window.location.href=`/ragoz/pedido/pedido`
+    ) {
+    }
+  })
+  
+  }
 
 
 //-------------------------------------- ALERTAS PARA MÓDULO DE USUARIOS ----------------------------------//
@@ -177,7 +210,7 @@ const swalWithBootstrapButtons = Swal.mixin({
 
 swalWithBootstrapButtons.fire({
   title: '¿Está seguro de que desea editar?',
-  text: "¿Usted va a editar este método de pago?",
+  text: "¿Usted va a editar este usuario?",
   icon: 'warning',
   showCancelButton: true,
   confirmButtonText: 'Si, editalo',
@@ -187,7 +220,7 @@ swalWithBootstrapButtons.fire({
   if (result.isConfirmed) {
     swalWithBootstrapButtons.fire(
       'Editando',
-      'Su método de pago se va a editar',
+      'Su usuario se va a editar',
       'success'
     )
   } else if (
@@ -198,39 +231,7 @@ swalWithBootstrapButtons.fire({
 
 }
 
-//-------------------------------------- ALERTAS PARA MÓDULO DE PEDIDO ----------------------------------//
-const editarPedido=()=>{
 
-const swalWithBootstrapButtons = Swal.mixin({
-  customClass: {
-    confirmButton: 'btn btn-success',
-    cancelButton: 'btn btn-danger'
-  },
-  buttonsStyling: false
-})
-
-swalWithBootstrapButtons.fire({
-  title: '¿Está seguro de que desea editar?',
-  text: "¿Usted va a editar este método de pago?",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonText: 'Si, editalo',
-  cancelButtonText: 'No, cancelar',
-  reverseButtons: true
-}).then((result) => {
-  if (result.isConfirmed) {
-    swalWithBootstrapButtons.fire(
-      'Editando',
-      'Su método de pago se va a editar',
-      'success'
-    )
-  } else if (
-    window.location.href=`/ragoz/pedido/pedido`
-  ) {
-  }
-})
-
-}
 
 //-------------------------------------- ALERTAS PARA MÓDULO DE GUÍA ----------------------------------//
 
