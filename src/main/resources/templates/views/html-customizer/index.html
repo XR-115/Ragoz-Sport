@@ -61,7 +61,6 @@
             <div class="user-nav d-sm-flex d-none">
               <span th:text="${session.usuario.username}" class="user-name fw-bolder"></span>
               <div sec:authentication="principal.authorities"></div>
-               <div sec:authorize="hasAnyAuthority('GERENTE')">SEXO ANAAAL.</div> 
             </div>
             <span class="avatar">
               <img class="round" th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40">
