@@ -51,7 +51,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter{
              .antMatchers("/usuario/**","/envio/addEn*","/guia/**","/pedido/**","/producto/**")
              .hasAnyAuthority("GERENTE")  
 
-             .antMatchers("/usuario/**")
+             .antMatchers("/a")
              .hasAnyAuthority("JEFE TRANSPORTADORA")  
              
          //http.authorizeRequests().antMatchers(

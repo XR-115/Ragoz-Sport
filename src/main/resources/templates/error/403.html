@@ -1,14 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permisos no válidos</title>
-</head>
-<body>
-    <h1>
-        Qué haces aquí? bro?
-    </h1>
-</body>
+<!--
+Template Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/vuexy_admin
+Renew Support: https://1.envato.market/vuexy_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en" data-textdirection="ltr">
+  <!-- BEGIN: Head-->
+  <head>
+    <title>No estás autorizado</title>
+    <th:block th:include="views/header::head"> </th:block>
+  </head>
+   
+  <!-- END: Head-->
+
+  <!-- BEGIN: Body-->
+  <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+      <div class="content-overlay"></div>
+      <div class="header-navbar-shadow"></div>
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+          <!-- Not authorized-->
+          <div class="misc-wrapper">
+            <div class="misc-inner p-2 p-sm-3">
+              <div class="w-100 text-center">
+                <h2 class="mb-1">¡No estás autorizado! 🔐</h2>
+                <p class="mb-2">
+                 ¡Con tus permisos actuales no estás autorizado a entrar a esta sección, gracias por tu atención!
+                </p>
+                <a class="btn btn-primary mb-1 btn-sm-block" th:href="@{/index}">
+                    Volver a inicio</a>
+                    <img class="img-fluid" th:src="@{/app-assets/images/pages/not-authorized-dark.svg}" alt="Not authorized page"/>
+              </div>
+            </div>
+          </div>
+          <!-- / Not authorized-->
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script th:src="@{/app-assets/vendors/js/vendors.min.js}"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script th:src="@{/app-assets/js/core/app-menu.min.js}"></script>
+    <script th:src="@{/app-assets/js/core/app.min.js}"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <!-- END: Page JS-->
+
+    <script>
+      $(window).on('load',  function(){
+        if (feather) {
+          feather.replace({ width: 14, height: 14 });
+        }
+      })
+    </script>
+  </body>
+  <!-- END: Body-->
 </html>
