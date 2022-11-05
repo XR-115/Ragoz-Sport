@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.sena.ragozsport.model.IRol;
+import com.sena.ragozsport.model.service.rol.IRolService;
 import com.sena.ragozsport.model.service.usuario.IUsuarioService;
 import com.sena.ragozsport.model.usuario.Usuario;
 
@@ -24,6 +26,9 @@ import com.sena.ragozsport.model.usuario.Usuario;
 public class usuarioController {
     @Autowired
     IUsuarioService interfazUsu;
+
+    @Autowired
+    IRol interfazRol;
 
     // ------------ PRINCIPAL PRODUCTO -----------//
     @GetMapping(path = { "/usuario", "/", "" })
@@ -38,6 +43,8 @@ public class usuarioController {
     @GetMapping(value = "/addu")
     public String addu(Model m) {
         Usuario usuario = new Usuario(); // Para instanciar un objeto de la clase
+       
+        m.addAttribute("roles", interfazRol.findAll());
         m.addAttribute("usuario", usuario);
         m.addAttribute("accion", "Agregar Usuario");
         // Aca se retorna a la vista

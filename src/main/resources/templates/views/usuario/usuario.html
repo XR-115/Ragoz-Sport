@@ -1,114 +1,119 @@
 <!DOCTYPE html>
-<html  xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
-  <!-- BEGIN: Head-->
-  <head>
-    <title>Ver usuarios</title>
-    <th:block th:include="views/header::head"> </th:block>
-  </head>
-  <!-- END: Head-->
+<html xlmns:th="https://www.thymeleaf.org" class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
 
-  <!-- BEGIN: Body-->
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+<head>
+  <title>Ver usuarios</title>
+  <th:block th:include="views/header::head"> </th:block>
+</head>
+<!-- END: Head-->
 
-    <!-- BEGIN: Header-->
-    
-   
-    <!-- END: Header-->
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
+  data-menu="vertical-menu-modern" data-col="">
+
+  <!-- BEGIN: Header-->
 
 
-   <!-- MENÚ DASHBOARD INCLUDE-->
+  <!-- END: Header-->
+
+
+  <!-- MENÚ DASHBOARD INCLUDE-->
   <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
-  data-scroll-to-active="true">
+    data-scroll-to-active="true">
   </div>
-    <!-- BEGIN: Content-->
-    <div class="app-content content ">
-      <div class="content-overlay"></div>
-      <div class="header-navbar-shadow"></div>
-      <div class="content-wrapper container-xxl p-0">
-        <div class="content-header row">
-        </div>
-        <div class="content-body"><!-- users list start -->
-<section class="app-user-list">
-  <div class="row">
-  
-    </div>
-  </div>
-  <!-- list and filter start -->
-  <div class="card">
-    <div class="container"> 
-      <div class="row">
-          <div class="col">
-              <table id="example" class="table table-striped display responsive nowrap " >
-                  <thead class="bg bg-info">
-                      <tr>
-                          <th>ID</th>
-                          <th>Rol</th>
-                          <th>Nombres </th>
-                          <th>Apellidos</th>
-                          <th>Teléfono</th>
-                          <th>Tipo documento</th>
-                          <th>Número documento</th>
-                          <th>correo</th>
-                          <th>ACCIONES</th>
-                      </tr>
-                  </thead>
-                  <tbody class="bg bg-white text-light">
-                   
-                      <tr th:if="${usuario.size>0}" th:each="u:${usuario}">
+  <!-- BEGIN: Content-->
+  <div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+      <div class="content-header row">
+      </div>
+      <div class="content-body">
+        <!-- users list start -->
+        <section class="app-user-list">
+          <div class="row">
 
-                          <td class="text-dark" th:text="${u.idUsuario}"></td>
-                          <td  class="text-dark"th:text="${u.Actor}"></td>
-                          <td  class="text-dark" th:text="${u.nombreUsuario}"></td>
-                          <td class="text-dark" th:text="${u.ApellidoUsuario}"></td>
-                           <td  class="text-dark" th:text="${u.NumerodeTelefono}"></td> 
-                           <td  class="text-dark" th:text="${u.tipident}"></td>
-                          <td  class="text-dark" th:text="${u.NumeroDocumento}"></td>
-                          <td class="text-dark" th:text="${u.correo}"></td>
-                      
-                          <td> 
-                              <a rol="button" class="btn btn-info" th:href="@{/usuario/editarusu/}+${u.idUsuario}">
-                                  <i class="fa-solid fa-pen"></i>
-                              </a>
-                               
-                              <!-- <a rol="button" class="btn btn-danger" th:onclick="|eliminar('${u.idUsuario}')|">                            
+          </div>
+      </div>
+      <!-- list and filter start -->
+      <div class="card">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <table id="example" class="table table-striped display responsive nowrap ">
+                <thead class="bg bg-info">
+                  <tr>
+                    <th>ID</th>
+                    <th>Rol</th>
+                    <th>Nombres </th>
+                    <th>Apellidos</th>
+                    <th>Teléfono</th>
+                    <th>Tipo documento</th>
+                    <th>Número documento</th>
+                    <th>correo</th>
+                    <th>ACCIONES</th>
+                  </tr>
+                </thead>
+                <tbody class="bg bg-white text-light">
+
+                  <tr th:if="${usuario.size>0}" th:each="u:${usuario}">
+
+                    <td class="text-dark" th:text="${u.idUsuario}"></td>
+                    <td class="text-dark" th:each="fk:${u.roles}" th:text="${fk.nombre}"></td>
+                    <td class="text-dark" th:text="${u.nombreUsuario}"></td>
+                    <td class="text-dark" th:text="${u.ApellidoUsuario}"></td>
+                    <td class="text-dark" th:text="${u.NumerodeTelefono}"></td>
+                    <td class="text-dark" th:text="${u.tipident}"></td>
+                    <td class="text-dark" th:text="${u.NumeroDocumento}"></td>
+                    <td class="text-dark" th:text="${u.correo}"></td>
+
+                    <td>
+                      <a rol="button" class="btn btn-info" th:href="@{/usuario/editarusu/}+${u.idUsuario}">
+                        <i class="fa-solid fa-pen"></i>
+                      </a>
+
+                      <!-- <a rol="button" class="btn btn-danger" th:onclick="|eliminar('${u.idUsuario}')|">                            
                                   <i class="fa-solid fa-eraser"></i>
                               </a> -->
-                       
-                          </td>
-                      </tr>
-                  </tbody>
-                
+
+                    </td>
+                  </tr>
+                </tbody>
+
               </table>
-              
+
               <div class="card">
                 <div class="col">
-              <a type="button" class="btn btn-info" th:href="@{addu}">  
-                <i class="bi bi-plus-circle"></i>Agregar Usuario
-            </a>
+                  <a type="button" class="btn btn-info" th:href="@{addu}">
+                    <i class="bi bi-plus-circle"></i>Agregar Usuario
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          </div>
-          </div>
-      </div>
-  </div>
-  <!-- list and filter end -->
-</section>
-<!-- users list ends -->
-
         </div>
+        <!-- list and filter end -->
+        </section>
+        <!-- users list ends -->
+
       </div>
     </div>
-    <!-- END: Content--> 
+  </div>
+  <!-- END: Content-->
 
-    <!-- BEGIN: Footer-->
-    <footer  th:include="views/Footer::footer" class="footer footer-static footer-light">
-    </footer>
-    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button> 
-    <!-- END: Footer-->
+  <!-- BEGIN: Footer-->
+  <footer th:include="views/Footer::footer" class="footer footer-static footer-light">
+  </footer>
+  <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+  <!-- END: Footer-->
 
-    <script th:src="@{/js/main-alerts.js}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <div class="scripts" th:include="views/header::script"></div>
-  </body>
-  <!-- END: Body-->
+  <script th:src="@{/js/main-alerts.js}"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <div class="scripts" th:include="views/header::script"></div>
+</body>
+<!-- END: Body-->
+
 </html>

@@ -10,8 +10,10 @@
   <!-- BEGIN: Body-->
   <body th:attr="onload=(${accionusu})" class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
-    <!-- BEGIN: Header-->
-   
+     <!-- BEGIN: Header-->
+     <nav  th:include="views/Nav::nav"
+     class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
+   </nav>
     <!-- END: Header-->
 
 
@@ -65,22 +67,7 @@
             <div class="row">
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Rol</label>
                   <input type="hidden" class="controls"  id="idEnvio" th:field="*{idUsuario}" valid/>
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    th:field="*{Actor}"
-                    placeholder="Rol"
-                    name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
-                  />
-                </div>
-                </div>
-
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
                   <label class="form-label" for="first-name-column">Nombres</label>
                   <input
                     type="text"
@@ -91,6 +78,17 @@
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
                   />
+                </div>
+                  
+                </div>
+              
+
+              <div class="col-md-6 col-12">
+                <div class="mb-1">
+                  <label class="form-label" for="first-name-column">Rol</label>
+                  <select class="select2 form-select" th:field="*{roles}" id="roles" required>
+                    <option th:each="roles:${roles}" th:text="${roles.nombre}" th:value="${roles.id}"></option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6 col-12">

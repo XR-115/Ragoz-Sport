@@ -1,7 +1,9 @@
 package com.sena.ragozsport.model.service.usuario;
 
+
 import java.util.List;
 import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,7 +25,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public Usuario findByUsername(String username) {
         return interfazUsu.findByUsername(username);
     };
-
 
     @Override
     public List<Usuario> findAll() {
@@ -62,4 +63,11 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void delete(Integer idUsuario) {
         interfazUsu.deleteById(idUsuario);
     }
+
+
+
+
+
+   
+
 }

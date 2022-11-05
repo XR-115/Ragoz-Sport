@@ -60,12 +60,14 @@
             <!-- th:if="${session.usuario != null()" th:text="${session.usuario.nombre}" -->
             <div class="user-nav d-sm-flex d-none">
               <span th:text="${session.usuario.username}" class="user-name fw-bolder"></span>
-              <span th:text="${session.usuario.actor}" class="user-status"></span>
+              <div sec:authentication="principal.authorities"></div>
+               <div sec:authorize="hasAnyAuthority('GERENTE')">SEXO ANAAAL.</div> 
             </div>
             <span class="avatar">
               <img class="round" th:src="@{/app-assets/images/avatars/2-small.png}" alt="avatar" height="40" width="40">
               <span class="avatar-status-online"></span>
             </span>
+            
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
             <a sec:authorize="isAuthenticated()" class="dropdown-item" th:href="@{/logout}">
@@ -80,7 +82,7 @@
 
   <!-- MENÚ DASHBOARD INCLUDE-->
   <div th:include="views/menuDashboard::menuDash" class="main-menu menu-fixed menu-light menu-accordion menu-shadow"
-    data-scroll-to-active="true">
+    data-scrolel-to-active="true">
   </div>
 
   <!-- END: Main Menu-->
@@ -104,7 +106,7 @@
             <div class="col-xl-12 col-md-8 col-12">
               <div class="card card-statistics">
                 <div class="card-header">
-                  <h4 class="card-title">¡Bienvenido <span th:text="${session.usuario.actor}"></span>!
+                  <h4 class="card-title">¡Bienvenido <span sec:authentication="principal.authorities"></span>!
                   
                   </h4>
                   <div class="d-flex align-items-center">
@@ -121,7 +123,7 @@
                           </div>
                         </div>
                         <div class="my-auto">
-                          <h4 th:text="${session.usuario.actor}"  class="fw-bolder mb-0"></h4>
+                          <h4 sec:authentication="principal.authorities"  class="fw-bolder mb-0"></h4>
 
                         </div>
                       </div>
@@ -268,7 +270,7 @@
   <!-- BEGIN: Footer-->
   <footer th:include="views/Footer::footer" class="footer footer-static footer-light">
   </footer>
-  <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+  <button class="btn btn-primary btn-icon scrolel-top" type="button"><i data-feather="arrow-up"></i></button>
   <!-- END: Footer-->
 
 
