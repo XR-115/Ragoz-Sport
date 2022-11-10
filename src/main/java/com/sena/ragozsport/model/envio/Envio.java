@@ -1,5 +1,6 @@
 package com.sena.ragozsport.model.envio;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.sena.ragozsport.model.guia.guia;
+import com.sena.ragozsport.model.novedades.Novedades;
 import com.sena.ragozsport.model.usuario.Usuario;
 
 
@@ -64,6 +66,9 @@ public class Envio {
     @JoinColumn(name = "FK_GUIA", updatable = false, nullable = false)
     private guia guia;
 
+    @OneToOne(mappedBy = "envio", cascade = CascadeType.ALL)
+    private Novedades novedades;
+
 
 
 
@@ -72,10 +77,13 @@ public class Envio {
        
     }
 
+
+
+
     public Envio(Integer idEnvio, @NotNull String fechaEnvio,
             @NotNull @Pattern(regexp = "([01]?[0-9]|2[0-3]):[0-5][0-9]") String horaEnvio, boolean estadoEnvio,
-            @NotNull @Min(45000) @Max(99999999) Integer costoTotalEnvio, String metodoPago, Usuario fkusuario,
-            com.sena.ragozsport.model.guia.guia guia) {
+            @NotNull @Min(1000) @Max(99999999) Integer costoTotalEnvio, String metodoPago, Usuario fkusuario,
+            com.sena.ragozsport.model.guia.guia guia, Novedades novedades) {
         this.idEnvio = idEnvio;
         this.fechaEnvio = fechaEnvio;
         this.horaEnvio = horaEnvio;
@@ -84,72 +92,146 @@ public class Envio {
         this.metodoPago = metodoPago;
         this.fkusuario = fkusuario;
         this.guia = guia;
+        this.novedades = novedades;
     }
-    //*-------------------------------MÉTODOS ACCESORES GETTERS Y SETTERS--------------------------------*//   
+
+
+
 
     public Integer getIdEnvio() {
         return idEnvio;
     }
 
+
+
+
     public void setIdEnvio(Integer idEnvio) {
         this.idEnvio = idEnvio;
     }
+
+
+
 
     public String getFechaEnvio() {
         return fechaEnvio;
     }
 
+
+
+
     public void setFechaEnvio(String fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
+
+
+
 
     public String getHoraEnvio() {
         return horaEnvio;
     }
 
+
+
+
     public void setHoraEnvio(String horaEnvio) {
         this.horaEnvio = horaEnvio;
     }
+
+
+
 
     public boolean isEstadoEnvio() {
         return estadoEnvio;
     }
 
+
+
+
     public void setEstadoEnvio(boolean estadoEnvio) {
         this.estadoEnvio = estadoEnvio;
     }
+
+
+
 
     public Integer getCostoTotalEnvio() {
         return costoTotalEnvio;
     }
 
+
+
+
     public void setCostoTotalEnvio(Integer costoTotalEnvio) {
         this.costoTotalEnvio = costoTotalEnvio;
     }
+
+
+
 
     public String getMetodoPago() {
         return metodoPago;
     }
 
+
+
+
     public void setMetodoPago(String metodoPago) {
         this.metodoPago = metodoPago;
     }
+
+
+
 
     public Usuario getFkusuario() {
         return fkusuario;
     }
 
+
+
+
     public void setFkusuario(Usuario fkusuario) {
         this.fkusuario = fkusuario;
     }
+
+
+
 
     public guia getGuia() {
         return guia;
     }
 
+
+
+
     public void setGuia(guia guia) {
         this.guia = guia;
     }
+
+
+
+
+    public Novedades getNovedades() {
+        return novedades;
+    }
+
+
+
+
+    public void setNovedades(Novedades novedades) {
+        this.novedades = novedades;
+    }
+
+
+
+
+   
+
+
+
+
+
+
+    
     
 
     

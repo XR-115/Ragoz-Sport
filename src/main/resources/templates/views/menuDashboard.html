@@ -100,6 +100,7 @@
 
                   <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
                   
+                  
                   <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
 
                   <li class=" nav-item" sec:authorize="hasAnyAuthority('GERENTE','JEFE TRANSPORTADORA')">
@@ -116,6 +117,28 @@
                               </li>
                               <li>
                                     <a class="d-flex align-items-center" th:href="@{/envio/addEn}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
+                                    </a>
+                              </li>
+                        </ul>
+                  </li>
+                   <!------------------ CONTENIDO DE LOS MÓDULOS ------------------>
+
+                  <li class=" nav-item" sec:authorize="hasAnyAuthority('GERENTE')">
+                        <a class="d-flex align-items-center" href="">
+                              <i data-feather='archive'></i>
+                              <span class="menu-title text-truncate" data-i18n="Pages">Novedad Envio</span>
+                        </a>
+                        <ul class="menu-content">
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/novedades/novedades}">
+                                          <i data-feather="circle"></i>
+                                          <span class="menu-item text-truncate" data-i18n="List">Listar</span>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a class="d-flex align-items-center" th:href="@{/novedades/addNo}">
                                           <i data-feather="circle"></i>
                                           <span class="menu-item text-truncate" data-i18n="List">Formulario</span>
                                     </a>
