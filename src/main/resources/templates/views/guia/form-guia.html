@@ -74,7 +74,7 @@
                         class="form-control"
                         name="company-column"
                         placeholder="Ingrese el teléfono"
-                        required  pattern="[a-z A-Z]{2,15}"
+                        required 
                       />
                       <div  th:if="${#fields.hasErrors('telGuia')}" th:errors="*{telGuia}">
                       </div>

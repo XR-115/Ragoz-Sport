@@ -79,6 +79,7 @@ public class pedidoController {
         }
         m.addAttribute("fkproducto", iProducto.findAll());
         m.addAttribute("pedido",pedido);
+        m.addAttribute("fkguia", iGuia.findAll());
         m.addAttribute("accionPedido","editarPedido()");
         m.addAttribute("accion","Actualizar Pedido");
         return "views/pedido/form-pedido";

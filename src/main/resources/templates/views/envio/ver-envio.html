@@ -64,7 +64,7 @@
                           <span class="badge bg-danger active" th:if="${e.estadoEnvio==false}">Inactivo</span>
                         </td>
                         <td class="text-dark" th:text="${e.costoTotalEnvio}"></td>
-                        <td class="text-dark" th:text="${e.fkusuario.Actor}"></td>
+                        <td class="text-dark" th:text="${e.fkusuario.username}"></td>
                         <td class="text-dark" th:text="${e.guia.destinatario}"></td>
                         <td>
                           <a rol="button" class="btn btn-info" th:href="@{/envio/editarEn/}+${e.idEnvio}">

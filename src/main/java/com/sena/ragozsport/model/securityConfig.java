@@ -48,10 +48,10 @@ public class securityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
          http.authorizeRequests()
-             .antMatchers("/usuario/**","/envio/addEn*","/guia/**","/pedido/**","/producto/**")
+             .antMatchers("/envio/addEn*","/guia/**","/pedido/**","/producto/**")
              .hasAnyAuthority("GERENTE")  
 
-             .antMatchers("/a")
+             .antMatchers("/novedades/addNo*")
              .hasAnyAuthority("JEFE TRANSPORTADORA")  
              
          //http.authorizeRequests().antMatchers(

@@ -2,6 +2,7 @@ package com.sena.ragozsport.model.guia;
 
 import java.sql.Date;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import com.sena.ragozsport.model.envio.Envio;
 
@@ -24,8 +26,9 @@ public class guia {
     private Integer idGuia;
 
     @NotNull
+    @Pattern(regexp = "^[0-9]{10,10}+$",message="El teléfono debe de tener 10 dígitos")
     @Column (name="telGuia")
-    private Long telGuia;
+    private String telGuia;
 
     @NotEmpty
     @Column(name="direcGuia", length=50)
@@ -71,134 +74,117 @@ public class guia {
         
     }
 
-    public guia(Integer idGuia, @NotNull Long telGuia, @NotEmpty String direcGuia, @NotNull Date fechaGuia,
-    @NotNull Integer numCajasGuia, @NotNull double valorMercancia, @NotEmpty String remitente,
-    @NotEmpty String destinatario, @NotEmpty String ciudadOrigen, @NotEmpty String ciudadDestino, Envio envio) {
-    this.idGuia = idGuia;
-    this.telGuia = telGuia;
-    this.direcGuia = direcGuia;
-    this.fechaGuia = fechaGuia;
-    this.numCajasGuia = numCajasGuia;
-    this.valorMercancia = valorMercancia;
-    this.remitente = remitente;
-    this.destinatario = destinatario;
-    this.ciudadOrigen = ciudadOrigen;
-    this.ciudadDestino = ciudadDestino;
-    this.envio = envio;
+    public guia(Integer idGuia,
+    @NotNull @Pattern(regexp = "(+57|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}") String telGuia,
+    @NotEmpty String direcGuia, @NotNull Date fechaGuia, @NotNull Integer numCajasGuia,
+    @NotNull double valorMercancia, @NotEmpty String remitente, @NotEmpty String destinatario,
+    @NotEmpty String ciudadOrigen, @NotEmpty String ciudadDestino, Envio envio) {
+this.idGuia = idGuia;
+this.telGuia = telGuia;
+this.direcGuia = direcGuia;
+this.fechaGuia = fechaGuia;
+this.numCajasGuia = numCajasGuia;
+this.valorMercancia = valorMercancia;
+this.remitente = remitente;
+this.destinatario = destinatario;
+this.ciudadOrigen = ciudadOrigen;
+this.ciudadDestino = ciudadDestino;
+this.envio = envio;
+}
+
+    public Integer getIdGuia() {
+        return idGuia;
+    }
+
+    public void setIdGuia(Integer idGuia) {
+        this.idGuia = idGuia;
+    }
+
+    public String getTelGuia() {
+        return telGuia;
+    }
+
+    public void setTelGuia(String telGuia) {
+        this.telGuia = telGuia;
+    }
+
+    public String getDirecGuia() {
+        return direcGuia;
+    }
+
+    public void setDirecGuia(String direcGuia) {
+        this.direcGuia = direcGuia;
+    }
+
+    public Date getFechaGuia() {
+        return fechaGuia;
+    }
+
+    public void setFechaGuia(Date fechaGuia) {
+        this.fechaGuia = fechaGuia;
+    }
+
+    public Integer getNumCajasGuia() {
+        return numCajasGuia;
+    }
+
+    public void setNumCajasGuia(Integer numCajasGuia) {
+        this.numCajasGuia = numCajasGuia;
+    }
+
+    public double getValorMercancia() {
+        return valorMercancia;
+    }
+
+    public void setValorMercancia(double valorMercancia) {
+        this.valorMercancia = valorMercancia;
+    }
+
+    public String getRemitente() {
+        return remitente;
+    }
+
+    public void setRemitente(String remitente) {
+        this.remitente = remitente;
+    }
+
+    public String getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(String destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public String getCiudadOrigen() {
+        return ciudadOrigen;
+    }
+
+    public void setCiudadOrigen(String ciudadOrigen) {
+        this.ciudadOrigen = ciudadOrigen;
+    }
+
+    public String getCiudadDestino() {
+        return ciudadDestino;
+    }
+
+    public void setCiudadDestino(String ciudadDestino) {
+        this.ciudadDestino = ciudadDestino;
+    }
+
+    public Envio getEnvio() {
+        return envio;
+    }
+
+    public void setEnvio(Envio envio) {
+        this.envio = envio;
     }
  
 
   //*-------------------------------MÉTODOS ACCESORES GETTERS Y SETTERS--------------------------------*//   
 
 
-    public Integer getIdGuia() {
-        return idGuia;
-    }
 
-
-    public void setIdGuia(Integer idGuia) {
-        this.idGuia = idGuia;
-    }
-
-
-    public Long getTelGuia() {
-        return telGuia;
-    }
-
-
-    public void setTelGuia(Long telGuia) {
-        this.telGuia = telGuia;
-    }
-
-
-    public String getDirecGuia() {
-        return direcGuia;
-    }
-
-
-    public void setDirecGuia(String direcGuia) {
-        this.direcGuia = direcGuia;
-    }
-
-
-    public Date getFechaGuia() {
-        return fechaGuia;
-    }
-
-
-    public void setFechaGuia(Date fechaGuia) {
-        this.fechaGuia = fechaGuia;
-    }
-
-
-    public Integer getNumCajasGuia() {
-        return numCajasGuia;
-    }
-
-
-    public void setNumCajasGuia(Integer numCajasGuia) {
-        this.numCajasGuia = numCajasGuia;
-    }
-
-
-    public double getValorMercancia() {
-        return valorMercancia;
-    }
-
-
-    public void setValorMercancia(double valorMercancia) {
-        this.valorMercancia = valorMercancia;
-    }
-
-
-    public String getRemitente() {
-        return remitente;
-    }
-
-
-    public void setRemitente(String remitente) {
-        this.remitente = remitente;
-    }
-
-
-    public String getDestinatario() {
-        return destinatario;
-    }
-
-
-    public void setDestinatario(String destinatario) {
-        this.destinatario = destinatario;
-    }
-
-
-    public String getCiudadOrigen() {
-        return ciudadOrigen;
-    }
-
-
-    public void setCiudadOrigen(String ciudadOrigen) {
-        this.ciudadOrigen = ciudadOrigen;
-    }
-
-
-    public String getCiudadDestino() {
-        return ciudadDestino;
-    }
-
-
-    public void setCiudadDestino(String ciudadDestino) {
-        this.ciudadDestino = ciudadDestino;
-    }
-
-
-    public Envio getEnvio() {
-        return envio;
-    }
-
-
-    public void setEnvio(Envio envio) {
-        this.envio = envio;
-    }
 
 }
 

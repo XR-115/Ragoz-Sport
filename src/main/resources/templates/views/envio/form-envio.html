@@ -137,7 +137,7 @@
                 <div class="mb-1">
                   <label class="form-label" for="last-name-column">Asociar usuario</label>
                   <select class="select2 form-select" th:field="*{fkusuario}" id="fkusuario" required>
-                      <option th:each="fkusuario:${fkusuario}" th:text="${fkusuario.Actor}" th:value="${fkusuario.idUsuario}"></option>
+                      <option th:each="fkusuario:${fkusuario}" th:text="${fkusuario.username}" th:value="${fkusuario.idUsuario}"></option>
                     </select>
                 </div>
               </div>
