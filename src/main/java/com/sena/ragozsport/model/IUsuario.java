@@ -11,6 +11,7 @@ import com.sena.ragozsport.model.usuario.Usuario;
 
 public interface IUsuario extends CrudRepository<Usuario,Integer>{
 
+    public Usuario findByCorreo(String correo);
     public Optional<Usuario> findByNumeroDocumento(String NumeroDocumento);
     public Usuario findByUsername(String username);
 

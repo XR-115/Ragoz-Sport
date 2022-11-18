@@ -1,6 +1,5 @@
 package com.sena.ragozsport.model.service;
 
-import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

@@ -13,7 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.sena.ragozsport.model.service.userDetailsServiceImpl;
-import com.sena.ragozsport.model.usuario.Usuario;
 
 
 

@@ -2,13 +2,19 @@ package com.sena.ragozsport.controllers;
 
 
 import javax.servlet.http.HttpSession;
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.sena.ragozsport.model.IUsuario;
+import com.sena.ragozsport.model.service.email.EmailSenderService;
 import com.sena.ragozsport.model.service.usuario.IUsuarioService;
 import com.sena.ragozsport.model.usuario.Usuario;
 
@@ -18,6 +24,16 @@ public class indexController {
 
     @Autowired
     private IUsuarioService usuarioService;
+
+    
+    @Autowired
+    private IUsuario IusuarioService;
+
+    @Autowired 
+    private EmailSenderService emailSenderService;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
     
     @GetMapping(path = {"/index"})
     public String index(){
@@ -45,7 +61,7 @@ public class indexController {
 
     @GetMapping("/login")
     public String login(){
-        return "login";
+        return "views/login/login";
     }
 
     @GetMapping("/logout")
@@ -55,12 +71,35 @@ public class indexController {
 
     @GetMapping("/loginre")
     public String loginre(){
-        return "login-registro";
+        return "views/login/login-registro";
     }
 
     @GetMapping("/loginpa")
     public String loginpa(){
-        return "login-password";
+        return "views/login/login-password";
     }
     
+    @PostMapping("/loginpa")
+    public String loginpa(@Valid String correo){
+        emailSenderService.sendSimpleEmailForgotPassword(correo);
+        return "views/login/login-registro";
+
+
+    }
+    
+    @GetMapping("/restablecerClave/{correo}")
+    public String loadViewUpdatePassword(@PathVariable String correo, Model model){
+        model.addAttribute("correo", correo);
+        return "views/login/login-passwordRecovery";
+    }
+
+    @PostMapping("/restablecerClave")
+    public String updatePassword(@Valid String correo,@Valid String password) throws Exception{
+
+        Usuario usuario = IusuarioService.findByCorreo(correo);
+
+        usuario.setPassword(passwordEncoder.encode(password));
+        IusuarioService.save(usuario);
+        return "redirect:/login";
+    }
 }
