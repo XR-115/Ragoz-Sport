@@ -10,7 +10,7 @@ public interface IUsuarioService {
         
         public Usuario findByUsername(String username);
         
-
+        
         //------------- Metodo de listar ------------//
         public List<Usuario>findAll();
         //------------- Metodo de registar ------------//

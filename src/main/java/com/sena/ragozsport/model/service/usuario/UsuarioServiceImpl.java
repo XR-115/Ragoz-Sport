@@ -1,9 +1,7 @@
 package com.sena.ragozsport.model.service.usuario;
 
-
 import java.util.List;
 import java.util.Optional;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.sena.ragozsport.model.IUsuario;
 import com.sena.ragozsport.model.usuario.Usuario;
+
 
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
@@ -63,8 +62,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void delete(Integer idUsuario) {
         interfazUsu.deleteById(idUsuario);
     }
-
-
 
    
 
