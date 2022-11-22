@@ -47,7 +47,7 @@ public class indexController {
 
 
         if (session.getAttribute("username")== null) {
-            Usuario usuario = usuarioService.findByUsername(username);
+            Usuario usuario = usuarioService.findByNumeroDocumento(username);
       
             usuario.setPassword(null);
             session.setAttribute("usuario", usuario);

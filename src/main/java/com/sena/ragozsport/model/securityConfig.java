@@ -47,6 +47,10 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/novedades/addNo*")
 				.hasAnyAuthority("JEFE TRANSPORTADORA")
 
+				.antMatchers("/","/dash", "/envio/envio","/novedades/novedades")
+				.hasAnyAuthority("JEFE TRANSPORTADORA","GERENTE")
+
+
 				// http.authorizeRequests().antMatchers(
 				// "/index","/public/**","/css/**","/js/**","/img/**",
 				// "/app-assets/**","/fonts/**","/error/**","/usuario/**").permitAll()

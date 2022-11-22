@@ -1,7 +1,6 @@
 package com.sena.ragozsport.model.service.usuario;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,8 +19,8 @@ public class UsuarioServiceImpl implements IUsuarioService {
     private IUsuario interfazUsu;
 
     @Override
-    public Usuario findByUsername(String username) {
-        return interfazUsu.findByUsername(username);
+    public Usuario findByNumeroDocumento(String numeroDocumento) {
+        return interfazUsu.findByNumeroDocumento(numeroDocumento);
     };
 
     @Override
@@ -35,17 +34,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
     
     
     private boolean checkMetodoUsuarioAvailable(Usuario usuario) throws Exception {
-        Optional<Usuario> UsuarioFound = interfazUsu.findByNumeroDocumento(usuario.getNumeroDocumento());
-        if (UsuarioFound.isPresent()) {
+        Usuario UsuarioFound = interfazUsu.findByNumeroDocumento(usuario.getNumeroDocumento());
+        if (UsuarioFound!=null) {
             throw new Exception("Este número de documento ha sido registrado");
-        }
-        return false;
-    }
-
-    private boolean checkUsernameAvailable(Usuario usuario) throws Exception {
-        Usuario usernameFound = interfazUsu.findByUsername(usuario.getUsername());
-        if (usernameFound != null) {
-            throw new Exception("Este nombre de usuario ya ha sido registrado");
         }
         return true;
     }
@@ -57,7 +48,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     // -----------------REGISTAR------------- //
     @Override
     public Usuario save(Usuario usuario) throws Exception {
-        if (!checkMetodoUsuarioAvailable(usuario) && checkUsernameAvailable(usuario)) {
+        if (!checkMetodoUsuarioAvailable(usuario)) {
 
             usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
             Usuario createdUsuario = interfazUsu.save(usuario);

@@ -2,13 +2,14 @@ package com.sena.ragozsport.model.service.usuario;
 
 import java.util.List;
 
+
 import com.sena.ragozsport.model.usuario.Usuario;
 
 
 
 public interface IUsuarioService {
         
-        public Usuario findByUsername(String username);
+        public Usuario findByNumeroDocumento(String numeroDocumento);
         
         //------------- Metodo de listar ------------//
         public List<Usuario>findAll();

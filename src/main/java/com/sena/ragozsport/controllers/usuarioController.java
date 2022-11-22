@@ -60,6 +60,7 @@ public class usuarioController {
             try {
                 interfazUsu.save(usuario);
             } catch (Exception e) {
+                m.addAttribute("roles", interfazRol.findAll());
                 m.addAttribute("errorMessage", e.getMessage());
 
                 return "views/usuario/form-usuario";

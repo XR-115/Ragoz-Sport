@@ -93,7 +93,7 @@
               </div>
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Usuario</label>
+                  <label class="form-label" for="first-name-column">Nombre de usuario en el sistema</label>
                   <input
                     type="text"
                     id="first-name-column"
@@ -103,10 +103,7 @@
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
                   />
-                  <div class="form-text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error de usuario </div>
-                    <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
-
-                    <div class="form-text text-danger" th:if="${Error}" th:text="${Error}"></div>
+                  
                
                 </div>
               </div>
