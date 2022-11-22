@@ -94,12 +94,13 @@ public String addNo(Model m) {
         } else {
             return "redirect:novedades";
         }
-        m.addAttribute("accion","editarNovedades()");
-        m.addAttribute("envio",enviD.findAll());
+        m.addAttribute("accionNove","editarNovedades()");
         m.addAttribute("novedades",novedades);
+        m.addAttribute("envio",enviD.findAll());
+       
 
         
-        return "views/novedades/novedades";
+        return "views/novedades/form-novedades";
 
     }  
     
