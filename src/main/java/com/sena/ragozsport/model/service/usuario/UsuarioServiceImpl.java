@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.sena.ragozsport.model.IUsuario;
 import com.sena.ragozsport.model.usuario.Usuario;
 
-
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
 
@@ -30,10 +29,35 @@ public class UsuarioServiceImpl implements IUsuarioService {
         return (List<Usuario>) interfazUsu.findAll();
     }
 
+    
+    
+    
+    
+    
+    private boolean checkMetodoUsuarioAvailable(Usuario usuario) throws Exception {
+        Optional<Usuario> UsuarioFound = interfazUsu.findByNumeroDocumento(usuario.getNumeroDocumento());
+        if (UsuarioFound.isPresent()) {
+            throw new Exception("Este número de documento ha sido registrado");
+        }
+        return false;
+    }
+
+    private boolean checkUsernameAvailable(Usuario usuario) throws Exception {
+        Usuario usernameFound = interfazUsu.findByUsername(usuario.getUsername());
+        if (usernameFound != null) {
+            throw new Exception("Este nombre de usuario ya ha sido registrado");
+        }
+        return true;
+    }
+
+
+
+
+
     // -----------------REGISTAR------------- //
     @Override
     public Usuario save(Usuario usuario) throws Exception {
-        if (!checkMetodoUsuarioAvailable(usuario)) {
+        if (!checkMetodoUsuarioAvailable(usuario) && checkUsernameAvailable(usuario)) {
 
             usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
             Usuario createdUsuario = interfazUsu.save(usuario);
@@ -41,14 +65,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
             return createdUsuario;
         }
         return usuario;
-    }
-
-    private boolean checkMetodoUsuarioAvailable(Usuario usuario) throws Exception {
-        Optional<Usuario> UsuarioFound = interfazUsu.findByNumeroDocumento(usuario.getNumeroDocumento());
-        if (UsuarioFound.isPresent()) {
-            throw new Exception("Este numero de documento ya fué registrado");
-        }
-        return false;
     }
 
     // ----------------EDITAR-------------
@@ -62,7 +78,5 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void delete(Integer idUsuario) {
         interfazUsu.deleteById(idUsuario);
     }
-
-   
 
 }

@@ -103,6 +103,11 @@
                     name="fname-column"
                     required pattern="[a-z A-Z]{2,15}"
                   />
+                  <div class="form-text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error de usuario </div>
+                    <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+
+                    <div class="form-text text-danger" th:if="${Error}" th:text="${Error}"></div>
+               
                 </div>
               </div>
               <div class="col-md-6 col-12">
@@ -164,14 +169,15 @@
                     placeholder="Documento"
                     required  pattern="[a-z A-Z]{2,15}"
                   />
-                </div>
-              </div>
-
-              <div class="form-text text-danger" th:if="${#fields.hasErrors('NumeroDocumento')}" th:errors="*{NumeroDocumento}">Error método de pago</div>
+                   <div class="form-text text-danger" th:if="${#fields.hasErrors('NumeroDocumento')}" th:errors="*{NumeroDocumento}">Error número de documento </div>
                     <div class="form-text text-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
 
                     <div class="form-text text-danger" th:if="${Error}" th:text="${Error}"></div>
+                </div>
+              </div>
 
+             
+               
               <div class="col-md-6 col-12">
                 <div class="mb-1">
                   <label class="form-label" for="email-id-column">Número Celular</label>

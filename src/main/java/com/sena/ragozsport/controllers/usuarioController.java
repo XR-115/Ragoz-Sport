@@ -23,6 +23,8 @@ import com.sena.ragozsport.model.usuario.Usuario;
 @RequestMapping("/usuario")
 
 public class usuarioController {
+
+    
     @Autowired
     IUsuarioService interfazUsu;
 
@@ -59,7 +61,7 @@ public class usuarioController {
                 interfazUsu.save(usuario);
             } catch (Exception e) {
                 m.addAttribute("errorMessage", e.getMessage());
-                m.addAttribute("numeroDocumento", usuario);
+
                 return "views/usuario/form-usuario";
             }
 
@@ -79,7 +81,6 @@ public class usuarioController {
         }
         m.addAttribute("usuario", usuario);
         m.addAttribute("accionusu", "editarUsuario()");
-        m.addAttribute("accion", "Actualizar Producto");
         return "views/usuario/form-usuario";
     }
 
