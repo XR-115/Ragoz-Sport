@@ -30,6 +30,7 @@ public class userDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String numeroDocumento) throws UsernameNotFoundException {
         final Usuario usu = usuarioDao.findByNumeroDocumento(numeroDocumento);
+       
         if (usu == null) {
             throw new UsernameNotFoundException(numeroDocumento);
         }

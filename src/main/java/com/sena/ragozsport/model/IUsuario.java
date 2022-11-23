@@ -1,6 +1,5 @@
 package com.sena.ragozsport.model;
 
-import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
