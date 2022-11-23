@@ -71,7 +71,7 @@ public class ListarGuiaPdf extends AbstractPdfView{
         // TITULO TABLA
         PdfPTable TablaTitulo = new PdfPTable(1);
 
-        celda = new PdfPCell(new Phrase("GUÍA DEL ENVIÓ", fuenteTitulo));
+        celda = new PdfPCell(new Phrase("GUÍA DEL ENVÍO", fuenteTitulo));
         TablaTitulo.setSpacingBefore(30);
         celda.setBackgroundColor(new Color(56, 198, 215));
         celda.setHorizontalAlignment(Element.ALIGN_CENTER);
