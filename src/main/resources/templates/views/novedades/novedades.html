@@ -3,6 +3,7 @@
 <!-- BEGIN: Head-->
 
 <head>
+  <title>Listar de novedades</title>
   <th:block th:include="views/header::head"> </th:block>
 </head>
 <!-- END: Head-->
@@ -58,9 +59,11 @@
                   <tr th:if="${novedades.size>0}" th:each="No:${novedades}">
 
                     <td class="text-dark" th:text="${No.idNovedades}"></td>
-                    <td><span class=" text-white badge bg-info active" th:text="${No.Estado}">
-                     
-                    </span></td>
+                    <td><span class=" text-white badge bg-info active" th:if="${No.Estado=='Entregado'}">Entregado</span>
+                      <span class=" text-white badge bg-success active" th:if="${No.Estado=='En Camino'}">En Camino</span>
+                      <span class=" text-white badge bg-danger active" th:if="${No.Estado=='Inconveniente'}">Inconveniente</span>
+                   
+                   </td>
                     <td class="text-dark" th:text="${No.observacion}"></td>
                     <td class="text-dark" th:text="${No.fecha}"></td>
                     <td class="text-dark" th:text="${No.envio.idEnvio}"></td>
