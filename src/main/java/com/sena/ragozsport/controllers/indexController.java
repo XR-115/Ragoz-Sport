@@ -50,7 +50,7 @@ public class indexController {
     public String dash(Authentication auth, HttpSession session){
 
         String username= auth.getName();
-
+        System.out.println(auth);
 
         if (session.getAttribute("username")== null) {
             Usuario usuario = usuarioService.findByNumeroDocumento(username);
