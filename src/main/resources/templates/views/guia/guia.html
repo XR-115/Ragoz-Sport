@@ -2,6 +2,7 @@
 <html xlmns:th="https://www.thymeleaf.org">
   <!-- BEGIN: Head-->
   <head>
+    <title>Ver Guia</title>
     <th:block th:include="views/header::head"> </th:block>
   </head>
   <!-- END: Head-->
@@ -33,7 +34,7 @@
         <div class="content-header row">
         </div>
         <div class="content-body"><!-- users list start -->
-<section class="app-user-list">
+        <section class="app-user-list">
   <div class="row">
   
     </div>
@@ -60,7 +61,7 @@
                      </tr>
                   </thead>
                   <tbody class="bg bg-white text-light">
-                    <tr th:if="${guia.size>0}" th:each="g:${guia}">
+                    <tr th:if="${guias.size>0}" th:each="g:${guias}">
                       <td class="text-dark" th:text="${g.idGuia}"></td>
                           <td  class="text-dark"th:text="${g.telGuia}"></td>
                           <td  class="text-dark" th:text="${g.direcGuia}"></td>
@@ -86,16 +87,49 @@
               <div class="card">
                 <div class="col">
                   <a type="button" class="btn btn-info" th:href="@{/guia/registrar}">  
-                    <i class="bi bi-plus-circle"></i>Crear guía
-                </a>
-          </div>
-          </div>
+                    <i class="bi bi-plus-circle"></i>Agregar guía
+                  </a>
+                  <button type="button" class="btn btn-info" data-toggle="modal" data-target=".generarReporte" title="ver reporte" target="_white">  
+                    Crear Pdf
+                  </button>
+           
+                  <div class="modal fade generarReporte" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Generar Guía</h4>
+                            <button type="button" class="close cancel" data-dismiss="modal"><span>&times;</span></button>
+                          </div>
+                          <form th:action="@{/guia/listar/}" method="get">
+                            <div class="modal-body">
+                              <input hidden type="text" name="format" id="format" value="pdf" />
+                              <label>Seleccione una número de guía "Id"</label>
+                                <select class="form-control" name="id" id="id">
+                                  <option selected value="0">Todos</option>
+                                    <th:block th:each=" g : ${guias}">
+                                      <option th:value="${g.idGuia}" th:text="${g.idGuia}"> </option>
+                                    </th:block>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary cancel btn-sm" data-dismiss="modal">Cancelar</button>
+                              <button type="submit" class="btn btn-primary btn-sm">Generar</button>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            
           </div>
       </div>
   </div>
 
     <!-- Modal to add new user Ends-->
-  </div>
+
+      
   <!-- list and filter end -->
 </section>
 <!-- users list ends -->
@@ -106,83 +140,27 @@
     <!-- END: Content-->
 
 
-    <!-- BEGIN: Customizer-->
-    <div class="customizer d-none d-md-block"><a class="customizer-toggle d-flex align-items-center justify-content-center" href="#"><i class="spinner" data-feather="settings"></i></a><div class="customizer-content">
-  <!-- Customizer header -->
-  <div class="customizer-header px-2 pt-1 pb-0 position-relative">
-    <h4 class="mb-0">Escoge tu color </h4>
-    <p class="m-0">Customiza el color de tu agrado</p>
-
-    <a class="customizer-close" href="#"><i data-feather="x"></i></a>
-  </div>
-
-  <hr />
-
-  <!-- Styling & Text Direction -->
-  <div class="customizer-styling-direction px-2">
-    <p class="fw-bold">Skin</p>
-    <div class="d-flex">
-      <div class="form-check me-1">
-        <input
-          type="radio"
-          id="skinlight"
-          name="skinradio"
-          class="form-check-input layout-name"
-          checked
-          data-layout=""
-        />
-        <label class="form-check-label" for="skinlight">Light</label>
-      </div>
-      <div class="form-check me-1">
-        <input
-          type="radio"
-          id="skinbordered"
-          name="skinradio"
-          class="form-check-input layout-name"
-          data-layout="bordered-layout"
-        />
-        <label class="form-check-label" for="skinbordered">Bordered</label>
-      </div>
-      <div class="form-check me-1">
-        <input
-          type="radio"
-          id="skindark"
-          name="skinradio"
-          class="form-check-input layout-name"
-          data-layout="dark-layout"
-        />
-        <label class="form-check-label" for="skindark">Dark</label>
-      </div>
-      <div class="form-check">
-        <input
-          type="radio"
-          id="skinsemidark"
-          name="skinradio"
-          class="form-check-input layout-name"
-          data-layout="semi-dark-layout"
-        />
-        <label class="form-check-label" for="skinsemidark">Semi Dark</label>
-      </div>
-    </div>
-  </div>
-
-
-  
-
     <!-- BEGIN: Footer-->
-     <footer class="footer footer-static footer-light">
-      <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
+    <footer th:include="views/Footer::footer" class="footer footer-static footer-light">
     </footer>
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button> 
     <!-- END: Footer-->
-
-
-    <script th:src="@{/js/main-alerts.js}"></script>
+   
+ <!-- Para la conexcion con bootstrap del modal de pdf -->
+ 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-   <div class="scripts" th:include="views/header::script"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script th:src="@{/js/main-alerts.js}"></script>
 
+    <div class="scripts" th:include="views/header::script"></div>
    
+
+  
+  
   </body>
   <!-- END: Body-->
 </html>

@@ -45,7 +45,9 @@ public class guiaController {
 
     @GetMapping(value = "/listar")
     public String list(Model m){
-        m.addAttribute("guia", guiachi.findAll());
+        guia guia = new guia();
+        m.addAttribute("guias", guiachi.findAll());
+        m.addAttribute("guia",guia);
         return "views/guia/guia";
     }
 
