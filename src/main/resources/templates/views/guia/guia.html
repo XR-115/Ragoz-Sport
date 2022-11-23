@@ -103,7 +103,7 @@
                           <form th:action="@{/guia/listar/}" method="get">
                             <div class="modal-body">
                               <input hidden type="text" name="format" id="format" value="pdf" />
-                              <label>Seleccione una número de guía "Id"</label>
+                              <label>Seleccione un número de guía "Id"</label>
                                 <select class="form-control" name="id" id="id">
                                   <option selected value="0">Todos</option>
                                     <th:block th:each=" g : ${guias}">
