@@ -12,7 +12,7 @@ public class EmailSenderService {
     public void sendSimpleEmailForgotPassword(String correo){
         SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setFrom("jsreyes463@misena.edu.com");
+        message.setFrom("");
         message.setTo(correo);
         message.setText("Solicitaste el cambio de contraseña de click en el siguiente enlace http://localhost:8080/ragoz/restablecerClave/"+correo);
         message.setSubject("Cambio de clave Envioz");

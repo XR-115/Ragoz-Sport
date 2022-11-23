@@ -9,12 +9,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.sena.ragozsport.model.IUsuario;
 import com.sena.ragozsport.model.service.email.EmailSenderService;
+import com.sena.ragozsport.model.service.rol.IRolService;
 import com.sena.ragozsport.model.service.usuario.IUsuarioService;
 import com.sena.ragozsport.model.usuario.Usuario;
 
@@ -34,6 +37,9 @@ public class indexController {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private IRolService interfazRol;
     
     @GetMapping(path = {"/index"})
     public String index(){
@@ -47,7 +53,7 @@ public class indexController {
 
 
         if (session.getAttribute("username")== null) {
-            Usuario usuario = usuarioService.findByUsername(username);
+            Usuario usuario = usuarioService.findByNumeroDocumento(username);
       
             usuario.setPassword(null);
             session.setAttribute("usuario", usuario);
@@ -69,10 +75,53 @@ public class indexController {
         return "redirect:index";
     }
 
-    @GetMapping("/loginre")
-    public String loginre(){
-        return "views/login/login-registro";
-    }
+    // ------------------------- Ruta para Abrir Formulario -------------//
+        @GetMapping(value = "/loginre")
+        public String loginre(Model m) {
+            Usuario usuario = new Usuario(); // Para instanciar un objeto de la clase
+           
+            m.addAttribute("roles", interfazRol.findAll());
+            m.addAttribute("usuario", usuario);
+            // Aca se retorna a la vista
+            return "views/login/login-registro";
+        }
+
+        @PostMapping("/loginre")
+        public String loginre(@Valid Usuario usuario, BindingResult resultado, Model m, SessionStatus status) {
+            if (resultado.hasErrors()) {
+                return "views/login/login-registro";
+            } 
+            if (usuario.getIdUsuario()==null) {
+                try {
+                    usuarioService.crearUsuario(usuario);
+                } catch (Exception e) {
+                    m.addAttribute("roles", interfazRol.findAll());
+                    m.addAttribute("errorMessage", e.getMessage());
+    
+                    return "views/login/login-registro";
+                }
+            } 
+           
+            else if(usuario.getIdUsuario()!=null)
+            {
+                try {
+                    usuarioService.save(usuario);
+                } catch (Exception e) {
+                    m.addAttribute("roles", interfazRol.findAll());
+                    m.addAttribute("errorMessage", e.getMessage());
+    
+                    return "views/login/login-registro";
+                }
+           
+            }
+       
+    
+        
+            status.setComplete();
+            return "redirect:login";
+        }
+
+   
 
     @GetMapping("/loginpa")
     public String loginpa(){

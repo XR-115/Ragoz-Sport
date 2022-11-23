@@ -9,7 +9,7 @@
   <!-- END: Head-->
 
   <!-- BEGIN: Body-->
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+  <body th:attr="onload=(${accionPro})" class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <!-- BEGIN: Header-->
     <nav  th:include="views/Nav::nav"
@@ -176,7 +176,9 @@
 
 
     <!-- BEGIN: Vendor JS-->
-    
+    <script th:src="@{/js/main-alerts.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <div class="scripts" th:include="views/header::script"></div>
   </body>
   <!-- END: Body-->

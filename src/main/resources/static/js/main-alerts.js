@@ -7,7 +7,7 @@ const editarEnvio=()=>{
  
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success',
+      confirmButton: 'btn btn-info',
       cancelButton: 'btn btn-danger'
     },
     buttonsStyling: false
@@ -16,7 +16,7 @@ const editarEnvio=()=>{
   swalWithBootstrapButtons.fire({
     title: '¿Está seguro de que desea editar?',
     text: "¿Usted va a editar este envío?",
-    icon: 'warning',
+    icon: 'question',
     showCancelButton: true,
     confirmButtonText: 'Si, editalo',
     cancelButtonText: 'No, cancelar',
@@ -38,66 +38,11 @@ const editarEnvio=()=>{
 
 
 }
-//--------------------BORRAR---------------------//
-function borrarEnvio(idEnvio) {
-  let id=idEnvio;
-  Swal.fire({
-      title: '¿Está usted seguro?',
-      text: "No podrás revertir el cambio",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, ¡Borralo!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          '¡Borrado!',
-          'Your file has been deleted.',
-          'success'
 
-        )
-        window.location.href=`deleteEn/${id}`
-        }
-        
-    })
-}
 
-//----------------------------------ALERTAS PARA MÓDULO DE PAGO----------------------------------//
 
-//--------------------EDITAR---------------------//
-const editarPago=()=>{
 
-const swalWithBootstrapButtons = Swal.mixin({
-  customClass: {
-    confirmButton: 'btn btn-success',
-    cancelButton: 'btn btn-danger'
-  },
-  buttonsStyling: false
-})
 
-swalWithBootstrapButtons.fire({
-  title: '¿Está seguro de que desea editar?',
-  text: "¿Usted va a editar este método de pago?",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonText: 'Si, editalo',
-  cancelButtonText: 'No, cancelar',
-  reverseButtons: true
-}).then((result) => {
-  if (result.isConfirmed) {
-    swalWithBootstrapButtons.fire(
-      'Editando',
-      'Su método de pago se va a editar',
-      'success'
-    )
-  } else if (
-    window.location.href=`/ragoz/pago/pago`
-  ) {
-  }
-})
-
-}
 
 //--------------------BORRAR---------------------//
 function borrarPago(idPago) {
@@ -131,8 +76,8 @@ const editarProducto=()=>{
 
 const swalWithBootstrapButtons = Swal.mixin({
   customClass: {
-    confirmButton: 'btn btn-success',
-    cancelButton: 'btn btn-danger'
+    confirmButton: 'btn btn-info',
+    cancelButton: 'btn btn-danger'  
   },
   buttonsStyling: false
 })
@@ -140,7 +85,7 @@ const swalWithBootstrapButtons = Swal.mixin({
 swalWithBootstrapButtons.fire({
   title: '¿Está seguro de que desea editar?',
   text: "¿Usted va a editar este producto?",
-  icon: 'warning',
+  icon: 'question',
   showCancelButton: true,
   confirmButtonText: 'Si, editalo',
   cancelButtonText: 'No, cancelar',
@@ -153,7 +98,7 @@ swalWithBootstrapButtons.fire({
       'success'
     )
   } else if (
-    window.location.href=`/ragoz/producto/producto`
+    window.location.href=`/ragoz/producto/listar`
   ) {
   }
 })
@@ -165,7 +110,7 @@ const editarPedido=()=>{
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success',
+      confirmButton: 'btn btn-info',
       cancelButton: 'btn btn-danger'
     },
     buttonsStyling: false
@@ -174,7 +119,7 @@ const editarPedido=()=>{
   swalWithBootstrapButtons.fire({
     title: '¿Está seguro de que desea editar?',
     text: "¿Usted va a editar este pedido?",
-    icon: 'warning',
+    icon: 'question',
     showCancelButton: true,
     confirmButtonText: 'Si, editalo',
     cancelButtonText: 'No, cancelar',
@@ -187,7 +132,7 @@ const editarPedido=()=>{
         'success'
       )
     } else if (
-      window.location.href=`/ragoz/pedido/pedido`
+      window.location.href=`/ragoz/pedido/listar`
     ) {
     }
   })
@@ -202,7 +147,7 @@ const editarUsuario=()=>{
 
 const swalWithBootstrapButtons = Swal.mixin({
   customClass: {
-    confirmButton: 'btn btn-success',
+    confirmButton: 'btn btn-info',  
     cancelButton: 'btn btn-danger'
   },
   buttonsStyling: false
@@ -211,7 +156,7 @@ const swalWithBootstrapButtons = Swal.mixin({
 swalWithBootstrapButtons.fire({
   title: '¿Está seguro de que desea editar?',
   text: "¿Usted va a editar este usuario?",
-  icon: 'warning',
+  icon: 'question',
   showCancelButton: true,
   confirmButtonText: 'Si, editalo',
   cancelButtonText: 'No, cancelar',
@@ -224,6 +169,7 @@ swalWithBootstrapButtons.fire({
       'success'
     )
   } else if (
+    
     window.location.href=`/ragoz/usuario/usuario`
   ) {
   }
@@ -239,7 +185,7 @@ const editarGuia=()=>{
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success',
+      confirmButton: 'btn btn-info',
       cancelButton: 'btn btn-danger'
     },
     buttonsStyling: false
@@ -248,7 +194,7 @@ const editarGuia=()=>{
   swalWithBootstrapButtons.fire({
     title: '¿Está seguro de que desea editar?',
     text: "¿Usted va a editar esta guía?",
-    icon: 'warning',
+    icon: 'question',
     showCancelButton: true,
     confirmButtonText: 'Editar',
     cancelButtonText: 'Cancelar',
@@ -262,6 +208,41 @@ const editarGuia=()=>{
       )
     } else if (
       window.location.href=`/ragoz/guia/listar`
+    ) {
+    }
+  })
+  
+  }
+
+  //-------------------------------------- ALERTAS PARA MÓDULO DE Novedades----------------------------------//
+
+const editarNovedades=()=>{
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-info',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: '¿Está seguro de que desea editar?',
+    text: "¿Usted va a editar esta novedad?",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Editar',
+    cancelButtonText: 'Cancelar',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      swalWithBootstrapButtons.fire(
+        'Editando',
+        'Su novedad se editará',
+        'success'
+      )
+    } else if (
+      window.location.href=`/ragoz/novedades/novedades`
     ) {
     }
   })

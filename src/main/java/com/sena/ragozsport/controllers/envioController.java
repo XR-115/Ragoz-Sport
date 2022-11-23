@@ -70,6 +70,8 @@ public class envioController {
                 } catch (Exception e) {
                     m.addAttribute("errorMessage",e.getMessage());
                     m.addAttribute("idGuia", envio);
+                    m.addAttribute("fkusuario", usuD.findAll());
+                    m.addAttribute("guia", guiD.findAll());
                     return "views/envio/form-envio";
                 }
                 

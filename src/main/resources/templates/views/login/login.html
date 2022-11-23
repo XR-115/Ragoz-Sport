@@ -48,8 +48,8 @@
 
                 <form th:action="@{/login}" method="post" class="auth-login-form mt-2">
                   <div class="mb-1">
-                    <label class="form-label " for="username">Nombre de usuario</label>
-                    <input class="form-control" id="username" name="username" type="text" placeholder="Nombre"
+                    <label class="form-label " for="username">Número de documento</label>
+                    <input class="form-control" id="username" name="username" type="text" placeholder="Número de documento"
                       aria-describedby="username" autofocus="" tabindex="1" />
                   </div>
                   <div class="mb-1">
@@ -78,7 +78,7 @@
                       color: #025c98;
                     }
                   </style>
-                  <button type="submit" class="btn w-100" id="o" tabindex="4">Iniciar Sesíon</button>
+                  <button type="submit" class="btn w-100" id="o" tabindex="4">Iniciar Sesión</button>
                 </form>
                 <p class="text-center mt-2"><span>¿Nuevo usuario?</span><a th:href="@{/loginre}"><span id="b">&nbsp;Crea
                       tu usuario</span></a></p>

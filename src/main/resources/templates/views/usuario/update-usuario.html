@@ -76,7 +76,7 @@
                     placeholder="Nombre"
                     th:field="*{nombreUsuario}"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required pattern="[a-z A-Z]{2,25}"
                   />
                 </div>
                   
@@ -101,9 +101,10 @@
                     placeholder="username"
                     th:field="*{username}"
                     name="fname-column"
-                    required pattern="[a-z A-Z]{2,15}"
+                    required pattern="[a-z A-Z]{2,25}"
                   />
                   
+               
                 </div>
               </div>
               <div class="col-md-6 col-12">
@@ -120,12 +121,7 @@
                   />
                 </div>
               </div>
-              <div class="col-md-6 col-12">
-                <div class="mb-1">
-                  <label class="form-label" for="city-column">Contraseña</label>
-                  <input type="password" id="city-column" class="form-control" placeholder="Contraseña" th:field="*{Password}" name="city-column" required  />
-                </div>
-              </div>
+      
 
                <div class="col-md-6 col-12">
                 <div class="mb-1">

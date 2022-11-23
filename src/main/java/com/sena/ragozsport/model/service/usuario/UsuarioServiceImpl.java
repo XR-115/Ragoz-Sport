@@ -1,7 +1,6 @@
 package com.sena.ragozsport.model.service.usuario;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.sena.ragozsport.model.IUsuario;
 import com.sena.ragozsport.model.usuario.Usuario;
-
 
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
@@ -21,8 +19,8 @@ public class UsuarioServiceImpl implements IUsuarioService {
     private IUsuario interfazUsu;
 
     @Override
-    public Usuario findByUsername(String username) {
-        return interfazUsu.findByUsername(username);
+    public Usuario findByNumeroDocumento(String numeroDocumento) {
+        return interfazUsu.findByNumeroDocumento(numeroDocumento);
     };
 
     @Override
@@ -30,25 +28,29 @@ public class UsuarioServiceImpl implements IUsuarioService {
         return (List<Usuario>) interfazUsu.findAll();
     }
 
-    // -----------------REGISTAR------------- //
-    @Override
-    public Usuario save(Usuario usuario) throws Exception {
-        if (!checkMetodoUsuarioAvailable(usuario)) {
-
-            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-            Usuario createdUsuario = interfazUsu.save(usuario);
-
-            return createdUsuario;
+    private boolean checkMetodoUsuarioAvailable(Usuario usuario) throws Exception {
+        Usuario UsuarioFound = interfazUsu.findByNumeroDocumento(usuario.getNumeroDocumento());
+        if (UsuarioFound != null) {
+            throw new Exception("Este número de documento ha sido registrado");
         }
-        return usuario;
+        return true;
     }
 
-    private boolean checkMetodoUsuarioAvailable(Usuario usuario) throws Exception {
-        Optional<Usuario> UsuarioFound = interfazUsu.findByNumeroDocumento(usuario.getNumeroDocumento());
-        if (UsuarioFound.isPresent()) {
-            throw new Exception("Este numero de documento ya fué registrado");
+    @Override
+    public void save(Usuario usuario) {
+        interfazUsu.save(usuario);
+    }
+
+    // -----------------REGISTAR------------- //
+    @Override
+    public Usuario crearUsuario(Usuario usuario) throws Exception {
+
+        if (checkMetodoUsuarioAvailable(usuario)) {
+            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+            usuario = interfazUsu.save(usuario);
         }
-        return false;
+        return usuario;
+
     }
 
     // ----------------EDITAR-------------
@@ -62,7 +64,5 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public void delete(Integer idUsuario) {
         interfazUsu.deleteById(idUsuario);
     }
-
-   
 
 }

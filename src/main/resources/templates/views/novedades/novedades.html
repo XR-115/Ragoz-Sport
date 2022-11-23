@@ -3,6 +3,7 @@
 <!-- BEGIN: Head-->
 
 <head>
+  <title>Listar de novedades</title>
   <th:block th:include="views/header::head"> </th:block>
 </head>
 <!-- END: Head-->
@@ -50,6 +51,7 @@
                     <th>Observación</th>
                     <th>Fecha de envio</th>
                     <th>Envío</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody class="bg bg-white text-light">
@@ -57,21 +59,22 @@
                   <tr th:if="${novedades.size>0}" th:each="No:${novedades}">
 
                     <td class="text-dark" th:text="${No.idNovedades}"></td>
-                    <td class="text-dark" th:text="${No.Estado}"></td>
+                    <td><span class=" text-white badge bg-info active" th:if="${No.Estado=='Entregado'}">Entregado</span>
+                      <span class=" text-white badge bg-warning active" th:if="${No.Estado=='En Camino'}">En Camino</span>
+                      <span class=" text-white badge bg-danger active" th:if="${No.Estado=='Inconveniente'}">Inconveniente</span>
+                   
+                   </td>
                     <td class="text-dark" th:text="${No.observacion}"></td>
                     <td class="text-dark" th:text="${No.fecha}"></td>
                     <td class="text-dark" th:text="${No.envio.idEnvio}"></td>
 
-                    <!-- <td>
-                      <a rol="button" class="btn btn-info" th:href="@{/producto/editar/}+${pr.idProducto}">
+                     <td>
+                      <a rol="button" class="btn btn-info" th:href="@{/novedades/editarNo/}+${No.idNovedades}">
                         <i class="fa-solid fa-pen"></i>
                       </a>
 
-                      <a rol="button" class="btn btn-danger" th:onclick="|eliminar('${u.idUsuario}')|">
-                        <i class="fa-solid fa-eraser"></i>
-                      </a> th:href="@{/producto/eliminar/} + ${pr.idProducto}
-
-                    </td> -->
+                    
+                    </td> 
                   </tr>
                 </tbody>
 

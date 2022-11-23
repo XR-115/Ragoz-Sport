@@ -28,13 +28,13 @@ public class userDetailsServiceImpl implements UserDetailsService {
     private IUsuario usuarioDao;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        final Usuario usu = usuarioDao.findByUsername(username);
+    public UserDetails loadUserByUsername(String numeroDocumento) throws UsernameNotFoundException {
+        final Usuario usu = usuarioDao.findByNumeroDocumento(numeroDocumento);
         if (usu == null) {
-            throw new UsernameNotFoundException(username);
+            throw new UsernameNotFoundException(numeroDocumento);
         }
 
-        UserDetails user = User.withUsername(usu.getUsername())
+        final UserDetails user = User.withUsername(usu.getNumeroDocumento())
                 .password(usu.getPassword())
                 .authorities(getAuthorities(usu)).build()
                 ;
