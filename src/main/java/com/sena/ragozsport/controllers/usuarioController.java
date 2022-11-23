@@ -102,15 +102,7 @@ public class usuarioController {
         return "views/usuario/update-usuario";
     }
 
-    // ------------------------- ELIMINAR -------------//
-    // @GetMapping("/eliminar/{idUsuario}")
-    // public String eliminar(@PathVariable Integer idUsuario){
-    // if(idUsuario>0){
-    // interfazUsu.delete(idUsuario);
-    // }
-    // return "redirect:/usuario/usuario";
-
-    // }
+    
 
     @GetMapping("/dash")
     public String dash(Model m) {

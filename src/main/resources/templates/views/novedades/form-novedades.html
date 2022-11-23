@@ -9,7 +9,7 @@
   <!-- END: Head-->
 
   <!-- BEGIN: Body-->
-  <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+  <body th:attr="onload=(${accionNove})" class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <!-- BEGIN: Header-->
     <nav  th:include="views/Nav::nav"
@@ -67,19 +67,14 @@
             <div class="row">
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="first-name-column">Estado</label>
-                
-                  <input
-                    type="text"
-                    id="first-name-column"
-                    class="form-control"
-                    th:field="*{Estado}"
-                    placeholder="Estado"
-                    name="fname-column"
-                    required="obligatorio"
-                  />
+                  <label class="form-label" for="last-name-column">Estado</label>
+                  <select type="checkbox" class="select2 form-select" id="select2-nested" th:field="*{Estado}" required>
+                    <option type="checkbox" class="form-check-input" value="Elige el esatdo de la novedad">Elige el esatdo de la novedad</option>
+                    <option type="checkbox" class="form-check-input" value="Entregado">Entregado</option>
+                      <option type="checkbox" class="form-check-input" value="Llegando">Llegando</option>
+                    </select>
                 </div>
-                </div>
+              </div>
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
@@ -102,7 +97,7 @@
                   <label class="form-label" for="last-name-column">Fecha de su envío</label>
                   <input
                     type="date"
-                    id="last-name-column"
+                    id="fecha"
                     class="form-control"
                     placeholder="Referencia"
                     th:field="*{fecha}"
@@ -157,7 +152,10 @@
 
 
     <!-- BEGIN: Vendor JS-->
-    
+    <script th:src="@{/js/novedades.js}"></script>
+    <script th:src="@{/js/main-alerts.js}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <div class="scripts" th:include="views/header::script"></div>
   </body>
   <!-- END: Body-->
