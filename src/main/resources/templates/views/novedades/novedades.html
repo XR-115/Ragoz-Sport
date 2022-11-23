@@ -60,7 +60,7 @@
 
                     <td class="text-dark" th:text="${No.idNovedades}"></td>
                     <td><span class=" text-white badge bg-info active" th:if="${No.Estado=='Entregado'}">Entregado</span>
-                      <span class=" text-white badge bg-success active" th:if="${No.Estado=='En Camino'}">En Camino</span>
+                      <span class=" text-white badge bg-warning active" th:if="${No.Estado=='En Camino'}">En Camino</span>
                       <span class=" text-white badge bg-danger active" th:if="${No.Estado=='Inconveniente'}">Inconveniente</span>
                    
                    </td>
