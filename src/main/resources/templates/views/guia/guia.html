@@ -33,7 +33,7 @@
         <div class="content-header row">
         </div>
         <div class="content-body"><!-- users list start -->
-<section class="app-user-list">
+        <section class="app-user-list">
   <div class="row">
   
     </div>
@@ -60,7 +60,7 @@
                      </tr>
                   </thead>
                   <tbody class="bg bg-white text-light">
-                    <tr th:if="${guia.size>0}" th:each="g:${guia}">
+                    <tr th:if="${guias.size>0}" th:each="g:${guias}">
                       <td class="text-dark" th:text="${g.idGuia}"></td>
                           <td  class="text-dark"th:text="${g.telGuia}"></td>
                           <td  class="text-dark" th:text="${g.direcGuia}"></td>
@@ -86,15 +86,43 @@
               <div class="card">
                 <div class="col">
                   <a type="button" class="btn btn-info" th:href="@{/guia/registrar}">  
-                    <i class="bi bi-plus-circle"></i>Crear guía
+                    <i class="bi bi-plus-circle"></i>Agregar guía
                   </a>
                 </div>
               </div>
+
               <div class="card">
                 <div class="col">
-                  <a type="button" class="btn btn-info" th:href="@{/guia/registrar}">  
-                    <i class="bi bi-plus-circle"></i>Crear Pdf
-                  </a>
+                  <button type="button" class="btn btn-info" data-toggle="modal" data-target=".generarReporte" title="ver reporte" target="_white">  
+                    Crear Pdf
+                  </button>
+                  <!-- Modal pdf-->
+                  <div class="modal fade generarReporte" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Generar Guía</h4>
+                            <button type="button" class="close cancel" data-dismiss="modal"><span>&times;</span></button>
+                          </div>
+                          <form th:action="@{/guia/listar/}" method="get">
+                            <div class="modal-body">
+                              <input hidden type="text" name="format" id="format" value="pdf" />
+                              <label>Seleccione una número de guía "Id"</label>
+                                <select class="form-control" name="id" id="id">
+                                  <option selected value="0">Todos</option>
+                                    <th:block th:each=" g : ${guias}">
+                                      <option th:value="${g.idGuia}" th:text="${g.idGuia}"> </option>
+                                    </th:block>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary cancel btn-sm" data-dismiss="modal">Cancelar</button>
+                              <button type="submit" class="btn btn-primary btn-sm">Generar</button>
+                            </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
           </div>
@@ -262,7 +290,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
    <div class="scripts" th:include="views/header::script"></div>
 
-   
+   <!-- Para la conexcion con bootstrap del modal de pdf -->
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
   </body>
   <!-- END: Body-->
 </html>

@@ -44,7 +44,7 @@ public class guia {
 
     @NotNull
     @Column(name="valorMercancia")
-    private double valorMercancia;
+    private Integer valorMercancia;
 
     @NotEmpty
     @Column(name="remitente", length=50)
@@ -77,7 +77,7 @@ public class guia {
     public guia(Integer idGuia,
     @NotNull @Pattern(regexp = "(+57|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}") String telGuia,
     @NotEmpty String direcGuia, @NotNull Date fechaGuia, @NotNull Integer numCajasGuia,
-    @NotNull double valorMercancia, @NotEmpty String remitente, @NotEmpty String destinatario,
+    @NotNull Integer valorMercancia, @NotEmpty String remitente, @NotEmpty String destinatario,
     @NotEmpty String ciudadOrigen, @NotEmpty String ciudadDestino, Envio envio) {
 this.idGuia = idGuia;
 this.telGuia = telGuia;
@@ -132,11 +132,11 @@ this.envio = envio;
         this.numCajasGuia = numCajasGuia;
     }
 
-    public double getValorMercancia() {
+    public Integer getValorMercancia() {
         return valorMercancia;
     }
 
-    public void setValorMercancia(double valorMercancia) {
+    public void setValorMercancia(Integer valorMercancia) {
         this.valorMercancia = valorMercancia;
     }
 
