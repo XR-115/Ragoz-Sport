@@ -37,7 +37,7 @@
                 <h2 class="content-header-title float-start mb-0">Editar Envío</h2>
                 <div class="breadcrumb-wrapper">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a a th:href="@{/envio/envio}">Ver envios</a>
+                    <li class="breadcrumb-item"><a a th:href="@{/envio/envio}">Ver envíos</a>
                     <li class="breadcrumb-item"><a a th:href="@{/dash}">Home</a>
                     </li>
                   </ol>
@@ -143,7 +143,7 @@
 
               <div class="col-md-6 col-12">
                 <div class="mb-1">
-                  <label class="form-label" for="last-name-column">Asociar guia</label>
+                  <label class="form-label" for="last-name-column">Asociar guía</label>
                   <select class="select2 form-select" th:field="*{guia}" id="guia" required disabled>
                       <option th:each="guia:${guia}" th:text="${guia.remitente}" th:value="${guia.idGuia}"></option>
                   </select>
