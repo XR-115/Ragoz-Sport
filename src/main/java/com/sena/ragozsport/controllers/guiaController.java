@@ -55,19 +55,19 @@ public class guiaController {
             m.addAttribute("guia", guia);
             return "views/guia/form-guia";
             }
+
             else{
                 try {
                 guiachi.save(guia);
-                status.setComplete();
 
                 } catch (Exception e) {
-
+                    m.addAttribute("errorMessage",e.getMessage());
                     m.addAttribute("idGuia", guia);
                     return "views/guia/form-guia";
                 }
                 
             }
-
+    status.setComplete();
     return "redirect:listar";
     }
     //---------------------------------------------------------- POST PARA ACTUALIZAR----------------------------------------------------//  
@@ -94,7 +94,7 @@ public class guiaController {
             return "redirect:listar";
         }
         m.addAttribute("guia", guia);
-        m.addAttribute("accionGuia","editarGuia()");
+        m.addAttribute("accionGuia","editarGuia()");    
         m.addAttribute("pedido", pedidochi.findAll());
         
         return "views/guia/form-guia";
