@@ -14,11 +14,13 @@ public interface IUsuarioService {
         //------------- Metodo de listar ------------//
         public List<Usuario>findAll();
         //------------- Metodo de registar ------------//
-        public Usuario save(Usuario usuario) throws Exception;
+        public void save(Usuario usuario) throws Exception;
         //------------- Metodo de Editar ------------//
         public Usuario findOne(Integer idUsuario);
         //------------- Metodo de eliminar ------------//
         public void delete(Integer idUsuario);
+
+        public Usuario crearUsuario(Usuario usuario) throws Exception;
 
        
 }

@@ -28,34 +28,29 @@ public class UsuarioServiceImpl implements IUsuarioService {
         return (List<Usuario>) interfazUsu.findAll();
     }
 
-    
-    
-    
-    
-    
     private boolean checkMetodoUsuarioAvailable(Usuario usuario) throws Exception {
         Usuario UsuarioFound = interfazUsu.findByNumeroDocumento(usuario.getNumeroDocumento());
-        if (UsuarioFound!=null) {
+        if (UsuarioFound != null) {
             throw new Exception("Este número de documento ha sido registrado");
         }
         return true;
     }
 
-
-
-
+    @Override
+    public void save(Usuario usuario) {
+        interfazUsu.save(usuario);
+    }
 
     // -----------------REGISTAR------------- //
     @Override
-    public Usuario save(Usuario usuario) throws Exception {
-        if (!checkMetodoUsuarioAvailable(usuario)) {
+    public Usuario crearUsuario(Usuario usuario) throws Exception {
 
+        if (checkMetodoUsuarioAvailable(usuario)) {
             usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-            Usuario createdUsuario = interfazUsu.save(usuario);
-
-            return createdUsuario;
+            usuario = interfazUsu.save(usuario);
         }
         return usuario;
+
     }
 
     // ----------------EDITAR-------------

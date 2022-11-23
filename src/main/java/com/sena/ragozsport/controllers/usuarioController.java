@@ -53,11 +53,26 @@ public class usuarioController {
     }
 
     @PostMapping("/addu")
-    public String add(@Valid Usuario usuario, BindingResult resultado, Model m, SessionStatus status) {
+    public String add(@Valid Usuario usuario, BindingResult resultado, Model m, SessionStatus status) throws Exception {
+
+
         if (resultado.hasErrors()) {
             return "views/usuario/form-usuario";
         } 
+        if (usuario.getIdUsuario()==null) {
             try {
+                interfazUsu.crearUsuario(usuario);
+            } catch (Exception e) {
+                m.addAttribute("roles", interfazRol.findAll());
+                m.addAttribute("errorMessage", e.getMessage());
+
+                return "views/usuario/form-usuario";
+            }
+        } 
+       
+        else if(usuario.getIdUsuario()!=null)
+        {
+              try {
                 interfazUsu.save(usuario);
             } catch (Exception e) {
                 m.addAttribute("roles", interfazRol.findAll());
@@ -65,6 +80,7 @@ public class usuarioController {
 
                 return "views/usuario/form-usuario";
             }
+        }
 
     
         status.setComplete();
@@ -81,8 +97,9 @@ public class usuarioController {
             return "redirect:usuario";
         }
         m.addAttribute("usuario", usuario);
+        m.addAttribute("roles", interfazRol.findAll());
         m.addAttribute("accionusu", "editarUsuario()");
-        return "views/usuario/form-usuario";
+        return "views/usuario/update-usuario";
     }
 
     // ------------------------- ELIMINAR -------------//

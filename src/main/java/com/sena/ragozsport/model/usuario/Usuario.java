@@ -27,6 +27,7 @@ import com.sena.ragozsport.model.envio.Envio;
     @Table(name = "usuario")
 //*--------------------------------ATRIBUTOS DE LAS TABLAS--------------------------------*//
 public class Usuario {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;

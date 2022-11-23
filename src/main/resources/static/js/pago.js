@@ -24,7 +24,7 @@ let metodopago = () => {
         pago.options[3].removeAttribute('disabled','')
         pago.options[4].removeAttribute('disabled','')
     }
-    console.log(costos);
+
 }
 
 
@@ -44,6 +44,11 @@ function deshabilitarFechaAnterior() {
     console.log(texto);
 }
 fechaInput.addEventListener('click',deshabilitarFechaAnterior);
+
+
+
+
+
 
 
 
