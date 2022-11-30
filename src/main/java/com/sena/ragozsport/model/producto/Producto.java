@@ -27,24 +27,24 @@ public class Producto {
     private Integer idProducto;
 
     @NotBlank
-    @Column(name ="tipoCalzadoPro")
+    @Column(name ="tipoCalzadoPro", length = 9)
     @NotEmpty
     private String tipoCalzadoPro;
 
     @NotBlank
-    @Column(name ="categoriaProd")
+    @Column(name ="categoriaProd", length = 9)
     private String categoriaProd;
 
     @NotBlank
-    @Column(name ="referenciaProd",unique = true)
+    @Column(name ="referenciaProd",unique = true, length = 6)
     private String referenciaProd;
 
     @NotBlank
-    @Column(name ="numeracionProd")
+    @Column(name ="numeracionProd", length = 5)
     private String numeracionProd;
 
     
-    @Column(name ="totalProd")
+    @Column(name ="totalProd", length = 2)
     private Integer totalProd;
     
     @ManyToMany(mappedBy = "producto", fetch = FetchType.LAZY)

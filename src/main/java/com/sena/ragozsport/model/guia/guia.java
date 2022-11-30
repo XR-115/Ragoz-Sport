@@ -27,11 +27,11 @@ public class guia {
 
     @NotNull
     @Pattern(regexp = "^[0-9]{10,10}+$",message="El teléfono debe de tener 10 dígitos")
-    @Column (name="telGuia")
+    @Column (name="telGuia", length = 10)
     private String telGuia;
 
     @NotEmpty
-    @Column(name="direcGuia", length=50)
+    @Column(name="direcGuia", length=25)
     private  String direcGuia;
 
     @NotNull
@@ -39,7 +39,7 @@ public class guia {
     private Date fechaGuia;
     
    @NotNull
-    @Column(name="numCajasGuia")
+    @Column(name="numCajasGuia", length = 3)
     private Integer numCajasGuia;
 
     @NotNull
@@ -47,19 +47,19 @@ public class guia {
     private Integer valorMercancia;
 
     @NotEmpty
-    @Column(name="remitente", length=50)
+    @Column(name="remitente", length=15)
     private  String remitente;
 
     @NotEmpty
-    @Column(name="destinatario", length=50)
+    @Column(name="destinatario", length=15)
     private  String destinatario;
 
     @NotEmpty
-    @Column(name="ciudadOrigen", length=50)
+    @Column(name="ciudadOrigen", length=12)
     private  String ciudadOrigen;
 
     @NotEmpty
-    @Column(name="ciudadDestino", length=50)
+    @Column(name="ciudadDestino", length=12)
     private  String ciudadDestino;
 
 
