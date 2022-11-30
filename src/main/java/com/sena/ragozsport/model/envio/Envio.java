@@ -35,12 +35,12 @@ public class Envio {
     private Integer idEnvio;
 
     @NotNull
-    @Column(name="fechaEnvio")
+    @Column(name="fechaEnvio", length = 20)
     private String fechaEnvio;
 
     @NotNull
     @Pattern(regexp = "([01]?[0-9]|2[0-3]):[0-5][0-9]")
-    @Column(name="horaEnvio")
+    @Column(name="horaEnvio", length = 20)
     private String horaEnvio;
 
     @Column(name="estadoEnvio")
@@ -53,7 +53,7 @@ public class Envio {
     @Column(name="costoTotalEnvio",length = 10)
     private Integer costoTotalEnvio;
 
-    @Column(name="metodoPago")
+    @Column(name="metodoPago", length = 20)
     private String metodoPago;
 
 
