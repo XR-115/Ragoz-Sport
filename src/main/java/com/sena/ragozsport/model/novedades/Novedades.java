@@ -22,13 +22,13 @@ public class Novedades {
 
 
     @NotEmpty
-    @Column(name="Estado")
+    @Column(name="Estado", length=30)
     private String Estado;
   
     @Column(name="observacion", length=150000)
     private String observacion;
 
-    @Column(name="fecha")
+    @Column(name="fecha", length=20)
     private String fecha;
 
     @OneToOne

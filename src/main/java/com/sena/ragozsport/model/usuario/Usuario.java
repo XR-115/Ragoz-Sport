@@ -49,11 +49,11 @@ public class Usuario {
     private Double NumerodeTelefono;
     
     @NotNull
-    @Column(name="numeroDocumento")
+    @Column(name="numeroDocumento", length = 10)
     private String numeroDocumento;
 
     @NotBlank
-    @Column(name="tipident ")
+    @Column(name="tipident ", length = 20)
     private String tipident ;
 
     @NotEmpty
@@ -62,7 +62,7 @@ public class Usuario {
 
     @Email 
 	@NotBlank
-    @Column(name="correo")
+    @Column(name="correo", length = 30)
     private String correo;
 
      @OneToMany(mappedBy = "fkusuario", fetch = FetchType.LAZY, cascade =CascadeType.ALL)
