@@ -35,13 +35,13 @@ public class Usuario {
 
 
     @NotEmpty
-    @Column(name="nombreUsuario")
+    @Column(name="nombreUsuario", length = 30)
     private String nombreUsuario;
     @NotBlank
-    @Column(name="apellidoUsuario ")
+    @Column(name="apellidoUsuario ", length = 30)
     private String ApellidoUsuario;
 
-    @Column(name="username")
+    @Column(name="username", length = 20)
     private String username;
 
     @NotNull
@@ -57,7 +57,7 @@ public class Usuario {
     private String tipident ;
 
     @NotEmpty
-    @Column(name="Password")
+    @Column(name="Password", length = 50)
     private String Password;
 
     @Email 
